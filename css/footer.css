@@ -1,0 +1,159 @@
+/* ============================================================
+   FOOTER — EGX Supply Chain
+   ============================================================ */
+
+#footer {
+  background: #070707;
+  border-top: 1px solid rgba(255,214,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+#footer::before {
+  content: 'EGX';
+  position: absolute;
+  bottom: -40px; right: -20px;
+  font-family: var(--font-heading);
+  font-size: clamp(8rem, 18vw, 18rem);
+  color: rgba(255,214,0,0.025);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Social bar */
+.footer-social-bar {
+  background: var(--gold);
+  padding: 18px clamp(20px, 6vw, 100px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-social-bar p {
+  font-family: var(--font-accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  color: var(--black);
+}
+.footer-social-icons {
+  display: flex;
+  gap: 20px;
+}
+.footer-social-icons a {
+  color: var(--black);
+  font-size: 1.15rem;
+  transition: transform 0.2s ease, color 0.2s;
+  display: flex;
+}
+.footer-social-icons a:hover { transform: translateY(-3px) scale(1.15); }
+
+/* Main footer grid */
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.3fr 1.5fr 1fr;
+  gap: clamp(30px, 5vw, 80px);
+  padding: clamp(50px, 8vw, 90px) clamp(20px, 6vw, 100px);
+}
+
+.footer-logo { height: 70px; width: auto; margin-bottom: 24px; }
+.footer-desc {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--ash);
+  max-width: 380px;
+}
+
+.footer-heading {
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,214,0,0.15);
+}
+
+.footer-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-bottom: 36px;
+}
+.footer-quick-links a {
+  font-size: 0.92rem;
+  color: var(--ash);
+  transition: color 0.2s;
+}
+.footer-quick-links a:hover { color: var(--gold); }
+
+.footer-services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+.footer-services-grid a {
+  font-size: 0.88rem;
+  color: var(--ash);
+  transition: color 0.2s, padding-left 0.2s;
+  display: block;
+}
+.footer-services-grid a:hover { color: var(--gold); padding-left: 6px; }
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.footer-contact-item svg {
+  color: var(--gold);
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.footer-contact-item a, .footer-contact-item span {
+  font-size: 0.9rem;
+  color: var(--ash);
+  transition: color 0.2s;
+}
+.footer-contact-item a:hover { color: var(--white); }
+
+/* Bottom bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 20px clamp(20px, 6vw, 100px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.25);
+}
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+.footer-bottom-links a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.25);
+  transition: color 0.2s;
+}
+.footer-bottom-links a:hover { color: var(--gold); }
+
+@media (max-width: 1024px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-main > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 640px) {
+  .footer-main { grid-template-columns: 1fr; }
+  .footer-social-bar { flex-direction: column; text-align: center; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}

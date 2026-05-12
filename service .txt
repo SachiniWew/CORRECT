@@ -1,0 +1,300 @@
+<section id="services-section" class="section">
+  <div class="container">
+    <div class="section-title-block reveal">
+      <span class="label">WHAT WE OFFER</span>
+      <h2>Our <span class="gold">Services</span></h2>
+      <p>Comprehensive logistics solutions tailored to your business needs — from express courier to complex project cargo.</p>
+    </div>
+
+    <div class="wheel-container">
+      <!-- Spinning Wheel -->
+      <div class="wheel-wrap">
+        <div class="wheel" id="serviceWheel">
+          <div class="wheel-center">
+            <img src="images/egx-logo.png" alt="EGX" onerror="this.style.display='none'">
+          </div>
+          <!-- Items positioned by JS -->
+          <div class="wheel-item" data-name="Courier" data-desc="Fast and secure international courier services to 220+ countries with real-time tracking and express options." data-href="pages/courier.html">
+            <div class="wheel-item-icon"><img src="icons/courier.png" alt="Courier"></div>
+            <span>Courier</span>
+          </div>
+          <div class="wheel-item" data-name="Air Freight" data-desc="Time-critical air cargo solutions with global coverage, customs expertise and full-service handling." data-href="pages/air-freight.html">
+            <div class="wheel-item-icon"><img src="icons/air.png" alt="Air Freight"></div>
+            <span>Air Freight</span>
+          </div>
+          <div class="wheel-item" data-name="Sea Freight" data-desc="Cost-effective FCL and LCL ocean freight services connecting Sri Lanka to every major port worldwide." data-href="pages/sea-freight.html">
+            <div class="wheel-item-icon"><img src="icons/sea.png" alt="Sea Freight"></div>
+            <span>Sea Freight</span>
+          </div>
+          <div class="wheel-item" data-name="Warehouse" data-desc="State-of-the-art warehousing facilities with inventory management, pick & pack, and distribution services." data-href="pages/warehouse.html">
+            <div class="wheel-item-icon"><img src="icons/warehouse.png" alt="Warehouse"></div>
+            <span>Warehouse</span>
+          </div>
+          <div class="wheel-item" data-name="Transport" data-desc="Reliable road transport solutions across Sri Lanka with GPS tracking and flexible fleet options." data-href="pages/transport.html">
+            <div class="wheel-item-icon"><img src="icons/transport.png" alt="Transport"></div>
+            <span>Transport</span>
+          </div>
+          <div class="wheel-item" data-name="Project Cargo" data-desc="Specialized handling for oversized, heavy-lift and complex project cargo requiring bespoke logistics." data-href="pages/project-cargo.html">
+            <div class="wheel-item-icon"><img src="icons/project.png" alt="Project"></div>
+            <span>Projects</span>
+          </div>
+          <div class="wheel-item" data-name="CHB" data-desc="Expert Customs House Brokerage ensuring fast, compliant clearance for all your import and export shipments." data-href="pages/chb.html">
+            <div class="wheel-item-icon"><img src="icons/chb.png" alt="CHB"></div>
+            <span>CHB</span>
+          </div>
+          <div class="wheel-item" data-name="3PL &amp; 4PL / BPO" data-desc="Third and fourth-party logistics management and business process outsourcing for scalable supply chains." data-href="pages/bpo.html">
+            <div class="wheel-item-icon"><img src="icons/pl.png" alt="BPO"></div>
+            <span>3PL / BPO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail Panel -->
+      <div class="wheel-detail reveal-right">
+        <span class="label">SELECTED SERVICE</span>
+        <h2 class="wheel-detail-name gold">Courier</h2>
+        <div class="divider"></div>
+        <p class="wheel-detail-desc">Fast and secure international courier services to 220+ countries with real-time tracking and express options.</p>
+        <div class="wheel-detail-actions">
+          <a href="pages/courier.html" class="btn btn-gold wheel-detail-btn">MORE DETAILS →</a>
+          <a href="pages/contact.html" class="btn btn-outline">CONTACT US</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+(function initServiceWheel() {
+  const wheelEl = document.querySelector('.wheel');
+  if (!wheelEl) return;
+
+  const items      = Array.from(wheelEl.querySelectorAll('.wheel-item'));
+  const detailName = document.querySelector('.wheel-detail-name');
+  const detailDesc = document.querySelector('.wheel-detail-desc');
+  const detailBtn  = document.querySelector('.wheel-detail-btn');
+  const centerLabel = document.querySelector('.wheel-center-label');
+  if (!items.length) return;
+
+  const N   = items.length;     // 8 services
+  const DEG = 360 / N;          // 45° per slice
+
+  // ── 1. BUILD SVG PIZZA DIVIDERS ──────────────────────────
+  // We draw N sector dividing lines directly onto the wheel element
+  // using an absolutely-positioned SVG so they spin with the wheel.
+  (function buildPizzaSVG() {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'wheel-svg-pizza');
+    svg.setAttribute('viewBox', '-1 -1 2 2');       // unit circle coords
+    svg.style.cssText = `
+      position:absolute;inset:0;width:100%;height:100%;
+      pointer-events:none;overflow:visible;
+    `;
+
+    const cx = 0, cy = 0, r = 1;
+
+    // Outer ring circle
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', cx); circle.setAttribute('cy', cy); circle.setAttribute('r', r);
+    circle.setAttribute('fill', 'none');
+    circle.setAttribute('stroke', 'rgba(255,214,0,0.18)');
+    circle.setAttribute('stroke-width', '0.015');
+    svg.appendChild(circle);
+
+    // Inner dashed circle at 38% radius
+    const innerCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    innerCircle.setAttribute('cx', cx); innerCircle.setAttribute('cy', cy); innerCircle.setAttribute('r', '0.38');
+    innerCircle.setAttribute('fill', 'none');
+    innerCircle.setAttribute('stroke', 'rgba(255,214,0,0.08)');
+    innerCircle.setAttribute('stroke-width', '0.01');
+    innerCircle.setAttribute('stroke-dasharray', '0.04 0.03');
+    svg.appendChild(innerCircle);
+
+    // N dividing lines (pizza cuts) — from inner radius to outer edge
+    for (let i = 0; i < N; i++) {
+      const angleRad = (i / N) * 2 * Math.PI - Math.PI / 2;
+      const x1 = Math.cos(angleRad) * 0.38;
+      const y1 = Math.sin(angleRad) * 0.38;
+      const x2 = Math.cos(angleRad) * r;
+      const y2 = Math.sin(angleRad) * r;
+
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+      line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+      line.setAttribute('stroke', 'rgba(255,214,0,0.22)');
+      line.setAttribute('stroke-width', '0.012');
+      svg.appendChild(line);
+    }
+
+    // Gold highlight arc for the "3 o'clock" selected slice
+    // We'll update this dynamically — create a path element
+    const highlightPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    highlightPath.setAttribute('fill', 'rgba(255,214,0,0.13)');
+    highlightPath.setAttribute('stroke', 'rgba(255,214,0,0.35)');
+    highlightPath.setAttribute('stroke-width', '0.01');
+    highlightPath.setAttribute('id', 'wheel-highlight-slice');
+    svg.insertBefore(highlightPath, svg.firstChild); // behind lines
+    svg.appendChild(highlightPath);
+
+    wheelEl.insertBefore(svg, wheelEl.firstChild);
+  })();
+
+  // ── 2. DRAW HIGHLIGHT SLICE at given index (in wheel's own coords) ──
+  // The highlighted sector is always index 0 in wheel coords (right = 3 o'clock)
+  // because we spin the wheel so the selected item lands at 3 o'clock.
+  // So highlight is always the first slice (angle 0 → DEG).
+  (function setHighlightSlice() {
+    const path = document.getElementById('wheel-highlight-slice');
+    if (!path) return;
+    // Slice from -DEG/2 to +DEG/2 around 0° (right = 3 o'clock)
+    const half = (DEG / 2) * Math.PI / 180;
+    const r = 1, ri = 0.38;
+    const x1o = Math.cos(-half) * r,  y1o = Math.sin(-half) * r;
+    const x2o = Math.cos( half) * r,  y2o = Math.sin( half) * r;
+    const x1i = Math.cos(-half) * ri, y1i = Math.sin(-half) * ri;
+    const x2i = Math.cos( half) * ri, y2i = Math.sin( half) * ri;
+    path.setAttribute('d',
+      `M ${x1i} ${y1i} L ${x1o} ${y1o} A ${r} ${r} 0 0 1 ${x2o} ${y2o} L ${x2i} ${y2i} A ${ri} ${ri} 0 0 0 ${x1i} ${y1i} Z`
+    );
+  })();
+
+  // ── 3. POSITION ITEM ICONS around the wheel ───────────────
+  // Items are NOT children of the rotating element — they stay fixed
+  // positioned via JS so they're always upright.
+  // We move them to the wheelEl's PARENT and use getBoundingClientRect.
+
+  const wheelWrap = wheelEl.parentElement; // .wheel-wrap
+  wheelWrap.style.position = 'relative';
+
+  // Remove icons from wheel and reparent them to the wrap
+  items.forEach(item => {
+    item.remove();
+    wheelWrap.appendChild(item);
+    item.style.position  = 'absolute';
+    item.style.zIndex    = '5';
+    item.style.cursor    = 'pointer';
+  });
+
+  function positionIcons() {
+    const wRect = wheelEl.getBoundingClientRect();
+    const pRect = wheelWrap.getBoundingClientRect();
+    const cx = wRect.left - pRect.left + wRect.width  / 2;
+    const cy = wRect.top  - pRect.top  + wRect.height / 2;
+    const r  = wRect.width * 0.42;   // icon orbit radius
+
+    items.forEach((item, i) => {
+      // Starting angle: index 0 at 3 o'clock (0°), rest spread CCW
+      const angleDeg = (i / N) * 360;            // 0=right, 45=lower-right...
+      const angleRad = (angleDeg * Math.PI) / 180;
+      const x = cx + Math.cos(angleRad) * r;
+      const y = cy + Math.sin(angleRad) * r;
+      item.style.left      = x + 'px';
+      item.style.top       = y + 'px';
+      item.style.transform = 'translate(-50%, -50%)';  // always upright — no rotation!
+    });
+  }
+
+  positionIcons();
+  window.addEventListener('resize', positionIcons);
+
+  // ── 4. CENTER LABEL ───────────────────────────────────────
+  // Shows selected service name in the centre (not the EGX logo)
+  function updateCenter(name) {
+    const label = wheelEl.querySelector('.wheel-center-label');
+    if (label) {
+      label.style.opacity = '0';
+      setTimeout(() => {
+        label.textContent  = name;
+        label.style.opacity = '1';
+      }, 180);
+    }
+  }
+
+  // ── 5. UPDATE DETAIL PANEL ────────────────────────────────
+  function updatePanel(idx) {
+    const data = items[idx].dataset;
+
+    if (detailName) {
+      detailName.style.opacity = '0';
+      detailName.style.transition = 'opacity 0.3s ease';
+      setTimeout(() => {
+        detailName.textContent  = data.name || '';
+        detailName.style.opacity = '1';
+      }, 200);
+    }
+    if (detailDesc) {
+      detailDesc.style.opacity = '0';
+      detailDesc.style.transition = 'opacity 0.3s ease';
+      setTimeout(() => {
+        detailDesc.textContent  = data.desc || '';
+        detailDesc.style.opacity = '1';
+      }, 250);
+    }
+    if (detailBtn) {
+      detailBtn.href = data.href || '#';
+    }
+
+    updateCenter(data.name || '');
+
+    // Active icon highlight
+    items.forEach(it => it.classList.remove('active'));
+    items[idx].classList.add('active');
+  }
+
+  // ── 6. SPIN TO SELECTED (stops at 3 o'clock) ─────────────
+  // Strategy: item[i] starts at angleDeg = i * DEG from 3 o'clock.
+  // To bring item[i] to 3 o'clock we rotate the wheel by -(i * DEG).
+  let currentRotation = 0; // tracks cumulative wheel rotation in degrees
+
+  function spinToIndex(idx) {
+    // Target rotation so that item[idx] lands at 3 o'clock (0°)
+    // Item[idx] is at angle idx*DEG from 3 o'clock before any rotation.
+    // We want to add -(idx*DEG) to current rotation (shortest path).
+    const naturalAngle = idx * DEG; // how far it is from 3 o'clock CW
+    let target = -naturalAngle;     // wheel needs to rotate this much CCW
+
+    // Normalise to shortest path from currentRotation
+    let diff = ((target - currentRotation) % 360 + 540) % 360 - 180;
+    currentRotation += diff;
+
+    wheelEl.style.transition = 'transform 0.75s cubic-bezier(0.23, 1, 0.32, 1)';
+    wheelEl.style.transform  = `rotate(${currentRotation}deg)`;
+
+    // Counter-rotate the center label so text stays upright
+    const centerLabel = wheelEl.querySelector('.wheel-center-label');
+    if (centerLabel) {
+      centerLabel.style.transform = `rotate(${-currentRotation}deg)`;
+    }
+
+    // Sound
+    const snd = document.getElementById('spin-sound');
+    if (snd) { snd.currentTime = 0; snd.volume = 0.28; snd.play().catch(() => {}); }
+
+    // Update panel after spin settles
+    updatePanel(idx);
+
+    // Also update the left panel icon image
+    const panelIcon = document.querySelector('.svc-icon-img');
+    if (panelIcon) {
+      const iconSrc = items[idx].querySelector('.wheel-item-icon img')?.src;
+      if (iconSrc) panelIcon.src = iconSrc;
+    }
+
+    // Recalculate icon positions immediately (they're independent of wheel rotation)
+    // Icons stay upright — no counter-rotation needed
+  }
+
+  // ── 7. CLICK HANDLERS ─────────────────────────────────────
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => spinToIndex(i));
+  });
+
+  // ── 8. INIT ───────────────────────────────────────────────
+  spinToIndex(0);
+})();
