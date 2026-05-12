@@ -478,3 +478,123 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (img.complete) img.style.opacity = '1';
   });
 })();
+
+// ── EGX PULSE SLIDER ─────────────────────────────────────────
+(function initPulseSlider() {
+  const track     = document.getElementById('pulseTrack');
+  const dotsWrap  = document.getElementById('pulseDots');
+  const prevBtn   = document.getElementById('pulsePrev');
+  const nextBtn   = document.getElementById('pulseNext');
+  if (!track) return;
+
+  const cards     = Array.from(track.querySelectorAll('.pulse-card'));
+  const total     = cards.length;
+  let   current   = 0;
+  let   autoTimer = null;
+
+  // How many cards visible at once (matches CSS breakpoints)
+  function visibleCount() {
+    const w = window.innerWidth;
+    if (w <= 600)  return 1;
+    if (w <= 1024) return 2;
+    return 3;
+  }
+
+  // Max index we can scroll to
+  function maxIndex() {
+    return Math.max(0, total - visibleCount());
+  }
+
+  // ── BUILD DOTS ──────────────────────────────────────────
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    const count = maxIndex() + 1;
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement('div');
+      d.className = 'pulse-dot' + (i === current ? ' active' : '');
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  // ── UPDATE DOTS ─────────────────────────────────────────
+  function updateDots() {
+    Array.from(dotsWrap.querySelectorAll('.pulse-dot')).forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  // ── SLIDE TO INDEX ──────────────────────────────────────
+  function goTo(idx) {
+    current = Math.max(0, Math.min(idx, maxIndex()));
+    // Card width + gap
+    const cardW = cards[0].offsetWidth;
+    const gap   = 24;
+    track.style.transition = 'transform 0.55s cubic-bezier(0.23,1,0.32,1)';
+    track.style.transform  = `translateX(-${current * (cardW + gap)}px)`;
+    updateDots();
+  }
+
+  function next() { goTo(current >= maxIndex() ? 0 : current + 1); }
+  function prev() { goTo(current <= 0 ? maxIndex() : current - 1); }
+
+  // ── ARROWS ──────────────────────────────────────────────
+  if (prevBtn) prevBtn.addEventListener('click', () => { resetAuto(); prev(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { resetAuto(); next(); });
+
+  // ── AUTO-PLAY every 4s ──────────────────────────────────
+  function startAuto() { autoTimer = setInterval(next, 4000); }
+  function stopAuto()  { clearInterval(autoTimer); }
+  function resetAuto() { stopAuto(); startAuto(); }
+
+  // Pause on hover
+  track.addEventListener('mouseenter', stopAuto);
+  track.addEventListener('mouseleave', startAuto);
+
+  // ── DRAG TO SLIDE (desktop) ──────────────────────────────
+  let dragStart = 0, isDragging = false;
+
+  track.addEventListener('pointerdown', e => {
+    isDragging = true;
+    dragStart  = e.clientX;
+    track.classList.add('dragging');
+    track.style.transition = 'none';
+    stopAuto();
+  });
+  track.addEventListener('pointermove', e => {
+    if (!isDragging) return;
+    const diff = e.clientX - dragStart;
+    const cardW = cards[0].offsetWidth;
+    track.style.transform = `translateX(${-(current * (cardW + 24)) - diff}px)`;
+  });
+  track.addEventListener('pointerup', e => {
+    if (!isDragging) return;
+    isDragging = false;
+    track.classList.remove('dragging');
+    const diff = e.clientX - dragStart;
+    if (diff < -60)       next();
+    else if (diff > 60)   prev();
+    else                  goTo(current); // snap back
+    startAuto();
+  });
+  track.addEventListener('pointerleave', () => {
+    if (isDragging) { isDragging = false; track.classList.remove('dragging'); goTo(current); startAuto(); }
+  });
+
+  // ── KEYBOARD ────────────────────────────────────────────
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  { resetAuto(); prev(); }
+    if (e.key === 'ArrowRight') { resetAuto(); next(); }
+  });
+
+  // ── REBUILD ON RESIZE ───────────────────────────────────
+  window.addEventListener('resize', () => {
+    buildDots();
+    goTo(Math.min(current, maxIndex()));
+  });
+
+  // ── INIT ────────────────────────────────────────────────
+  buildDots();
+  goTo(0);
+  startAuto();
+})();

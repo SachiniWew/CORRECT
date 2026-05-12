@@ -899,63 +899,184 @@
 }
 
 /* ── TEAM SNIPPET ────────────────────────────────────────── */
-#team-snippet { background: var(--dark); }
+/* ============================================================
+   TEAM SECTION — creative 4+3 desktop, horizontal scroll mobile
+   Replace the existing #team-snippet block in home.css
+   ============================================================ */
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 24px;
+#team-snippet {
+  background: var(--dark);
 }
+
+/* ── CTA below grid ─────────────────────────────────────── */
+.team-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   DESKTOP GRID ROWS
+   ══════════════════════════════════════════════════════════ */
+
+/* Row 1: featured (wide) + 3 equal cards */
+.team-row-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Row 2: 3 cards centered — use auto columns + justify-content */
+.team-row-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* ── BASE CARD ───────────────────────────────────────────── */
 .team-card {
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--dark-card);
   border: 1px solid var(--dark-border);
-  transition: all 0.4s ease;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
 }
-.team-card:hover { transform: translateY(-8px); border-color: rgba(255,214,0,0.25); }
+.team-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255,214,0,0.3);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* Photo area */
 .team-img {
   aspect-ratio: 3/4;
   overflow: hidden;
+  position: relative;
 }
 .team-img img {
   width: 100%; height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
-  filter: grayscale(20%);
+  object-position: center top;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: grayscale(25%);
 }
-.team-card:hover .team-img img { transform: scale(1.06); filter: grayscale(0); }
+.team-card:hover .team-img img {
+  transform: scale(1.06);
+  filter: grayscale(0%);
+}
+
+/* Gold line accent that slides in on hover */
+.team-img::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 3px;
+  background: var(--gold);
+  transition: width 0.4s ease;
+}
+.team-card:hover .team-img::after { width: 100%; }
+
+/* Name + role */
 .team-info {
-  padding: 20px;
+  padding: 16px 18px 18px;
 }
 .team-info h4 {
   font-family: var(--font-display);
-  font-size: 1.1rem;
-  margin-bottom: 4px;
+  font-size: 1rem;
   font-weight: 400;
+  color: var(--white);
+  margin-bottom: 5px;
+  line-height: 1.3;
 }
 .team-info p {
   font-family: var(--font-accent);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
   color: var(--gold);
 }
 
-/* ── RESPONSIVE ──────────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .services-intro { grid-template-columns: 1fr; }
-  .why-grid { grid-template-columns: repeat(2, 1fr); }
-  .counters-grid { grid-template-columns: repeat(2, 1fr); }
-  .about-grid { grid-template-columns: 1fr; }
-  .wheel-container { grid-template-columns: 1fr; }
+/* ── FEATURED CARD (MD) ──────────────────────────────────── */
+/* Taller aspect ratio + slightly larger name */
+.team-card--featured .team-img {
+  aspect-ratio: 3/5;
 }
-@media (max-width: 640px) {
-  .hero-stats { display: none; }
-  .hero-h1 { font-size: 3rem; }
-  .why-grid { grid-template-columns: 1fr; }
-  .counters-grid { grid-template-columns: 1fr 1fr; }
-  .about-img-badge { width: 100px; height: 100px; bottom: -14px; right: -14px; }
-  .about-img-badge .big { font-size: 1.5rem; }
+.team-card--featured .team-info h4 {
+  font-size: 1.15rem;
+}
+.team-card--featured {
+  border-color: rgba(255,214,0,0.15);
+  background: linear-gradient(180deg, #131313 0%, #0d0d0d 100%);
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE — horizontal scroll strip
+   All 7 cards in one row, swipe to see them.
+   No long vertical scroll.
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 860px) {
+
+  /* Stack the two rows into one horizontal scroller */
+  .team-row-top,
+  .team-row-bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 12px;
+    /* Hide scrollbar visually but keep it functional */
+    scrollbar-width: none;
+  }
+  .team-row-top::-webkit-scrollbar,
+  .team-row-bottom::-webkit-scrollbar { display: none; }
+
+  /* Merge both rows — bottom row continues seamlessly after top row */
+  .team-row-top  { margin-bottom: 0; }
+  .team-row-bottom { margin-left: 0; }
+
+  /* Each card snaps and has a fixed width */
+  .team-card {
+    flex: 0 0 clamp(150px, 42vw, 200px);
+    scroll-snap-align: start;
+    transform: none !important; /* disable hover lift on touch */
+  }
+
+  /* Featured card same width as others on mobile */
+  .team-card--featured .team-img {
+    aspect-ratio: 3/4;
+  }
+
+  /* Scroll hint — fade on the right edge */
+  .team-row-top {
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+
+  /* Swipe hint label */
+  #team-snippet .section-title-block p::after {
+    content: ' · Swipe to see all →';
+    color: var(--gold);
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .team-info { padding: 12px 14px 14px; }
+  .team-info h4 { font-size: 0.88rem; }
+  .team-info p  { font-size: 0.58rem; }
+
+  .team-cta { margin-top: 28px; }
+}
+
+@media (max-width: 480px) {
+  .team-card {
+    flex: 0 0 clamp(140px, 48vw, 175px);
+  }
 }
 /* ============================================================
    SERVICE WHEEL — FINAL
@@ -1181,8 +1302,8 @@
     grid-template-columns: 1fr;
   }
   /* On mobile: wheel goes on top, detail below */
-  .wheel-container .wheel-wrap   { order: 1; }
-  .wheel-container .wheel-detail { order: 2; align-items: center; }
+  .wheel-container .wheel-wrap   { order: 2; }
+  .wheel-container .wheel-detail { order: 1; align-items: center; }
   .wheel-section-heading { text-align: center; }
   .wheel-explore-btn { align-self: center; margin-left: 0; }
   .wheel {
@@ -1194,4 +1315,211 @@
 @media (max-width: 480px) {
   .wheel-detail-box   { padding: 1.2rem; }
   .wheel-detail-icon-circle { width: 58px; height: 58px; }
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   EGX PULSE — news slideshow
+   Add to home.css after the team section styles
+   ============================================================ */
+
+#pulse-section {
+  background: var(--black);
+  overflow: hidden;
+}
+
+/* ── HEADER ROW ──────────────────────────────────────────── */
+.pulse-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+.pulse-header-left .label { margin-bottom: 8px; display: block; }
+.pulse-header-left h2 { margin: 0; }
+
+.pulse-fb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── SLIDER WRAP ─────────────────────────────────────────── */
+.pulse-slider-wrap {
+  position: relative;
+}
+
+/* The scrollable track */
+.pulse-track {
+  display: flex;
+  gap: 24px;
+  overflow: hidden;           /* JS controls scroll via transform */
+  cursor: grab;
+}
+.pulse-track.dragging { cursor: grabbing; }
+
+/* ── CARD ────────────────────────────────────────────────── */
+.pulse-card {
+  flex: 0 0 calc((100% - 48px) / 3); /* show 3 cards on desktop */
+  min-width: 0;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pulse-card:hover {
+  border-color: rgba(255,214,0,0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* Image wrapper */
+.pulse-img-wrap {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+.pulse-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.pulse-card:hover .pulse-img-wrap img { transform: scale(1.05); }
+
+/* Tag pill on image */
+.pulse-tag {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-accent);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+/* Card body */
+.pulse-body {
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pulse-date {
+  font-family: var(--font-accent);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--ash);
+}
+.pulse-body h3 {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pulse-body p {
+  font-size: 0.85rem;
+  color: var(--ash);
+  line-height: 1.65;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pulse-read-more {
+  font-family: var(--font-accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  margin-top: 6px;
+  transition: letter-spacing 0.2s ease;
+  align-self: flex-start;
+}
+.pulse-read-more:hover { letter-spacing: 0.22em; }
+
+/* ── ARROWS ──────────────────────────────────────────────── */
+.pulse-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+  z-index: 5;
+}
+.pulse-arrow:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+  transform: translateY(-50%) scale(1.1);
+}
+.pulse-prev { left: -22px; }
+.pulse-next { right: -22px; }
+
+/* ── DOTS ────────────────────────────────────────────────── */
+.pulse-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+.pulse-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--dark-border);
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, width 0.3s;
+}
+.pulse-dot.active {
+  background: var(--gold);
+  width: 24px;
+  border-radius: 4px;
+  border-color: var(--gold);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+
+/* Tablet: show 2 cards */
+@media (max-width: 1024px) {
+  .pulse-card {
+    flex: 0 0 calc((100% - 24px) / 2);
+  }
+}
+
+/* Mobile: show 1 card + peek of next */
+@media (max-width: 600px) {
+  .pulse-card {
+    flex: 0 0 85vw;
+  }
+  .pulse-arrow { display: none; }
+  .pulse-track { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .pulse-track::-webkit-scrollbar { display: none; }
+  .pulse-card { scroll-snap-align: start; }
+  .pulse-header { flex-direction: column; align-items: flex-start; }
 }
