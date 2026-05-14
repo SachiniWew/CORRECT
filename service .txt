@@ -298,3 +298,189 @@
   // ── 8. INIT ───────────────────────────────────────────────
   spinToIndex(0);
 })();
+
+
+
+
+
+
+
+
+
+
+
+#team-snippet {
+  background: var(--dark);
+}
+
+/* ── CTA below grid ─────────────────────────────────────── */
+.team-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+
+* ══════════════════════════════════════════════════════════
+   DESKTOP GRID ROWS
+   ══════════════════════════════════════════════════════════ */
+
+/* Row 1: featured (wide) + 3 equal cards */
+.team-row-top {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 220px));
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.team-row-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 220px));
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+/* ── BASE CARD ───────────────────────────────────────────── */
+.team-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+.team-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255,214,0,0.3);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* Photo area */
+.team-img {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  position: relative;
+}
+.team-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: grayscale(25%);
+}
+.team-card:hover .team-img img {
+  transform: scale(1.06);
+  filter: grayscale(0%);
+}
+
+/* Gold line accent that slides in on hover */
+.team-img::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 3px;
+  background: var(--gold);
+  transition: width 0.4s ease;
+}
+.team-card:hover .team-img::after { width: 100%; }
+
+/* Name + role */
+.team-info {
+  padding: 16px 18px 18px;
+}
+.team-info h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+.team-info p {
+  font-family: var(--font-accent);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+}
+
+/* ── FEATURED CARD (MD) ──────────────────────────────────── */
+/* Taller aspect ratio + slightly larger name */
+.team-card--featured .team-img {
+  aspect-ratio: 3/5;
+}
+.team-card--featured .team-info h4 {
+  font-size: 1.15rem;
+}
+.team-card--featured {
+  border-color: rgba(255,214,0,0.15);
+  background: linear-gradient(180deg, #131313 0%, #0d0d0d 100%);
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE — horizontal scroll strip
+   All 7 cards in one row, swipe to see them.
+   No long vertical scroll.
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 860px) {
+
+  /* Stack the two rows into one horizontal scroller */
+  .team-row-top,
+  .team-row-bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 12px;
+    /* Hide scrollbar visually but keep it functional */
+    scrollbar-width: none;
+  }
+  .team-row-top::-webkit-scrollbar,
+  .team-row-bottom::-webkit-scrollbar { display: none; }
+
+  /* Merge both rows — bottom row continues seamlessly after top row */
+  .team-row-top  { margin-bottom: 0; }
+  .team-row-bottom { margin-left: 0; }
+
+  /* Each card snaps and has a fixed width */
+  .team-card {
+    flex: 0 0 clamp(150px, 42vw, 200px);
+    scroll-snap-align: start;
+    transform: none !important; /* disable hover lift on touch */
+  }
+
+  /* Featured card same width as others on mobile */
+  .team-card--featured .team-img {
+    aspect-ratio: 3/4;
+  }
+
+  /* Scroll hint — fade on the right edge */
+  .team-row-top {
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+
+  /* Swipe hint label */
+  #team-snippet .section-title-block p::after {
+    content: ' · Swipe to see all →';
+    color: var(--gold);
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .team-info { padding: 12px 14px 14px; }
+  .team-info h4 { font-size: 0.88rem; }
+  .team-info p  { font-size: 0.58rem; }
+
+  .team-cta { margin-top: 28px; }
+}
+
+@media (max-width: 480px) {
+  .team-card {
+    flex: 0 0 clamp(140px, 48vw, 175px);
+  }
+}

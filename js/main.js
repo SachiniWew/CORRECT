@@ -216,9 +216,6 @@
 
 
 // ── SERVICE WHEEL ────────────────────────────────────────────
-// ── SERVICE WHEEL ────────────────────────────────────────────
-// ── SERVICE WHEEL ────────────────────────────────────────────
-// ── SERVICE WHEEL ────────────────────────────────────────────
 (function initServiceWheel() {
   const wheelEl = document.querySelector('.wheel');
   if (!wheelEl) return;
@@ -397,6 +394,8 @@
   // ── 9. INIT ─────────────────────────────────────────────
   spinToIndex(0);
 })();
+
+
 // ── COUNTER ANIMATION ────────────────────────────────────────
 (function initCounters() {
   const counters = document.querySelectorAll('.counter-num');
@@ -597,4 +596,285 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   buildDots();
   goTo(0);
   startAuto();
+
+   // ── ABOUT PAGE JS ────────────────────────────────────────────
+
+// ── 1. FILMSTRIP SLIDER ──────────────────────────────────────
+(function initFilmStrip() {
+  const frames  = document.getElementById('filmFrames');
+  const prevBtn = document.getElementById('filmPrev');
+  const nextBtn = document.getElementById('filmNext');
+  if (!frames) return;
+
+  const cards = Array.from(frames.querySelectorAll('.ab-frame'));
+  const total = cards.length;
+  let   current = 0;
+
+  function visibleCount() {
+    const w = window.innerWidth;
+    if (w <= 600)  return 1;
+    if (w <= 1024) return 2;
+    return 3;
+  }
+
+  function maxIndex() {
+    return Math.max(0, total - visibleCount());
+  }
+
+  function goTo(idx) {
+    current = Math.max(0, Math.min(idx, maxIndex()));
+    const cardW = cards[0].offsetWidth;
+    frames.style.transition = 'transform 0.6s cubic-bezier(0.23,1,0.32,1)';
+    frames.style.transform  = `translateX(-${current * cardW}px)`;
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  // Drag
+  let dragStart = 0, isDragging = false;
+  frames.addEventListener('pointerdown', e => {
+    isDragging = true; dragStart = e.clientX;
+    frames.style.transition = 'none';
+    frames.classList.add('dragging');
+  });
+  frames.addEventListener('pointermove', e => {
+    if (!isDragging) return;
+    const diff = e.clientX - dragStart;
+    const cardW = cards[0].offsetWidth;
+    frames.style.transform = `translateX(${-(current * cardW) + diff}px)`;
+  });
+  frames.addEventListener('pointerup', e => {
+    if (!isDragging) return;
+    isDragging = false;
+    frames.classList.remove('dragging');
+    const diff = e.clientX - dragStart;
+    if (diff < -50)      goTo(current + 1);
+    else if (diff > 50)  goTo(current - 1);
+    else                 goTo(current);
+  });
+  frames.addEventListener('pointerleave', () => {
+    if (isDragging) { isDragging = false; frames.classList.remove('dragging'); goTo(current); }
+  });
+
+  window.addEventListener('resize', () => goTo(Math.min(current, maxIndex())));
+
+  goTo(0);
+})();
+
+// ── 2. SCROLL REVEAL for about page elements ─────────────────
+(function aboutReveal() {
+  // The main.js reveal handles .reveal / .reveal-left / .reveal-right
+  // This adds entrance animations for the about-specific scene elements
+  const els = document.querySelectorAll(
+    '.ab-hook-inner, .ab-split-text, .ab-split-img, ' +
+    '.ab-mv-pane, .ab-gold-inner, .ab-future-inner, ' +
+    '.ab-exco-card, .ab-cta-inner, .ab-journey-header'
+  );
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('ab-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  els.forEach(el => {
+    el.classList.add('ab-hidden');
+    io.observe(el);
+  });
+})();
+
+
+
+
+})();
+
+// ── HORIZONTAL TIMELINE ──────────────────────────────────────
+(function initTimeline() {
+  const stage    = document.getElementById('tlStage');
+  const truck    = document.getElementById('tlTruck');
+  const roadFill = document.getElementById('tlRoadFill');
+  if (!stage || !truck) return;
+
+  const points         = Array.from(stage.querySelectorAll('.ab-tl-point'));
+  const pointPositions = points.map(p => parseFloat(p.style.left));
+  // [10, 28, 46, 64, 82]
+
+  const roadStart = 6;
+  const roadEnd   = 94;
+
+  // Speed: 0.18% per frame × 60fps = ~10.8% per second → ~8 seconds to cross
+  const speed  = 0.2;
+  let truckPct = roadStart - 6;   // start left of road
+  let started  = false;
+  let stopped  = false;
+
+  // ── PLACE TRUCK ─────────────────────────────────────────
+  function setTruck(pct) {
+    const stageW = stage.offsetWidth;
+    const truckW = truck.offsetWidth;
+    // Position truck so its front aligns with pct
+    const px = (pct / 100) * stageW - truckW;
+    truck.style.left = Math.max(0, px) + 'px';
+
+    // Road fill
+    const fill = Math.max(0, Math.min(100,
+      (pct - roadStart) / (roadEnd - roadStart) * 100
+    ));
+    if (roadFill) roadFill.style.width = fill + '%';
+
+    // Activate milestone dots
+    points.forEach((pt, i) => {
+      pt.classList.toggle('ab-tl-active', pct >= pointPositions[i]);
+    });
+  }
+
+  // ── DRIVE LOOP ──────────────────────────────────────────
+  function drive() {
+    if (stopped) return;
+    truckPct += speed;
+    setTruck(truckPct);
+
+    if (truckPct >= roadEnd + 4) {
+      stopped = true;
+      setTruck(roadEnd + 4);   // park at road end
+      return;
+    }
+    requestAnimationFrame(drive);
+  }
+
+  // ── START ────────────────────────────────────────────────
+  // Place truck at start position immediately
+  setTruck(truckPct);
+
+  // Use a simpler scroll listener instead of IntersectionObserver
+  // to avoid threshold issues
+  function onScroll() {
+    if (started) return;
+    const rect = stage.getBoundingClientRect();
+    // Start when the stage top enters the bottom half of the viewport
+    if (rect.top < window.innerHeight * 0.85) {
+      started = true;
+      window.removeEventListener('scroll', onScroll);
+      setTimeout(() => requestAnimationFrame(drive), 200);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Also check immediately in case section is already in view on page load
+  setTimeout(onScroll, 100);
+
+  // Re-position on resize
+  window.addEventListener('resize', () => setTruck(truckPct));
+})();
+
+
+// ── INFINITE IMAGE REEL ───────────────────────────────────────
+(function initReel() {
+  const track = document.getElementById('reelTrack');
+  if (!track) return;
+
+  // Clone all items and append — CSS animates to -50% which equals one full set
+  const items = Array.from(track.querySelectorAll('.reel-item'));
+  items.forEach(item => {
+    const clone = item.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+  });
+})();
+
+// ── EGX PULSE SLIDER ─────────────────────────────────────────
+(function initPulse() {
+  const section  = document.getElementById('pulse-section');
+  if (!section) return;
+
+  const bgImg    = document.getElementById('pulseBgImg');
+  const itemBg   = document.getElementById('pulseItemBg');
+
+  // ── INIT SWIPER ─────────────────────────────────────────
+  const swiper = new Swiper('.pulse-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    loop: true,
+    speed: 700,
+    grabCursor: true,
+    autoplay: {
+      delay: 4500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    pagination: {
+      el: '#pulsePagination',
+      clickable: true,
+    },
+    navigation: {
+      prevEl: '#pulsePrev',
+      nextEl: '#pulseNext',
+    },
+    breakpoints: {
+      640:  { slidesPerView: 1.2 },
+      768:  { slidesPerView: 2   },
+      1024: { slidesPerView: 3   },
+    },
+    // Swap blurred background on slide change
+    on: {
+      slideChange() {
+        const activeSlide = this.slides[this.activeIndex];
+        if (!activeSlide || !bgImg) return;
+        const card = activeSlide.querySelector('.pulse-card');
+        if (card && card.dataset.img) {
+          bgImg.style.opacity = '0';
+          setTimeout(() => {
+            bgImg.src = card.dataset.img;
+            bgImg.style.opacity = '1';
+          }, 300);
+        }
+      }
+    }
+  });
+
+  // Smooth bg image transition
+  if (bgImg) {
+    bgImg.style.transition = 'opacity 0.4s ease';
+  }
+
+  // ── FLOATING CARD HIGHLIGHT (desktop only) ──────────────
+  if (window.innerWidth > 800 && itemBg) {
+    const cards = section.querySelectorAll('.pulse-card');
+
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const r = card.getBoundingClientRect();
+        itemBg.style.width     = r.width  + 'px';
+        itemBg.style.height    = r.height + 'px';
+        itemBg.style.transform = `translateX(${r.left}px) translateY(${r.top}px)`;
+        itemBg.classList.add('active');
+      });
+      card.addEventListener('mouseleave', () => {
+        itemBg.classList.remove('active');
+      });
+    });
+
+    // Re-attach on slide change (new cloned slides)
+    swiper.on('slideChange', () => {
+      setTimeout(() => {
+        section.querySelectorAll('.pulse-card').forEach(card => {
+          card.addEventListener('mouseenter', () => {
+            const r = card.getBoundingClientRect();
+            itemBg.style.width     = r.width  + 'px';
+            itemBg.style.height    = r.height + 'px';
+            itemBg.style.transform = `translateX(${r.left}px) translateY(${r.top}px)`;
+            itemBg.classList.add('active');
+          });
+          card.addEventListener('mouseleave', () => {
+            itemBg.classList.remove('active');
+          });
+        });
+      }, 100);
+    });
+  }
 })();

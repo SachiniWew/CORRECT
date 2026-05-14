@@ -109,8 +109,8 @@
        Mobile:  flows below logo -->
   <div class="hero-content">
     <p class="hero-tag">EST. 2014 — COLOMBO, SRI LANKA</p>
-    <h1 class="hero-h1">GLOBAL REACH</h1>
-    <h2 class="hero-h1-sub">Unlimited Potential</h2>
+    <h1 class="hero-h1">Delivering Global Reach </h1>
+    <h2 class="hero-h1-sub">We Serve Value</h2>
     <p class="hero-desc">From Colombo to the world, precision logistics, real time visibility, and supply chain solutions built for the modern era.</p>
     <div class="hero-actions">
       <a href="pages/services.html" class="btn btn-gold">EXPLORE SERVICES →</a>
@@ -337,11 +337,7 @@
           <div class="team-img"><img src="images/ExcoTeam/chathurika.png" alt="Chathurika Dilrukshani" loading="lazy"></div>
           <div class="team-info"><h4>Chathurika Dilrukshani</h4><p>Head of Finance</p></div>
         </div>
-      </div>
-
-      <!-- Row 2 -->
-      <div class="team-row-bottom">
-        <div class="team-card reveal delay-2">
+           <div class="team-card reveal delay-2">
           <div class="team-img"><img src="images/ExcoTeam/janith.png" alt="Janith Perera" loading="lazy"></div>
           <div class="team-info"><h4>Janith Perera</h4><p>Head of Fleets</p></div>
         </div>
@@ -354,6 +350,8 @@
           <div class="team-info"><h4>Thushanth Subramanian</h4><p>Head of Sales</p></div>
         </div>
       </div>
+
+      
 
     </div><!-- /.team-rows-wrap -->
 
@@ -369,140 +367,204 @@
 <!-- ═══════════════════════════════════════════════════════ -->
 <!-- EGX PULSE                                               -->
 <!-- ═══════════════════════════════════════════════════════ -->
-<section id="pulse-section" class="section">
-  <div class="container">
 
-    <div class="pulse-header reveal">
-      <div class="pulse-header-left">
-        <span class="label">LATEST UPDATES</span>
-        <h2>EGX <span class="gold">Pulse</span></h2>
-      </div>
-      <a href="https://www.facebook.com/egxsupplychain" target="_blank" rel="noopener" class="btn btn-outline pulse-fb-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-        FOLLOW ON FACEBOOK
-      </a>
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<section id="pulse-section">
+
+  <!-- Full-bleed background image (blurred, dark) -->
+  <div class="pulse-bg" id="pulseBg">
+    <img src="images/egxPulse/News (1).png" alt="" id="pulseBgImg">
+  </div>
+  <div class="pulse-bg-overlay"></div>
+
+  <!-- Floating highlight box that follows hovered card -->
+  <div class="pulse-item-bg" id="pulseItemBg"></div>
+
+  <div class="pulse-inner">
+
+    <!-- Section heading -->
+    <div class="pulse-heading reveal">
+      <span class="label">LATEST FROM EGX</span>
+      <h2>EGX <span class="gold">Pulse</span></h2>
     </div>
 
-    <!-- ── SLIDER TRACK ── -->
-    <div class="pulse-slider-wrap reveal">
-      <div class="pulse-track" id="pulseTrack">
+    <!-- Swiper -->
+    <div class="swiper pulse-swiper">
+      <div class="swiper-wrapper">
 
         <!-- ═══════════════════════════════════════════════
-             HOW TO ADD A NEW POST:
-             Copy one .pulse-card block below,
-             paste it at the TOP (newest first),
-             update: data-date, data-tag, img src, h3, p
-             That's it — the slider handles the rest.
+             TO ADD A NEW POST:
+             Copy one .swiper-slide block,
+             paste at the TOP (newest first),
+             update: date day/month, title, excerpt, img src, href
              ═══════════════════════════════════════════════ -->
 
-        <div class="pulse-card">
-          <div class="pulse-img-wrap">
-            <img src="images/egxPulse/News (1).png" alt="EGX News" loading="lazy">
-            <span class="pulse-tag">Company News</span>
-          </div>
-          <div class="pulse-body">
-            <span class="pulse-date">May 2025</span>
-            <h3>EGX expands its courier network across the island</h3>
-            <p>Reaching new milestones in domestic delivery with our growing fleet and partner network.</p>
-            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-read-more">READ MORE →</a>
-          </div>
+        <div class="swiper-slide">
+          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+             data-img="images/egxPulse/News (1).png">
+            <div class="pulse-date">
+              <span class="pulse-date-day">12</span>
+              <span class="pulse-date-mon">May</span>
+            </div>
+            <div class="pulse-card-body">
+              
+              <h3 class="pulse-title">EGX expands courier network across Sri Lanka</h3>
+              <p class="pulse-excerpt">Reaching new milestones in domestic delivery with our growing fleet and dedicated partner network island-wide.</p>
+            </div>
+            <div class="pulse-card-img">
+              <img src="images/egxPulse/News (1).png" alt="EGX News">
+            </div>
+          </a>
         </div>
 
-        <div class="pulse-card">
-          <div class="pulse-img-wrap">
-            <img src="images/egxPulse/News (2).png" alt="EGX News" loading="lazy">
-            <span class="pulse-tag">Sea Freight</span>
-          </div>
-          <div class="pulse-body">
-            <span class="pulse-date">Apr 2025</span>
-            <h3>Record shipment volume achieved in Q1 2025</h3>
-            <p>Our sea freight division hits a new high with increased FCL & LCL movements.</p>
-            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-read-more">READ MORE →</a>
-          </div>
+        <div class="swiper-slide">
+          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+             data-img="images/egxPulse/News (2).png">
+            <div class="pulse-date">
+              <span class="pulse-date-day">28</span>
+              <span class="pulse-date-mon">Apr</span>
+            </div>
+            <div class="pulse-card-body">
+              
+              <h3 class="pulse-title">Record shipment volume achieved in Q1 2025</h3>
+              <p class="pulse-excerpt">Our sea freight division hits a new high with increased FCL &amp; LCL movements across major trade lanes.</p>
+            </div>
+            <div class="pulse-card-img">
+              <img src="images/egxPulse/News (2).png" alt="EGX News">
+            </div>
+          </a>
         </div>
 
-        <div class="pulse-card">
-          <div class="pulse-img-wrap">
-            <img src="images/egxPulse/News (3).png" alt="EGX News" loading="lazy">
-            <span class="pulse-tag">Air Freight</span>
-          </div>
-          <div class="pulse-body">
-            <span class="pulse-date">Apr 2025</span>
-            <h3>New airline partnerships unlocked for faster cargo</h3>
-            <p>EGX secures priority cargo lanes with leading carriers for time-sensitive shipments.</p>
-            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-read-more">READ MORE →</a>
-          </div>
+        <div class="swiper-slide">
+          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+             data-img="images/egxPulse/News (3).png">
+            <div class="pulse-date">
+              <span class="pulse-date-day">15</span>
+              <span class="pulse-date-mon">Apr</span>
+            </div>
+            <div class="pulse-card-body">
+              
+              <h3 class="pulse-title">New airline partnerships for faster cargo lanes</h3>
+              <p class="pulse-excerpt">EGX secures priority cargo agreements with leading carriers for time-sensitive shipments worldwide.</p>
+            </div>
+            <div class="pulse-card-img">
+              <img src="images/egxPulse/News (3).png" alt="EGX News">
+            </div>
+          </a>
         </div>
 
-        <div class="pulse-card">
-          <div class="pulse-img-wrap">
-            <img src="images/egxPulse/News (4).png" alt="EGX News" loading="lazy">
-            <span class="pulse-tag">Warehouse</span>
-          </div>
-          <div class="pulse-body">
-            <span class="pulse-date">Mar 2025</span>
-            <h3>New warehouse facility opens in Colombo</h3>
-            <p>State-of-the-art storage and distribution centre now operational to serve more clients.</p>
-            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-read-more">READ MORE →</a>
-          </div>
+        <div class="swiper-slide">
+          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+             data-img="images/egxPulse/News (4).png">
+            <div class="pulse-date">
+              <span class="pulse-date-day">02</span>
+              <span class="pulse-date-mon">Mar</span>
+            </div>
+            <div class="pulse-card-body">
+             
+              <h3 class="pulse-title">New warehouse facility opens in Colombo</h3>
+              <p class="pulse-excerpt">State-of-the-art storage and distribution centre now operational, serving more clients with faster fulfilment.</p>
+            </div>
+            <div class="pulse-card-img">
+              <img src="images/egxPulse/News (4).png" alt="EGX News">
+            </div>
+          </a>
         </div>
 
-        <div class="pulse-card">
-          <div class="pulse-img-wrap">
-            <img src="images/egxPulse/News (5).png" alt="EGX News" loading="lazy">
-            <span class="pulse-tag">Awards</span>
-          </div>
-          <div class="pulse-body">
-            <span class="pulse-date">Mar 2025</span>
-            <h3>EGX recognised at the National Logistics Awards</h3>
-            <p>Proud to be acknowledged for excellence in supply chain services across Sri Lanka.</p>
-            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-read-more">READ MORE →</a>
-          </div>
+        <div class="swiper-slide">
+          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+             data-img="images/egxPulse/News (5).png">
+            <div class="pulse-date">
+              <span class="pulse-date-day">18</span>
+              <span class="pulse-date-mon">Feb</span>
+            </div>
+            <div class="pulse-card-body">
+              
+              <h3 class="pulse-title">EGX recognised at National Logistics Awards</h3>
+              <p class="pulse-excerpt">Proud to be acknowledged for excellence in supply chain services across Sri Lanka and the wider region.</p>
+            </div>
+            <div class="pulse-card-img">
+              <img src="images/egxPulse/News (5).png" alt="EGX News">
+            </div>
+          </a>
         </div>
 
-        <div class="pulse-card">
-          <div class="pulse-img-wrap">
-            <img src="images/egxPulse/News (6).png" alt="EGX News" loading="lazy">
-            <span class="pulse-tag">Community</span>
-          </div>
-          <div class="pulse-body">
-            <span class="pulse-date">Feb 2025</span>
-            <h3>EGX team participates in community outreach</h3>
-            <p>Giving back to the communities we operate in — part of our core values.</p>
-            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-read-more">READ MORE →</a>
-          </div>
+        <div class="swiper-slide">
+          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+             data-img="images/egxPulse/News (6).png">
+            <div class="pulse-date">
+              <span class="pulse-date-day">05</span>
+              <span class="pulse-date-mon">Jan</span>
+            </div>
+            <div class="pulse-card-body">
+              
+              <h3 class="pulse-title">Strategic alliance with global logistics leader</h3>
+              <p class="pulse-excerpt">Strengthening our international network with a new global partnership agreement to serve more markets.</p>
+            </div>
+            <div class="pulse-card-img">
+              <img src="images/egxPulse/News (6).png" alt="EGX News">
+            </div>
+          </a>
         </div>
 
-        <div class="pulse-card">
-          <div class="pulse-img-wrap">
-            <img src="images/egxPulse/News (7).png" alt="EGX News" loading="lazy">
-            <span class="pulse-tag">Partnership</span>
-          </div>
-          <div class="pulse-body">
-            <span class="pulse-date">Jan 2025</span>
-            <h3>Strategic alliance with global logistics leader</h3>
-            <p>Strengthening our international network with a new global partnership agreement.</p>
-            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-read-more">READ MORE →</a>
-          </div>
+        <div class="swiper-slide">
+          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+             data-img="images/egxPulse/News (7).png">
+            <div class="pulse-date">
+              <span class="pulse-date-day">22</span>
+              <span class="pulse-date-mon">Dec</span>
+            </div>
+            <div class="pulse-card-body">
+              
+              <h3 class="pulse-title">EGX team participates in community outreach</h3>
+              <p class="pulse-excerpt">Giving back to the communities we operate in — part of our Serve Values commitment at every level.</p>
+            </div>
+            <div class="pulse-card-img">
+              <img src="images/egxPulse/News (7).png" alt="EGX News">
+            </div>
+          </a>
         </div>
 
-      </div><!-- /.pulse-track -->
+      </div><!-- /.swiper-wrapper -->
 
-      <!-- Prev / Next arrows -->
-      <button class="pulse-arrow pulse-prev" id="pulsePrev" aria-label="Previous">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <button class="pulse-arrow pulse-next" id="pulseNext" aria-label="Next">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-    </div><!-- /.pulse-slider-wrap -->
+      <!-- Controls -->
+      <div class="pulse-controls">
+        <button class="pulse-arrow pulse-prev" id="pulsePrev">
+          <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor">
+            <path d="M0.704 17.696l9.856 9.856c0.896 0.896 2.432 0.896 3.328 0s0.896-2.432 0-3.328l-5.792-5.856h21.568c1.312 0 2.368-1.056 2.368-2.368s-1.056-2.368-2.368-2.368h-21.568l5.824-5.824c0.896-0.896 0.896-2.432 0-3.328-0.48-0.48-1.12-0.704-1.664-0.704s-1.184 0.224-1.664 0.704l-9.856 9.856c-0.448 0.448-0.704 1.056-0.704 1.664s0.256 1.216 0.704 1.664z"/>
+          </svg>
+        </button>
+        <div class="pulse-pagination" id="pulsePagination"></div>
+        <button class="pulse-arrow pulse-next" id="pulseNext">
+          <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor">
+            <path d="M31.296 14.304l-9.856-9.856c-0.896-0.896-2.432-0.896-3.328 0s-0.896 2.432 0 3.328l5.792 5.856h-21.536c-1.312 0-2.368 1.056-2.368 2.368s1.056 2.368 2.368 2.368h21.568l-5.824 5.824c-0.896 0.896-0.896 2.432 0 3.328 0.48 0.48 1.12 0.704 1.664 0.704s1.184-0.224 1.664-0.704l9.856-9.856c0.448-0.448 0.704-1.056 0.704-1.664s-0.256-1.216-0.704-1.664z"/>
+          </svg>
+        </button>
+      </div>
 
-    <!-- Dot indicators -->
-    <div class="pulse-dots" id="pulseDots"></div>
+    </div><!-- /.swiper -->
 
-  </div>
+  </div><!-- /.pulse-inner -->
+
 </section>
 
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- SVG arrow icons -->
+<svg hidden="hidden">
+  <defs>
+    <symbol id="icon-arrow-left" viewBox="0 0 32 32">
+      <path d="M0.704 17.696l9.856 9.856c0.896 0.896 2.432 0.896 3.328 0s0.896-2.432 0-3.328l-5.792-5.856h21.568c1.312 0 2.368-1.056 2.368-2.368s-1.056-2.368-2.368-2.368h-21.568l5.824-5.824c0.896-0.896 0.896-2.432 0-3.328-0.48-0.48-1.12-0.704-1.664-0.704s-1.184 0.224-1.664 0.704l-9.856 9.856c-0.448 0.448-0.704 1.056-0.704 1.664s0.256 1.216 0.704 1.664z"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 32 32">
+      <path d="M31.296 14.304l-9.856-9.856c-0.896-0.896-2.432-0.896-3.328 0s-0.896 2.432 0 3.328l5.792 5.856h-21.536c-1.312 0-2.368 1.056-2.368 2.368s1.056 2.368 2.368 2.368h21.568l-5.824 5.824c-0.896 0.896-0.896 2.432 0 3.328 0.48 0.48 1.12 0.704 1.664 0.704s1.184-0.224 1.664-0.704l9.856-9.856c0.448-0.448 0.704-1.056 0.704-1.664s-0.256-1.216-0.704-1.664z"/>
+    </symbol>
+  </defs>
+</svg>
 
 
 <!-- ═══════════════════════════════════════════════════════ -->
