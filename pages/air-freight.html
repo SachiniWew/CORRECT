@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fast, reliable air freight solutions connecting Sri Lanka to every major global hub. Expert customs clearance, secure cargo handling and real-time tracking.">
   <title>Air Freight | EGX Supply Chain</title>
+  <meta name="description" content="Fast, reliable air freight solutions connecting Sri Lanka to every major global hub.">
   <link rel="icon" href="../images/egx-logo.png">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/air-freight.css">
   <link rel="stylesheet" href="../css/footer.css">
 </head>
-<body>
+<body class="af-body">
 
 <div id="preloader">
   <img class="preloader-logo" src="../images/EGXNavLogo.png" alt="EGX">
@@ -23,13 +23,15 @@
 <div class="cursor-ring"></div>
 <audio id="preloader-sound" src="../sounds/flash.mp3" preload="none"></audio>
 
-<!-- NAVBAR -->
+<!-- ═══ NAVBAR ════════════════════════════════════════════ -->
 <header id="navbar">
   <a href="../index.html" class="nav-logo"><img src="../images/EGXNavLogo.png" alt="EGX Supply Chain"></a>
   <nav class="nav-links">
     <div class="nav-item"><a href="../index.html" class="nav-link">HOME</a></div>
     <div class="nav-item">
-      <a href="services.html" class="nav-link active">OUR SERVICES <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <a href="services.html" class="nav-link active">OUR SERVICES
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
       <div class="nav-dropdown">
         <span class="dropdown-label">Our Services</span>
         <a href="courier.html"       class="dropdown-link"><span class="icon">📦</span>Courier</a>
@@ -51,7 +53,9 @@
 <nav id="mobile-menu">
   <div class="mobile-nav-item"><a href="../index.html" class="mobile-nav-link">Home</a></div>
   <div class="mobile-nav-item">
-    <div class="mobile-nav-link" data-toggle="true">Our Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg></div>
+    <div class="mobile-nav-link" data-toggle="true">Our Services
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
     <div class="mobile-submenu">
       <a href="courier.html" class="mobile-sub-link">Courier</a>
       <a href="air-freight.html" class="mobile-sub-link">Air Freight</a>
@@ -68,94 +72,106 @@
   <div class="mobile-cta"><a href="contact.html" class="btn btn-gold">GET A QUOTE →</a></div>
 </nav>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- HERO — parallax fixed background                        -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="af-hero">
-  <!-- Parallax BG layer -->
-  <div class="af-hero-parallax" id="afParallax"></div>
-  <!-- Vignette -->
-  <div class="af-hero-vignette"></div>
+<!-- ═══════════════════════════════════════════════════════
+     BASE LAYER — fixed, full viewport
+     Hero bg + hero text + plane all live here.
+     The card layer scrolls OVER this.
+     ═══════════════════════════════════════════════════════ -->
+<div class="af-base" id="afBase">
 
-  <!-- Hero content grid: left text | right plane -->
+  <!-- Background photo (parallax — moves slower than scroll) -->
+  <div class="af-base-bg" id="afBg"></div>
+
+  <!-- Dark gradient overlay -->
+  <div class="af-base-overlay"></div>
+
+  <!-- Hero content: left text + right plane -->
   <div class="af-hero-grid">
-    <div class="af-hero-text">
-      <p class="af-hero-eyebrow">WITH EGX SUPPLY CHAIN</p>
-      <h1 class="af-hero-h1">
+
+    <div class="af-hero-text" id="afHeroText">
+      <p class="af-eyebrow">WITH EGX SUPPLY CHAIN</p>
+      <h1 class="af-h1">
         Send and Receive<br>
         <span class="af-gold">Your Air Cargo Easily</span><br>
         Across the World
       </h1>
-      <p class="af-hero-desc">Looking for fast, safe, and affordable air freight solutions? EGX offers reliable shipping with minimal delays and full global coverage. Our expert team ensures secure handling, quick clearance, and real-time updates every step of the way.</p>
-      <a href="contact.html" class="af-btn-outline">Contact Us</a>
+      <p class="af-desc">Looking for fast, safe, and affordable air freight solutions? EGX offers reliable shipping with minimal delays and full global coverage — secure handling, quick clearance, and real-time updates every step of the way.</p>
+      <a href="contact.html" class="af-hero-btn">CONTACT US →</a>
     </div>
-    <div class="af-hero-plane">
+
+    <div class="af-hero-plane-wrap" id="afPlaneWrap">
       <img src="../images/AirFrieghtAssests/Plane.png" alt="Aircraft" class="af-plane-img" id="afPlane">
     </div>
+
   </div>
-</section>
 
-<!-- Cloud transition image -->
-<img src="../images/cloud3.png" alt="" class="af-cloud" aria-hidden="true">
+  <!-- Scroll hint -->
+  <div class="af-scroll-hint" id="afScrollHint">
+    <span>SCROLL</span>
+    <div class="af-scroll-line"></div>
+  </div>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- CARD LAYER — glassmorphism card over the parallax       -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<div class="af-card-layer">
+</div><!-- /.af-base -->
 
-  <!-- ── SECTION 1: WHY OUR AIR FREIGHT IS SPECIAL ───── -->
+<!-- ═══════════════════════════════════════════════════════
+     SPACER — pushes card layer down so hero is visible first
+     ═══════════════════════════════════════════════════════ -->
+<div class="af-spacer"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CARD LAYER — scrolls over the fixed base
+     Cloud at top creates the "sliding over" illusion
+     ═══════════════════════════════════════════════════════ -->
+<div class="af-card-layer" id="afCardLayer">
+
+  <!-- Cloud image bleeds above the card layer top edge -->
+  <img src="../images/cloud3.png" alt="" class="af-cloud-top" aria-hidden="true">
+
+  <!-- ════ WHY AIR FREIGHT ════ -->
   <div class="af-section af-why">
-
-    <!-- Left: plane -->
-    <div class="af-why-left">
+    <div class="af-why-left reveal-left">
       <div class="af-why-glow"></div>
       <img src="../images/AirFrieghtAssests/Plane.png" alt="Aircraft" class="af-why-plane">
     </div>
-
-    <!-- Right: features list -->
     <div class="af-why-right">
       <div class="af-section-title-right">
         <p class="af-eyebrow-sm">WHY OUR</p>
         <h2 class="af-big-gold">AIR FREIGHT</h2>
         <h2 class="af-big-white">IS SPECIAL</h2>
       </div>
-
       <div class="af-feature-row reveal">
         <div class="af-feature-text">
           <h3>Premium Protection</h3>
           <p>Secure handling and monitoring — air freight reduces risks of theft or damage with strict procedures in place.</p>
         </div>
-        <img src="../images/yIcon2.png" alt="Protection" class="af-feature-icon">
+        <img src="../images/yIcon2.png" alt="" class="af-feature-icon">
       </div>
-
       <div class="af-feature-row reveal delay-1">
         <div class="af-feature-text">
           <h3>Fast Delivery</h3>
           <p>Fast delivery across borders — your cargo reaches its destination in hours or days, not weeks.</p>
         </div>
-        <img src="../images/yIcon1.png" alt="Fast" class="af-feature-icon">
+        <img src="../images/yIcon1.png" alt="" class="af-feature-icon">
       </div>
-
       <div class="af-feature-row reveal delay-2">
         <div class="af-feature-text">
-          <h3>Reliable Air Freight Scheduling</h3>
-          <p>Dependable flight schedules ensure timely departures and arrivals for streamlined, predictable delivery timelines.</p>
+          <h3>Reliable Scheduling</h3>
+          <p>Dependable flight schedules ensure timely departures and arrivals for streamlined, predictable delivery.</p>
         </div>
-        <img src="../images/yIcon3.png" alt="Scheduling" class="af-feature-icon">
+        <img src="../images/yIcon3.png" alt="" class="af-feature-icon">
       </div>
-
       <div class="af-feature-row reveal delay-3">
         <div class="af-feature-text">
           <h3>Worldwide Delivery</h3>
           <p>Air cargo links your goods to global markets via top airports and logistics networks worldwide.</p>
         </div>
-        <img src="../images/yIcon4.png" alt="Global" class="af-feature-icon">
+        <img src="../images/yIcon4.png" alt="" class="af-feature-icon">
       </div>
     </div>
   </div>
 
-  <!-- ── STATS ─────────────────────────────────────────── -->
-  <div class="af-stats-grid">
+  <!-- ════ STATS ════ -->
+  <div class="af-stats-wrap">
     <div class="af-stat-card reveal delay-1">
       <div class="af-stat-num counter" data-target="500" data-suffix="+">0</div>
       <div class="af-stat-lbl">Happy Customers</div>
@@ -170,115 +186,112 @@
     </div>
   </div>
 
-  <!-- ── SECTION 2: OUR PROCESS ────────────────────────── -->
-  <div class="af-section af-process-section">
-    <div class="af-section-header reveal">
-      <p class="label">HOW IT WORKS</p>
+  <!-- ════ PROCESS ════ -->
+  <div class="af-section af-process">
+    <div class="af-section-hdr reveal">
+      <span class="label">HOW IT WORKS</span>
       <h2>Our <span class="gold">Process</span></h2>
-      <p class="af-process-sub">From enquiry to delivery — here's what you need to get started and what happens every step of the way.</p>
+      <p>From enquiry to delivery — everything you need to know before you ship with EGX.</p>
     </div>
 
-    <!-- What you need first -->
+    <!-- What you need -->
     <div class="af-need-box reveal">
-      <div class="af-need-icon">📋</div>
-      <div class="af-need-content">
-        <h3>What You Need to Proceed</h3>
-        <div class="af-need-items">
-          <div class="af-need-item">
-            <span class="af-need-num">1</span>
-            <div>
-              <strong>Cargo Details</strong>
-              <p>Weight, dimensions, commodity type and HS code of your shipment.</p>
-            </div>
+      <div class="af-need-header">
+        <span class="af-need-tag">BEFORE YOU PROCEED</span>
+        <h3>What You Need to Get Started</h3>
+      </div>
+      <div class="af-need-grid">
+        <div class="af-need-item">
+          <span class="af-need-num">1</span>
+          <div>
+            <strong>Cargo Details</strong>
+            <p>Weight, dimensions, commodity type and HS code.</p>
           </div>
-          <div class="af-need-item">
-            <span class="af-need-num">2</span>
-            <div>
-              <strong>Origin &amp; Destination</strong>
-              <p>Pickup address and delivery airport / final destination address.</p>
-            </div>
+        </div>
+        <div class="af-need-item">
+          <span class="af-need-num">2</span>
+          <div>
+            <strong>Origin &amp; Destination</strong>
+            <p>Pickup address and final delivery destination.</p>
           </div>
-          <div class="af-need-item">
-            <span class="af-need-num">3</span>
-            <div>
-              <strong>Shipper &amp; Consignee Info</strong>
-              <p>Full names, addresses, contact numbers and tax IDs of both parties.</p>
-            </div>
+        </div>
+        <div class="af-need-item">
+          <span class="af-need-num">3</span>
+          <div>
+            <strong>Shipper &amp; Consignee</strong>
+            <p>Full names, addresses and contact details of both parties.</p>
           </div>
-          <div class="af-need-item">
-            <span class="af-need-num">4</span>
-            <div>
-              <strong>Commercial Documents</strong>
-              <p>Commercial invoice, packing list and any required permits or certificates.</p>
-            </div>
+        </div>
+        <div class="af-need-item">
+          <span class="af-need-num">4</span>
+          <div>
+            <strong>Commercial Documents</strong>
+            <p>Commercial invoice, packing list and any required permits.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Process steps -->
+    <!-- Steps -->
     <div class="af-steps">
       <div class="af-step reveal delay-1">
         <div class="af-step-num">01</div>
-        <div class="af-step-connector"></div>
-        <div class="af-step-body">
-          <h4>Quote Request</h4>
-          <p>Share your cargo details and we'll provide an instant competitive air freight rate tailored to your needs.</p>
-        </div>
+        <h4>Quote Request</h4>
+        <p>Share your cargo details and receive an instant competitive rate tailored to your shipment.</p>
       </div>
       <div class="af-step reveal delay-2">
         <div class="af-step-num">02</div>
-        <div class="af-step-connector"></div>
-        <div class="af-step-body">
-          <h4>Booking &amp; Documentation</h4>
-          <p>We handle all airway bills, export declarations, permits and airline bookings on your behalf.</p>
-        </div>
+        <h4>Booking &amp; Docs</h4>
+        <p>We handle all airway bills, export declarations, permits and airline bookings on your behalf.</p>
       </div>
       <div class="af-step reveal delay-3">
         <div class="af-step-num">03</div>
-        <div class="af-step-connector"></div>
-        <div class="af-step-body">
-          <h4>Cargo Acceptance</h4>
-          <p>Secure pickup, professional packing and delivery to the departure airport with full tracking.</p>
-        </div>
+        <h4>Cargo Acceptance</h4>
+        <p>Secure pickup, professional packing and delivery to the departure airport with full tracking.</p>
       </div>
       <div class="af-step reveal delay-4">
         <div class="af-step-num">04</div>
-        <div class="af-step-connector af-step-connector--last"></div>
-        <div class="af-step-body">
-          <h4>Arrival &amp; Clearance</h4>
-          <p>Real-time flight tracking, destination customs clearance and final mile delivery to your door.</p>
-        </div>
+        <h4>Arrival &amp; Clearance</h4>
+        <p>Real-time flight tracking, customs clearance and final mile delivery to your door.</p>
       </div>
     </div>
   </div>
 
-<!-- ── GET A QUOTE — Attractive CTA Banner ────────────────── -->
-<div class="af-cta-banner reveal">
+  <!-- ════ CTA BANNER ════ -->
+  <div class="af-cta reveal">
+    <!-- Dark textured bg -->
+    <div class="af-cta-bg" aria-hidden="true"></div>
+    <!-- Gold accent bar -->
+    <div class="af-cta-accent" aria-hidden="true"></div>
 
-  <!-- Background grid lines decoration -->
-  <div class="af-cta-grid-lines" aria-hidden="true"></div>
-
-  <!-- Floating plane silhouette -->
-  <div class="af-cta-plane" aria-hidden="true">✈</div>
-
-  <div class="af-cta-content">
-    <span class="af-cta-eyebrow">READY TO SHIP WITH EGX?</span>
-    <h2 class="af-cta-heading">
-      Your Cargo.<br>
-      <span class="af-cta-gold">Our Skies.</span>
-    </h2>
-    <p class="af-cta-sub">Get a competitive air freight quote in under 2 hours. No hidden fees. 220+ countries. Full door-to-door service.</p>
-    <a href="contact.html" class="af-cta-btn">
-      GET A FREE QUOTE
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="5" y1="12" x2="19" y2="12"/>
-        <polyline points="12 5 19 12 12 19"/>
-      </svg>
-    </a>
+    <div class="af-cta-inner">
+      <div class="af-cta-left">
+        <span class="af-cta-label">READY TO SHIP?</span>
+        <h2 class="af-cta-h2">Your Cargo.<br><em>Our Skies.</em></h2>
+        <p class="af-cta-p">Competitive rates. 220+ countries. Door-to-door. No hidden fees.</p>
+      </div>
+      <div class="af-cta-right">
+        <div class="af-cta-pills">
+          <span>⚡ 2-hour response</span>
+          <span>🌐 220+ countries</span>
+          <span>📦 Any cargo size</span>
+          <span>💬 24/7 support</span>
+        </div>
+        <a href="contact.html" class="af-cta-btn">
+          GET A FREE QUOTE
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <div class="af-cta-or">
+          <a href="tel:0112301087" class="af-cta-tel">📞 011 230 1087</a>
+          <span class="af-cta-sep">·</span>
+          <a href="https://wa.me/94702878440" target="_blank" class="af-cta-tel">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
   </div>
-
-</div>
 
 </div><!-- /.af-card-layer -->
 
@@ -296,7 +309,7 @@
   </div>
   <div class="footer-main">
     <div>
-      <img class="footer-logo" src="../images/egx-logo.png" alt="EGX Supply Chain" onerror="this.src='../images/EGXNavLogo.png'">
+      <img class="footer-logo" src="../images/egx-logo.png" alt="EGX" onerror="this.src='../images/EGXNavLogo.png'">
       <p class="footer-desc">EGX Supply Chain is your trusted logistics partner, delivering optimized, scalable, and tech-driven solutions for global and local businesses.</p>
     </div>
     <div>
@@ -329,61 +342,71 @@
 
 <script src="../js/main.js"></script>
 <script>
-// ── PARALLAX HERO ──────────────────────────────────────────
-window.addEventListener('scroll', () => {
-  const parallax = document.getElementById('afParallax');
-  const plane    = document.getElementById('afPlane');
-  if (parallax) parallax.style.transform = `translateY(${window.scrollY * 0.45}px)`;
-  if (plane)    plane.style.transform    = `translateY(${window.scrollY * -0.12}px)`;
-});
+(function() {
+  // ── TRUE PARALLAX BASE LAYER ────────────────────────────
+  // Base layer is position:fixed. Spacer height = 100vh so user
+  // must scroll 100vh before card layer starts covering it.
+  // As user scrolls: bg moves up slowly, text+plane fade & move up faster.
 
-// ── COUNTER ANIMATION ──────────────────────────────────────
-const counters = document.querySelectorAll('.counter');
-const counterObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const el     = entry.target;
-    const target = +el.dataset.target;
-    const suffix = el.dataset.suffix || '';
-    let   current = 0;
-    const inc = target / 80;
-    const tick = () => {
-      current += inc;
-      if (current < target) {
-        el.textContent = Math.ceil(current) + suffix;
-        requestAnimationFrame(tick);
-      } else {
-        el.textContent = target + suffix;
-      }
-    };
-    tick();
-    counterObserver.unobserve(el);
-  });
-}, { threshold: 0.6 });
-counters.forEach(c => counterObserver.observe(c));
+  const bg        = document.getElementById('afBg');
+  const heroText  = document.getElementById('afHeroText');
+  const planeWrap = document.getElementById('afPlaneWrap');
+  const scrollHint= document.getElementById('afScrollHint');
+  const spacerH   = window.innerHeight; // spacer = 100vh
 
-// ── QUOTE FORM SUBMIT ──────────────────────────────────────
-function afSubmitQuote() {
-  const name   = document.getElementById('qfName').value.trim();
-  const phone  = document.getElementById('qfPhone').value.trim();
-  const origin = document.getElementById('qfOrigin').value.trim();
-  const dest   = document.getElementById('qfDest').value.trim();
-  const cargo  = document.getElementById('qfCargo').value.trim();
+  function onScroll() {
+    const y = window.scrollY;
+    const progress = Math.min(y / spacerH, 1); // 0 → 1 as base slides away
 
-  if (!name || !phone) {
-    alert('Please enter your name and phone number.');
-    return;
+    // BG: moves up at 40% of scroll speed (classic parallax)
+    if (bg) bg.style.transform = `translateY(${y * 0.4}px)`;
+
+    // Hero text: fades and slides up quickly
+    if (heroText) {
+      heroText.style.opacity   = Math.max(0, 1 - progress * 2.2).toString();
+      heroText.style.transform = `translateY(${y * -0.18}px)`;
+    }
+
+    // Plane: moves up at a different rate (creates depth)
+    if (planeWrap) {
+      planeWrap.style.opacity   = Math.max(0, 1 - progress * 1.8).toString();
+      planeWrap.style.transform = `translateY(${y * -0.28}px)`;
+    }
+
+    // Scroll hint fades out fast
+    if (scrollHint) {
+      scrollHint.style.opacity = Math.max(0, 1 - progress * 4).toString();
+    }
   }
 
-  const msg = encodeURIComponent(
-    `*AIR FREIGHT QUOTE REQUEST*\n\n` +
-    `Name: ${name}\nPhone: ${phone}\n` +
-    `Origin: ${origin || 'Not specified'}\nDestination: ${dest || 'Not specified'}\n` +
-    `Cargo: ${cargo || 'Not specified'}`
-  );
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-  window.open(`https://wa.me/94702878440?text=${msg}`, '_blank');
-}
+  // ── COUNTER ANIMATION ──────────────────────────────────
+  const counters = document.querySelectorAll('.counter');
+  const counterIO = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = +el.dataset.target;
+      const suffix = el.dataset.suffix || '';
+      let cur = 0;
+      const inc = target / 80;
+      const tick = () => {
+        cur += inc;
+        if (cur < target) {
+          el.textContent = Math.ceil(cur) + suffix;
+          requestAnimationFrame(tick);
+        } else {
+          el.textContent = target + suffix;
+        }
+      };
+      tick();
+      counterIO.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  counters.forEach(c => counterIO.observe(c));
+})();
 </script>
 </body>
 </html>
