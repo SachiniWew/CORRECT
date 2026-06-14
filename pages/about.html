@@ -10,6 +10,14 @@
 <link rel="stylesheet" href="../css/navbar.css">
 <link rel="stylesheet" href="../css/pages.css">
 <link rel="stylesheet" href="../css/footer.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+ 
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
 </head>
 <body>
 
@@ -231,40 +239,51 @@
 <!-- SCENE 6 EGX US         -->
 <!-- ═══════════════════════════════════════════════════════ -->
 
-<section class="section employee-section parallax-section grain">
 
-  <div class="section-title-block">
-    <span class="label reveal">OUR TEAM</span>
-    <h2 class="reveal">EGX <span class="gold">WORKFORCE</span></h2>
-    <p class="reveal">
-      The people driving global logistics excellence with precision, passion, and innovation.
-    </p>
-  </div>
+<section class="people-section">
 
-  <div class="employee-wrapper">
+    <!-- Title stays visible -->
+    <div class="section-header">
+        <h1>OUR PEOPLE</h1>
+        <p>The Faces Behind Every Delivery</p>
+    </div>
 
-    <!-- 15 Employee Cards -->
-    <div class="employee-card c1"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" /></div>
-    <div class="employee-card c2"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300" /></div>
-    <div class="employee-card c3"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300" /></div>
-    <div class="employee-card c4"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300" /></div>
-    <div class="employee-card c5"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300" /></div>
+    <!-- Gallery Wrapper -->
+    <div class="gallery-area" id="galleryArea">
 
-    <div class="employee-card c6"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300" /></div>
-    <div class="employee-card c7"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300" /></div>
-    <div class="employee-card c8"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=300" /></div>
-    <div class="employee-card c9"><img src="https://images.unsplash.com/photo-1557862921-37829c790f19?w=300" /></div>
-    <div class="employee-card c10"><img src="https://images.unsplash.com/photo-1524503033411-c9566986fc8f?w=300" /></div>
+        <!-- 50 Employee Grid -->
+        <div class="employee-grid" id="employeeGrid"></div>
 
-    <div class="employee-card c11"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1bf98c?w=300" /></div>
-    <div class="employee-card c12"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300" /></div>
-    <div class="employee-card c13"><img src="https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?w=300" /></div>
-    <div class="employee-card c14"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300" /></div>
-    <div class="employee-card c15"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" /></div>
+        <!-- Popup only inside gallery -->
+        <div class="popup-overlay" id="popup">
 
-  </div>
+            <div class="popup-card">
+
+                <img id="popupImage">
+
+                <div class="popup-content">
+
+                    <h2 id="popupName"></h2>
+
+                    <h3 id="popupPosition"></h3>
+
+                    <p id="popupQuote"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
+
+
+
+
+
+
 
 <!-- ═══════════════════════════════════════════════════════ -->
 <!-- SCENE 5 — IMAGE REEL (infinite scroll strip)           -->

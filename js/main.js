@@ -881,102 +881,109 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 
+//TEAM
+const employees = [];
 
 
+for(let i=1;i<=50;i++){
 
+    employees.push({
 
+        name:`Employee ${i}`,
 
+        position:"EGX Supply Chain",
 
+        quote:
+        "Serving Values. Connecting businesses through reliable logistics solutions.",
 
+        image:`../images/AboutUs/Employee/E${i}.webp`
 
-
-
-// ── EGX TEAM─────────────────────────────────────────
-document.addEventListener("DOMContentLoaded", () => {
-  gsap.registerPlugin(ScrollTrigger);
-
-  /* ── ENTRANCE ANIMATION ─────────────────────────────── */
-  const tl = gsap.timeline();
-
-  tl.from(".employee-card", {
-    scale: 0,
-    opacity: 0,
-    rotation: () => gsap.utils.random(-25, 25),
-    duration: 0.9,
-    stagger: {
-      amount: 1,
-      from: "random"
-    },
-    ease: "back.out(1.6)"
-  })
-  .from(".reveal", {
-    y: 40,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power3.out"
-  }, "-=0.5");
-
-  /* ── FLOATING EFFECT ───────────────────────────────── */
-  gsap.utils.toArray(".employee-card").forEach((card) => {
-    gsap.to(card, {
-      y: `+=${gsap.utils.random(-18, 18)}`,
-      x: `+=${gsap.utils.random(-6, 6)}`,
-      rotation: `+=${gsap.utils.random(-4, 4)}`,
-      duration: gsap.utils.random(3, 5),
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-      delay: gsap.utils.random(0, 2)
-    });
-  });
-
-  /* ── 3D HOVER EFFECT ───────────────────────────────── */
-  document.querySelectorAll(".employee-card").forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const rotateX = ((y - rect.height / 2) / rect.height) * -18;
-      const rotateY = ((x - rect.width / 2) / rect.width) * 18;
-
-      gsap.to(card, {
-        rotateX,
-        rotateY,
-        scale: 1.12,
-        duration: 0.4,
-        ease: "power2.out",
-        overwrite: "auto"
-      });
     });
 
-    card.addEventListener("mouseleave", () => {
-      gsap.to(card, {
-        rotateX: 0,
-        rotateY: 0,
-        scale: 1,
-        duration: 0.6,
-        ease: "power2.out"
-      });
-    });
-  });
+}
 
-  /* ── SCROLL PARALLAX ───────────────────────────────── */
-  gsap.utils.toArray(".employee-card").forEach((card) => {
-    const speed = gsap.utils.random(0.6, 1.4);
 
-    gsap.to(card, {
-      y: -120 * speed,
-      rotation: gsap.utils.random(-10, 10),
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".employee-section",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1
-      }
-    });
-  });
+const grid = document.getElementById("employeeGrid");
+
+
+employees.forEach(emp=>{
+
+
+    const card=document.createElement("div");
+
+    card.className="employee-card";
+
+
+    card.innerHTML=`
+
+        <img src="${emp.image}">
+
+        <div class="employee-info">
+
+            <h4>${emp.name}</h4>
+
+            <span>${emp.position}</span>
+
+        </div>
+
+    `;
+
+
+    card.onclick=()=>openPopup(emp);
+
+
+    grid.appendChild(card);
+
 });
 
+
+
+const popup=document.getElementById("popup");
+
+
+
+function openPopup(emp){
+
+
+    document.getElementById("popupImage").src =
+        emp.image;
+
+
+    document.getElementById("popupName").innerText =
+        emp.name;
+
+
+    document.getElementById("popupPosition").innerText =
+        emp.position;
+
+
+    document.getElementById("popupQuote").innerText =
+        emp.quote;
+
+
+    popup.classList.add("show");
+
+
+    grid.classList.add("blur");
+
+}
+
+
+
+/* click dark area to close */
+
+popup.addEventListener("click",function(e){
+
+
+    if(e.target===popup){
+
+
+        popup.classList.remove("show");
+
+
+        grid.classList.remove("blur");
+
+    }
+
+
+});

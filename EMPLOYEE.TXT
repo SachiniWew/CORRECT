@@ -1,0 +1,280 @@
+<section class="section employee-section parallax-section grain">
+
+  <div class="section-title-block">
+    <span class="label reveal">OUR TEAM</span>
+    <h2 class="reveal">EGX <span class="gold">WORKFORCE</span></h2>
+    <p class="reveal">
+      The people driving global logistics excellence with precision, passion, and innovation.
+    </p>
+  </div>
+
+  <div class="employee-wrapper">
+
+    <!-- 15 Employee Cards -->
+    <div class="employee-card c1"><img src="../images/AboutUs/Employee/E1.webp" /></div>
+    <div class="employee-card c2"><img src="../images/AboutUs/Employee/E2.webp" /></div>
+    <div class="employee-card c3"><img src="../images/AboutUs/Employee/E3.webp" /></div>
+    <div class="employee-card c4"><img src="../images/AboutUs/Employee/E4.webp" /></div>
+    <div class="employee-card c5"><img src="../images/AboutUs/Employee/E5.webp" /></div>
+
+    <div class="employee-card c6"><img src="../images/AboutUs/Employee/E6.webp" /></div>
+    <div class="employee-card c7"><img src="../images/AboutUs/Employee/E7.webp" /></div>
+    <div class="employee-card c8"><img src="../images/AboutUs/Employee/E8.webp" /></div>
+    <div class="employee-card c9"><img src="../images/AboutUs/Employee/E9.webp" /></div>
+    <div class="employee-card c10"><img src="../images/AboutUs/Employee/E10.webp" /></div>
+
+    <div class="employee-card c11"><img src="../images/AboutUs/Employee/E11.webp" /></div>
+    <div class="employee-card c12"><img src="../images/AboutUs/Employee/E12.webp" /></div>
+    <div class="employee-card c13"><img src="../images/AboutUs/Employee/E13.webp" /></div>
+    <div class="employee-card c14"><img src="../images/AboutUs/Employee/E14.webp" /></div>
+    <div class="employee-card c15"><img src="../images/AboutUs/Employee/E15.webp" /></div>
+
+  </div>
+   <div class="employee-wrapper">
+
+    <!-- 15 Employee Cards -->
+    <div class="employee-card c1"><img src="../images/AboutUs/Employee/E1.webp" /></div>
+    <div class="employee-card c2"><img src="../images/AboutUs/Employee/E2.webp" /></div>
+    <div class="employee-card c3"><img src="../images/AboutUs/Employee/E3.webp" /></div>
+    <div class="employee-card c4"><img src="../images/AboutUs/Employee/E4.webp" /></div>
+    <div class="employee-card c5"><img src="../images/AboutUs/Employee/E5.webp" /></div>
+
+    <div class="employee-card c6"><img src="../images/AboutUs/Employee/E6.webp" /></div>
+    <div class="employee-card c7"><img src="../images/AboutUs/Employee/E7.webp" /></div>
+    <div class="employee-card c8"><img src="../images/AboutUs/Employee/E8.webp" /></div>
+    <div class="employee-card c9"><img src="../images/AboutUs/Employee/E9.webp" /></div>
+    <div class="employee-card c10"><img src="../images/AboutUs/Employee/E10.webp" /></div>
+
+    <div class="employee-card c11"><img src="../images/AboutUs/Employee/E11.webp" /></div>
+    <div class="employee-card c12"><img src="../images/AboutUs/Employee/E12.webp" /></div>
+    <div class="employee-card c13"><img src="../images/AboutUs/Employee/E13.webp" /></div>
+    <div class="employee-card c14"><img src="../images/AboutUs/Employee/E14.webp" /></div>
+    <div class="employee-card c15"><img src="../images/AboutUs/Employee/E15.webp" /></div>
+
+  </div>
+
+
+</section>
+
+
+
+
+// ── EGX TEAM─────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── ENTRANCE ANIMATION ─────────────────────────────── */
+  const tl = gsap.timeline();
+
+  tl.from(".employee-card", {
+    scale: 0,
+    opacity: 0,
+    rotation: () => gsap.utils.random(-25, 25),
+    duration: 0.9,
+    stagger: {
+      amount: 1,
+      from: "random"
+    },
+    ease: "back.out(1.6)"
+  })
+  .from(".reveal", {
+    y: 40,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power3.out"
+  }, "-=0.5");
+
+  /* ── FLOATING EFFECT ───────────────────────────────── */
+  gsap.utils.toArray(".employee-card").forEach((card) => {
+    gsap.to(card, {
+      y: `+=${gsap.utils.random(-18, 18)}`,
+      x: `+=${gsap.utils.random(-6, 6)}`,
+      rotation: `+=${gsap.utils.random(-4, 4)}`,
+      duration: gsap.utils.random(3, 5),
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      delay: gsap.utils.random(0, 2)
+    });
+  });
+
+  /* ── 3D HOVER EFFECT ───────────────────────────────── */
+  document.querySelectorAll(".employee-card").forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const rotateX = ((y - rect.height / 2) / rect.height) * -18;
+      const rotateY = ((x - rect.width / 2) / rect.width) * 18;
+
+      gsap.to(card, {
+        rotateX,
+        rotateY,
+        scale: 1.12,
+        duration: 0.4,
+        ease: "power2.out",
+        overwrite: "auto"
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      gsap.to(card, {
+        rotateX: 0,
+        rotateY: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: "power2.out"
+      });
+    });
+  });
+
+  /* ── SCROLL PARALLAX ───────────────────────────────── */
+  gsap.utils.toArray(".employee-card").forEach((card) => {
+    const speed = gsap.utils.random(0.6, 1.4);
+
+    gsap.to(card, {
+      y: -120 * speed,
+      rotation: gsap.utils.random(-10, 10),
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".employee-section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
+  });
+});
+
+
+
+
+const employees = [
+
+{
+    name:"John Doe",
+    position:"Logistics Operations Manager",
+    image:"../images/AboutUs/Employee/E1.webp"
+},
+
+{
+    name:"Sarah Smith",
+    position:"Supply Chain Executive",
+    image:"images/team/emp2.jpg"
+},
+
+{
+    name:"Michael Brown",
+    position:"Warehouse Coordinator",
+    image:"images/team/emp3.jpg"
+},
+
+{
+    name:"Emily Davis",
+    position:"Freight Specialist",
+    image:"images/team/emp4.jpg"
+},
+
+{
+    name:"David Wilson",
+    position:"Transport Executive",
+    image:"images/team/emp5.jpg"
+},
+
+{
+    name:"Sophia Lee",
+    position:"Business Development Manager",
+    image:"images/team/emp6.jpg"
+},
+
+{
+    name:"James Taylor",
+    position:"Procurement Officer",
+    image:"images/team/emp7.jpg"
+},
+
+{
+    name:"Olivia White",
+    position:"Customer Relations Executive",
+    image:"images/team/emp8.jpg"
+}
+
+];
+
+/* DUPLICATE UNTIL 45 */
+
+while(employees.length < 45){
+
+    employees.push(
+        employees[
+            employees.length %
+            8
+        ]
+    );
+
+}
+
+const grid =
+document.getElementById("employeeGrid");
+
+const previewImage =
+document.getElementById("previewImage");
+
+const previewName =
+document.getElementById("previewName");
+
+const previewPosition =
+document.getElementById("previewPosition");
+
+employees.forEach((employee,index)=>{
+
+    const item =
+    document.createElement("div");
+
+    item.className =
+    "employee-thumb";
+
+    if(index===0){
+        item.classList.add("active");
+    }
+
+    item.innerHTML=`
+
+        <img
+        src="${employee.image}"
+        alt="${employee.name}">
+    `;
+
+    item.addEventListener("mouseenter",()=>{
+
+        previewImage.src =
+        employee.image;
+
+        previewName.textContent =
+        employee.name;
+
+        previewPosition.textContent =
+        employee.position;
+
+        document
+        .querySelectorAll(
+            ".employee-thumb"
+        )
+        .forEach(el=>
+            el.classList.remove(
+                "active"
+            )
+        );
+
+        item.classList.add(
+            "active"
+        );
+
+    });
+
+    grid.appendChild(item);
+
+}); 
+
