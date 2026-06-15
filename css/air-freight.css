@@ -25,7 +25,7 @@
 .af-base-bg {
   position: absolute;
   inset: -80px -20px;        /* oversized so parallax never exposes edges */
-  background-image: url('../images/AirFrieghtAssests/MainPic.png');
+  background-image: url('../images/AirFrieghtAssests/CloudBackground.jpeg');
   background-size: cover;
   background-position: center;
   will-change: transform;
@@ -168,28 +168,31 @@
   z-index: 2;
   background: rgba(6,6,6,0.96);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-radius: 40px 40px 0 0;
   border: 1px solid rgba(255,255,255,0.08);
   border-bottom: none;
   box-shadow: 0 -30px 80px rgba(0,0,0,0.8);
-  /* Sits right below the spacer */
   margin-top: -40px;
   padding-bottom: 0;
-  overflow: hidden;
 }
 
 /* ── CLOUD at card layer top ──────────────────────────────── */
-/* Floats above the card layer border-radius, covering the transition */
 .af-cloud-top {
   display: block;
-  width: 100%;
-  margin-top: -220px;          /* pull up to overlap spacer bottom */
+  width: 150%;
+  
   position: relative;
-  z-index: 3;
+  z-index: 5;
   pointer-events: none;
-  opacity: 0.88;
-  margin-bottom: -60px;
+
+
+  margin-top: -400px; /* pull clouds up into hero */
+  margin-bottom: 40px;
+
+  opacity: 0.95;
+
+  /* make edges blend with background */
+  filter: blur(1px) drop-shadow(0 0 30px rgba(255,255,255,0.4));
 }
 
 /* ── SHARED SECTION WRAPPER ───────────────────────────────── */
@@ -303,8 +306,9 @@
   min-width: 160px;
   max-width: 260px;
   background: #111;
-  background: radial-gradient(circle at bottom right, rgba(255,255,0,0.15) 0.1%, #111 22%);
+  background: radial-gradient(circle at bottom right, rgba(255, 255, 0, 0.279) 0.5%, #111 22%);
   padding: 30px 24px;
+  margin: 0 50px;
   border-radius: 0 20px 20px 20px;
   text-align: center;
   box-shadow: 0 8px 28px rgba(0,0,0,0.4);
@@ -497,28 +501,17 @@
   pointer-events: none;
 }
 
-/* Big faint 'EGX' watermark */
-.af-cta::after {
-  content: 'EGX';
-  position: absolute;
-  right: -20px; bottom: -40px;
-  font-family: var(--font-heading);
-  font-size: clamp(120px,20vw,220px);
-  color: rgba(255,214,0,0.04);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-}
+
 
 .af-cta-inner {
   position: relative;
   z-index: 2;
   display: grid;
+  padding-bottom: 50px;
   grid-template-columns: 1fr 1fr;
   gap: clamp(32px,5vw,80px);
   align-items: center;
-  padding: clamp(48px,6vw,80px) clamp(32px,5vw,72px);
+  padding: clamp(48px,10vw,80px) clamp(32px,10vw,72px);
 }
 
 .af-cta-label {

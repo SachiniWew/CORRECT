@@ -8,17 +8,7 @@
   position: relative;
   overflow: hidden;
 }
-#footer::before {
-  content: 'EGX';
-  position: absolute;
-  bottom: -40px; right: -20px;
-  font-family: var(--font-heading);
-  font-size: clamp(8rem, 18vw, 18rem);
-  color: rgba(255,214,0,0.025);
-  pointer-events: none;
-  user-select: none;
-  line-height: 1;
-}
+
 
 /* Social bar */
 .footer-social-bar {
