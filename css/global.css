@@ -388,3 +388,241 @@ p {
   height: 1px;
   background: linear-gradient(to right, transparent, var(--gold), transparent);
 }
+
+
+/* ── PARALLAX BANNER ─────────────────────────────────────── */
+#parallax-banner {
+  height: min(420px, 55vh);
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-img {
+  position: absolute;
+  inset: -20%;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(0.35);
+}
+.parallax-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 700px;
+  padding: 0 20px;
+}
+.parallax-content h2 { color: var(--white); margin-bottom: 20px; }
+.parallax-content p { color: rgba(255,255,255,0.7); margin-bottom: 32px; }
+
+
+
+
+
+/* ============================================================
+   "OUR PEOPLE" GRID & SPLIT-SCREEN LAYOUT SYSTEM
+   ============================================================ */
+
+/* ── MAIN VIEWPORT & GRID (FIT TO SCREEN, NO PADDING) ────── */
+.viewport {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 8 columns fitting screen width */
+  width: 100%;
+  gap: 0; /* Completely removes padding/gaps between images */
+  padding: 0;
+}
+
+/* Responsive Grid Scaling */
+@media (max-width: 1400px) { .grid-container { grid-template-columns: repeat(7, 1fr); } }
+@media (max-width: 1400px) { .grid-container { grid-template-columns: repeat(6, 1fr); } }
+@media (max-width: 1400px) { .grid-container { grid-template-columns: repeat(5, 1fr); } }
+@media (max-width: 1100px) { .grid-container { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 850px)  { .grid-container { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px)  { .grid-container { grid-template-columns: repeat(2, 1fr); } }
+
+/* ── GRID ITEMS (INDIVIDUAL EMPLOYEE FRAMES) ──────────────── */
+.grid-item {
+  position: relative;
+  aspect-ratio: 4 / 5; /* Elegant portrait aspect ratio */
+  overflow: hidden;
+  cursor: pointer;
+  background: #111;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) brightness(0.7); /* Luxury editorial treatment */
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.grid-item:hover img {
+  filter: grayscale(0%) brightness(0.95); /* Color reveal on hover */
+  transform: scale(1.03);
+}
+
+.grid-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,5,5,0.85) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.grid-item:hover .grid-item-overlay { 
+  opacity: 1; 
+}
+
+.grid-item-overlay h3 { 
+  font-family: var(--font-heading); 
+  font-size: 1.3rem; 
+  font-weight: 400; 
+  margin-bottom: 2px; 
+}
+
+.grid-item-overlay p { 
+  font-family: var(--font-accent); 
+  color: var(--gold); 
+  font-size: 0.8rem; 
+  letter-spacing: 0.1em; 
+}
+
+/* ── SPLIT VIEWPORT CONTAINER (ACTIVE LOOK) ──────────────── */
+.split-screen-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  z-index: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.split-screen-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Left Side: Dynamic image placement target */
+.split-left {
+  width: 50vw;
+  height: 100vh;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+.zoom-target-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.zoom-target-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right Side: High luxury Editorial Content Panel */
+.split-right {
+  width: 50vw;
+  height: 100vh;
+  background: var(--dark);
+  border-left: 1px solid var(--dark-border);
+  display: flex;
+  align-items: center;
+  padding: 10% 8%;
+  position: relative;
+}
+
+/* Mobile Fallback: Stack panels vertically instead of side-by-side */
+@media (max-width: 900px) {
+  .split-screen-container { flex-direction: column; }
+  .split-left { width: 100vw; height: 50vh; }
+  .split-right { width: 100vw; height: 50vh; padding: 40px; }
+}
+
+.details-content {
+  max-width: 540px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.details-role {
+  font-family: var(--font-accent);
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.details-name {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.details-divider {
+  width: 80px; 
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 24px;
+}
+
+.details-bio {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ash-light);
+  font-weight: 300;
+}
+
+/* ── CLOSE BUTTON CONTROL ────────────────────────────────── */
+.close-button {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--dark-border);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 600;
+}
+
+.close-button:hover {
+  border-color: var(--gold);
+  transform: rotate(90deg);
+  background: rgba(255, 214, 0, 0.05);
+}
+
+.close-button svg stroke { transition: stroke 0.3s ease; }
+.close-button:hover svg stroke { stroke: var(--gold); }

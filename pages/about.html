@@ -238,8 +238,6 @@
 <!-- ═══════════════════════════════════════════════════════ -->
 <!-- SCENE 6 EGX US         -->
 <!-- ═══════════════════════════════════════════════════════ -->
-
-
 <section class="people-section">
 
     <!-- Title stays visible -->
@@ -247,43 +245,33 @@
         <h1>OUR PEOPLE</h1>
         <p>The Faces Behind Every Delivery</p>
     </div>
+ <div class="viewport" id="viewport">
+    <div class="grid-container" id="gridContainer">
+      </div>
+  </div>
 
-    <!-- Gallery Wrapper -->
-    <div class="gallery-area" id="galleryArea">
-
-        <!-- 50 Employee Grid -->
-        <div class="employee-grid" id="employeeGrid"></div>
-
-        <!-- Popup only inside gallery -->
-        <div class="popup-overlay" id="popup">
-
-            <div class="popup-card">
-
-                <img id="popupImage">
-
-                <div class="popup-content">
-
-                    <h2 id="popupName"></h2>
-
-                    <h3 id="popupPosition"></h3>
-
-                    <p id="popupQuote"></p>
-
-                </div>
-
-            </div>
-
+  <div class="split-screen-container" id="splitScreenContainer">
+    <button class="close-button" id="closeButton" aria-label="Close Profile">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L17 17M17 1L1 17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    
+    <div class="split-left" id="splitLeft">
+      <div class="zoom-target-wrapper" id="zoomTarget">
         </div>
-
     </div>
-
+    
+    <div class="split-right">
+      <div class="details-content" id="detailsContent">
+        <span class="details-role" id="targetRole">DEPARTMENT HEAD</span>
+        <h2 class="details-name" id="targetName">Employee Name</h2>
+        <div class="details-divider"></div>
+        <p class="details-bio" id="targetBio">Biography narrative goes here...</p>
+      </div>
+    </div>
+  </div> 
 </section>
-
-
-
-
-
-
 
 <!-- ═══════════════════════════════════════════════════════ -->
 <!-- SCENE 5 — IMAGE REEL (infinite scroll strip)           -->
@@ -388,6 +376,288 @@
     <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
   </div>
 </footer>
+
+ <script>
+// ── 1. YOUR REAL PEOPLE DATA LIST ────────────────────────────────
+// Simply add your real names, positions, and quotes here in order.
+// The engine handles matching them to E1.webp, E2.webp, etc. automatically!
+const staffList = [
+  {
+    name: "Alexander Vanguard",
+    position: "Chief Executive Officer",
+    quote: "Serving Values. Connecting businesses through reliable logistics solutions."
+  },
+  {
+    name: "Elena Sterling",
+    position: "Managing Director",
+    quote: "Optimizing global trade pathways with relentless precision and care."
+  },
+  {
+    name: "Marcus Rothschild",
+    position: "Head of Supply Chain",
+    quote: "Bridging architectural framework gaps with high-efficiency fleet mechanics."
+  },
+  {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+  {
+    name: "Liam Hawthorne",
+    position: "Logistics Coordinator",
+    quote: "Ensuring seamless transitions across every node of the supply chain."
+  },
+  {
+    name: "Isabella Kensington",
+    position: "Customer Relations Manager",
+    quote: "Building trust and transparency with every client interaction."
+  },
+  {
+    name: "Ethan Blackwood",
+    position: "Warehouse Supervisor",
+    quote: "Maintaining operational excellence in every storage and retrieval process."
+  },
+  {
+    name: "Olivia Fairchild",
+    position: "Transport Manager",
+    quote: "Navigating complex routes to ensure timely deliveries worldwide."
+  },
+  {
+    name: "Noah Whitmore",
+    position: "Customs Compliance Officer",
+    quote: "Streamlining regulatory processes for hassle-free international trade."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+   {
+    name: "Sophia Marlowe",
+    position: "Operations Lead",
+    quote: "Delivering institutional scale performance metrics to every modern partner."
+  },
+
+  
+  // ... Keep adding your profiles down to 50 here ...
+  
+];
+
+// ── 2. DATA PROCESSING ENGINE ────────────────────────────────────
+// This automatically maps your list items to their sequential file paths (E1, E2, E3...)
+const employees = staffList.map((person, index) => {
+  const fileNumber = index + 1; // Generates 1, 2, 3... up to 50
+  return {
+    id: `emp-${fileNumber}`,
+    name: person.name,
+    position: person.position,
+    quote: person.quote,
+    image: `../images/AboutUs/Employee/E${fileNumber}.webp` // Maps perfectly to E1.webp, E2.webp...
+  };
+});
+
+const gridContainer = document.getElementById("gridContainer");
+const splitScreen = document.getElementById("splitScreenContainer");
+const zoomTarget = document.getElementById("zoomTarget");
+const closeBtn = document.getElementById("closeButton");
+
+let activeGridItem = null;
+
+// ── 3. GENERATING PORTFOLIO GRID ON LAYER RUNTIME ───────────────
+function buildStructure() {
+  employees.forEach((emp) => {
+    const item = document.createElement("div");
+    item.classList.add("grid-item");
+    item.dataset.id = emp.id;
+    
+    item.innerHTML = `
+      <img src="${emp.image}" alt="${emp.name}" loading="lazy">
+      <div class="grid-item-overlay">
+        <h3>${emp.name}</h3>
+        <p>${emp.position}</p>
+      </div>
+    `;
+    
+    item.addEventListener("click", () => expandEmployee(item, emp));
+    gridContainer.appendChild(item);
+  });
+  
+  // Clear System Preloader Screen
+  setTimeout(() => {
+    document.getElementById("preloader").classList.add("done");
+  }, 1000);
+}
+
+// ── 4. EXPAND ELEMENT INTO SPLIT-SCREEN (FLIP INTERACTION) ───────
+function expandEmployee(item, data) {
+  activeGridItem = item;
+  const targetImage = item.querySelector("img");
+
+  // Map real values dynamically into screen panel nodes
+  document.getElementById("targetName").textContent = data.name;
+  document.getElementById("targetRole").textContent = data.position;
+  document.getElementById("targetBio").textContent = data.quote;
+
+  // Capture layout state
+  const state = Flip.getState(targetImage);
+
+  // Transfer image node to the detailed left-hand viewer split panel
+  zoomTarget.appendChild(targetImage);
+  splitScreen.classList.add("active");
+
+  // Animate transition path
+  Flip.from(state, {
+    duration: 0.85,
+    ease: "power4.inOut",
+    onComplete: () => {
+      gsap.to("#detailsContent", {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out"
+      });
+    }
+  });
+}
+
+// ── 5. COLLAPSE PROFILE ACTIVE VIEWER AND RETURN TO GRID ─────────
+function collapseActiveEmployee() {
+  if (!activeGridItem) return;
+
+  const activeImage = zoomTarget.querySelector("img");
+  
+  gsap.to("#detailsContent", {
+    opacity: 0,
+    y: 30,
+    duration: 0.3,
+    ease: "power2.in",
+    onComplete: () => {
+      const state = Flip.getState(activeImage);
+      
+      // Return physical image tag home to its designated box slot inside the grid
+      activeGridItem.insertBefore(activeImage, activeGridItem.firstChild);
+      splitScreen.classList.remove("active");
+
+      Flip.from(state, {
+        duration: 0.85,
+        ease: "power4.inOut"
+      });
+    }
+  });
+}
+
+// ── EVENT REGISTRATION PIPELINES ──────────────────────────────────
+closeBtn.addEventListener("click", collapseActiveEmployee);
+document.addEventListener("keydown", (e) => { if(e.key === "Escape") collapseActiveEmployee(); });
+
+window.addEventListener("DOMContentLoaded", buildStructure);
+</script>
+
 <script src="../js/main.js"></script>
 <script src="../js/about.js"></script>
 

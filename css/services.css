@@ -18,7 +18,7 @@
 .service-hero-bg img {
   width: 100%; height: 100%;
   object-fit: cover;
-  filter: brightness(0.4);
+  filter: brightness(0.9);
   transition: transform 8s ease;
 }
 .service-hero:hover .service-hero-bg img { transform: scale(1.04); }
