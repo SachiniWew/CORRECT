@@ -1,293 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact EGX Supply Chain — Meet our team, find our office and get in touch for a logistics quote today.">
+  <meta name="description"
+    content="Contact EGX Supply Chain — Meet our team, find our office and get in touch for a logistics quote today.">
   <title>Contact Us | EGX Supply Chain</title>
-  <link rel="icon" href="../images/egx-logo.png">
+  <link rel="icon" href="../images/egx-logo.webp">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/contact.css">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/pages.css">
   <link rel="stylesheet" href="../css/footer.css">
+
+  <link rel="stylesheet" href="../css/chatbot.css">
+
+  <script src="../js/egx-faq.js"></script>
+
+  <script src="../js/chatbot.js"></script>
+
 </head>
+
 <body>
-<div id="preloader"><img class="preloader-logo" src="../images/EGXNavLogo.png" alt="EGX"><div class="preloader-bar-wrap"><div class="preloader-bar"></div></div><p class="preloader-text">LOADING EXCELLENCE</p></div>
-<div id="page-transition"></div>
-<div class="cursor-dot"></div><div class="cursor-ring"></div>
-<audio id="preloader-sound" src="../sounds/flash.mp3" preload="none"></audio>
-
-<header id="navbar">
-  <a href="../index.html" class="nav-logo"><img src="../images/EGXNavLogo.png" alt="EGX Supply Chain"></a>
-  <nav class="nav-links">
-    <div class="nav-item"><a href="../index.html" class="nav-link">HOME</a></div>
-    <div class="nav-item">
-      <a href="services.html" class="nav-link">OUR SERVICES <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg></a>
-      <div class="nav-dropdown">
-        <span class="dropdown-label">Our Services</span>
-        <a href="courier.html" class="dropdown-link">Courier</a>
-        <a href="air-freight.html" class="dropdown-link">Air Freight</a>
-        <a href="sea-freight.html" class="dropdown-link">Sea Freight</a>
-        <a href="warehouse.html" class="dropdown-link">Warehouse &amp; Logistics</a>
-        <a href="transport.html" class="dropdown-link">Transport</a>
-        <a href="project-cargo.html" class="dropdown-link">Project Cargo</a>
-        <a href="chb.html" class="dropdown-link">CHB</a>
-        <a href="bpo.html" class="dropdown-link">3PL &amp; 4PL / BPO</a>
-      </div>
+  <div id="chatbot-container"></div>
+  <div id="preloader"><img class="preloader-logo" src="../images/EGXNavLogo.webp" alt="EGX">
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar"></div>
     </div>
-    <div class="nav-item"><a href="about.html" class="nav-link">ABOUT US</a></div>
-    <div class="nav-item"><a href="contact.html" class="nav-link active">CONTACT US</a></div>
+    <p class="preloader-text">LOADING EXCELLENCE</p>
+  </div>
+  <div id="page-transition"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <audio id="preloader-sound" src="../sounds/flash.mp3" preload="none"></audio>
+
+  <header id="navbar">
+    <a href="../index.html" class="nav-logo"><img src="../images/EGXNavLogo.webp" alt="EGX Supply Chain"></a>
+    <nav class="nav-links">
+      <div class="nav-item"><a href="../index.html" class="nav-link">HOME</a></div>
+      <div class="nav-item">
+        <a href="services.html" class="nav-link">OUR SERVICES <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" width="14" height="14">
+            <polyline points="6 9 12 15 18 9" />
+          </svg></a>
+        <div class="nav-dropdown">
+          <span class="dropdown-label">Our Services</span>
+          <a href="courier.html" class="dropdown-link">Courier</a>
+          <a href="air-freight.html" class="dropdown-link">Air Freight</a>
+          <a href="sea-freight.html" class="dropdown-link">Sea Freight</a>
+          <a href="warehouse.html" class="dropdown-link">Warehouse &amp; Logistics</a>
+          <a href="transport.html" class="dropdown-link">Transport</a>
+          <a href="project-cargo.html" class="dropdown-link">Project Cargo</a>
+          <a href="chb.html" class="dropdown-link">CHB</a>
+          <a href="bpo.html" class="dropdown-link">3PL &amp; 4PL / BPO</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html" class="nav-link">ABOUT US</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link active">CONTACT US</a></div>
+    </nav>
+    <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </header>
+  <nav id="mobile-menu">
+    <div class="mobile-nav-item"><a href="../index.html" class="mobile-nav-link">Home</a></div>
+    <div class="mobile-nav-item">
+      <div class="mobile-nav-link" data-toggle="true">Our Services <svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" width="20" height="20">
+          <polyline points="6 9 12 15 18 9" />
+        </svg></div>
+      <div class="mobile-submenu"><a href="courier.html" class="mobile-sub-link">Courier</a><a href="air-freight.html"
+          class="mobile-sub-link">Air Freight</a><a href="sea-freight.html" class="mobile-sub-link">Sea Freight</a><a
+          href="warehouse.html" class="mobile-sub-link">Warehouse</a><a href="transport.html"
+          class="mobile-sub-link">Transport</a><a href="project-cargo.html" class="mobile-sub-link">Project Cargo</a><a
+          href="chb.html" class="mobile-sub-link">CHB</a><a href="bpo.html" class="mobile-sub-link">3PL / BPO</a></div>
+    </div>
+    <div class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">About Us</a></div>
+    <div class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact Us</a></div>
+    <div class="mobile-cta"><a href="contact.html" class="btn btn-gold">GET A QUOTE →</a></div>
   </nav>
-  <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
-</header>
-<nav id="mobile-menu">
-  <div class="mobile-nav-item"><a href="../index.html" class="mobile-nav-link">Home</a></div>
-  <div class="mobile-nav-item"><div class="mobile-nav-link" data-toggle="true">Our Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg></div><div class="mobile-submenu"><a href="courier.html" class="mobile-sub-link">Courier</a><a href="air-freight.html" class="mobile-sub-link">Air Freight</a><a href="sea-freight.html" class="mobile-sub-link">Sea Freight</a><a href="warehouse.html" class="mobile-sub-link">Warehouse</a><a href="transport.html" class="mobile-sub-link">Transport</a><a href="project-cargo.html" class="mobile-sub-link">Project Cargo</a><a href="chb.html" class="mobile-sub-link">CHB</a><a href="bpo.html" class="mobile-sub-link">3PL / BPO</a></div></div>
-  <div class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">About Us</a></div>
-  <div class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact Us</a></div>
-  <div class="mobile-cta"><a href="contact.html" class="btn btn-gold">GET A QUOTE →</a></div>
-</nav>
 
-<!-- ═══ HERO ═══ -->
-<section class="contact-hero">
-  <div class="contact-hero-bg">
-    <img src="../contact/land.jpg" alt="Contact EGX" loading="eager" onerror="this.src='../images/about-us.png'">
-  </div>
-  <div class="contact-hero-overlay"></div>
-  <div class="contact-hero-content">
-    <span class="label reveal">FIND US</span>
-    <h1 class="reveal delay-1">Visit Our <span class="gold">Office</span></h1>
-    <p class="reveal delay-2">Our dedicated team of logistics experts is ready to streamline your supply chain. Reach out to the specialist relevant to your needs directly below.</p>
-  </div>
-</section>
+  <!-- ═══ HERO ═══ -->
+  <section class="contact-hero">
+    <div class="contact-hero-bg">
+      <img src="../images/ContactUs/EGX OFFICE 2.webp" alt="Contact EGX" loading="eager"
+        onerror="this.src='../images/about-us.png'">
+    </div>
+    <div class="contact-hero-overlay"></div>
+    <div class="contact-hero-content">
+      <span class="label reveal">FIND US</span>
+      <h1 class="reveal delay-1">Visit Our <span class="gold">Office</span></h1>
+      <p class="reveal delay-2">Our dedicated team of logistics experts is ready to streamline your supply chain. Reach
+        out to the specialist relevant to your needs directly below.</p>
+    </div>
+  </section>
 
 
 
-<!-- ═══ MAP + CONTACT INFO ═══ -->
-<section class="contact-map-section section">
-  <div class="container">
-    
-    <div class="contact-info-map-grid">
-      <div class="contact-info-box">
-        <div class="contact-info-item reveal delay-1">
-          <div class="contact-info-icon">
-            <svg viewBox="0 0 24 24">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-          </div>
-          <div class="contact-info-text">
-            <label>OUR ADDRESS</label>
-            <a href="https://maps.google.com/?q=No.281+R.A.+De+Mel+Mawatha+Colombo+3" target="_blank">No.281 R.A.De Mel Mawatha,<br>Colombo 3, Sri Lanka</a>
-          </div>
-        </div>
-        <div class="contact-info-item reveal delay-2">
-          <div class="contact-info-icon">
-            <svg viewBox="0 0 24 24">
-    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-  </svg>
-          </div>
-          <div class="contact-info-text">
-            <label>EMAIL US</label>
-            <a href="mailto:info@egxsupplychain.com">info@egxsupplychain.com</a>
-          </div>
-        </div>
-        <div class="contact-info-item reveal delay-3">
-          <div class="contact-info-icon"> <svg viewBox="0 0 24 24">
-    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-  </svg></div>
-          <div class="contact-info-text">
-            <label>CALL US</label>
-            <a href="tel:0112301087">011 230 1087</a>
-          </div>
-        </div>
-        <div class="contact-info-item reveal delay-4">
-          <div class="contact-info-icon">
-                <svg viewBox="0 0 24 24">
-    <path d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.9 1-.2.2-.3.2-.6.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.4-1.7-.2-.3 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.6-1.4c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.2-.9.9-.9 2.2s1 2.6 1.2 2.8c.2.2 2.1 3.2 5.2 4.3.7.3 1.2.4 1.6.5.5.2 1.1.1 1.5 0 .5-.2 1.4-.7 1.6-1.3.2-.6.2-1.1.1-1.3-.1-.2-.3-.3-.5-.4z"/>
-  </svg>
+  <!-- ═══ MAP + CONTACT INFO ═══ -->
+  <section class="contact-map-section section">
+    <div class="container">
 
+      <div class="contact-info-map-grid">
+        <div class="contact-info-box">
+          <div class="contact-info-item reveal delay-1">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <label>OUR ADDRESS</label>
+              <a href="https://maps.google.com/?q=No.281+R.A.+De+Mel+Mawatha+Colombo+3" target="_blank">No.281 R.A.De
+                Mel Mawatha,<br>Colombo 3, Sri Lanka</a>
+            </div>
           </div>
-          <div class="contact-info-text">
-            <label>WHATSAPP</label>
-            <a href="https://wa.me/94702878440" target="_blank">070 287 8440</a>
+          <div class="contact-info-item reveal delay-2">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <label>EMAIL US</label>
+              <a href="mailto:info@egxsupplychain.com">info@egxsupplychain.com</a>
+            </div>
+          </div>
+          <div class="contact-info-item reveal delay-3">
+            <div class="contact-info-icon"> <svg viewBox="0 0 24 24">
+                <path
+                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+              </svg></div>
+            <div class="contact-info-text">
+              <label>CALL US</label>
+              <a href="tel:0112301087">011 230 1087</a>
+            </div>
+          </div>
+          <div class="contact-info-item reveal delay-4">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.9 1-.2.2-.3.2-.6.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.4-1.7-.2-.3 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.6-1.4c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.2-.9.9-.9 2.2s1 2.6 1.2 2.8c.2.2 2.1 3.2 5.2 4.3.7.3 1.2.4 1.6.5.5.2 1.1.1 1.5 0 .5-.2 1.4-.7 1.6-1.3.2-.6.2-1.1.1-1.3-.1-.2-.3-.3-.5-.4z" />
+              </svg>
+
+            </div>
+            <div class="contact-info-text">
+              <label>WHATSAPP</label>
+              <a href="https://wa.me/94702878440" target="_blank">070 287 8440</a>
+            </div>
+          </div>
+          <div class="contact-info-item reveal delay-5">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2a10 10 0 100 20 10 10 0 000-20zm7.93 9h-3.17a15.7 15.7 0 00-1.36-5.02A8.03 8.03 0 0119.93 11zM12 4c.99 1.43 1.77 3.51 2.13 6H9.87C10.23 7.51 11.01 5.43 12 4zM4.07 13h3.17c.23 1.79.71 3.49 1.36 5.02A8.03 8.03 0 014.07 13zM7.24 11H4.07A8.03 8.03 0 019.6 5.98 15.7 15.7 0 007.24 11zM12 20c-.99-1.43-1.77-3.51-2.13-6h4.26C13.77 16.49 12.99 18.57 12 20zm2.76-1.98A15.7 15.7 0 0016.93 13h3.17a8.03 8.03 0 01-5.34 5.02z" />
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <label>WEBSITE</label>
+              <a href="https://egxsupplychain.com" target="_blank">www.egxlogistics.com</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item reveal delay-6">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm1-8.5V7h-2v5l4 2 .8-1.8z" />
+              </svg>
+            </div>
+            <div class="contact-info-text">
+              <label>OFFICE HOURS</label>
+              <p>Mon – Fri: 8:00 AM – 5:00 PM<br>Saturday: 9:00 AM – 1:00 PM</p>
+            </div>
           </div>
         </div>
-        <div class="contact-info-item reveal delay-5">
-          <div class="contact-info-icon">
-          <svg viewBox="0 0 24 24">
-    <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm7.93 9h-3.17a15.7 15.7 0 00-1.36-5.02A8.03 8.03 0 0119.93 11zM12 4c.99 1.43 1.77 3.51 2.13 6H9.87C10.23 7.51 11.01 5.43 12 4zM4.07 13h3.17c.23 1.79.71 3.49 1.36 5.02A8.03 8.03 0 014.07 13zM7.24 11H4.07A8.03 8.03 0 019.6 5.98 15.7 15.7 0 007.24 11zM12 20c-.99-1.43-1.77-3.51-2.13-6h4.26C13.77 16.49 12.99 18.57 12 20zm2.76-1.98A15.7 15.7 0 0016.93 13h3.17a8.03 8.03 0 01-5.34 5.02z"/>
-  </svg>
-          </div>
-          <div class="contact-info-text">
-            <label>WEBSITE</label>
-            <a href="https://egxsupplychain.com" target="_blank">www.egxlogistics.com</a>
-          </div>
-        </div>
-        
-        <div class="contact-info-item reveal delay-6">
-          <div class="contact-info-icon">
-           <svg viewBox="0 0 24 24">
-    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm1-8.5V7h-2v5l4 2 .8-1.8z"/>
-  </svg>
-          </div>
-          <div class="contact-info-text">
-            <label>OFFICE HOURS</label>
-            <p>Mon – Fri: 8:00 AM – 5:00 PM<br>Saturday: 9:00 AM – 1:00 PM</p>
-          </div>
+
+        <!-- Google Maps -->
+        <div class="map-embed reveal-right">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9!2d79.8538668!3d6.9070781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25927dbd2da05%3A0xdad3594d2c42624!2s281%20R.%20A.%20De%20Mel%20Mawatha%2C%20Colombo!5e0!3m2!1sen!2slk!4v1719297599989!5m2!1sen!2slk"
+            title="EGX Supply Chain Location" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Google Maps -->
-      <div class="map-embed reveal-right">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9!2d79.8538668!3d6.9070781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25927dbd2da05%3A0xdad3594d2c42624!2s281%20R.%20A.%20De%20Mel%20Mawatha%2C%20Colombo!5e0!3m2!1sen!2slk!4v1719297599989!5m2!1sen!2slk"
-          title="EGX Supply Chain Location"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+  <!-- ═══ CONTACT FORM ═══ -->
+  <section class="contact-form-section section">
+    <div class="container">
+      <div class="section-title-block reveal">
+        <span class="label">SEND A MESSAGE</span>
+        <h2>Get a <span class="gold">Free Quote</span></h2>
+        <p>Fill in your details and one of our logistics experts will get back to you within 24 hours.</p>
+      </div>
+      <div class="contact-form-wrap reveal">
+        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">FIRST NAME *</label>
+              <input type="text" id="fname" name="fname" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label for="lname">LAST NAME *</label>
+              <input type="text" id="lname" name="lname" placeholder="Smith" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">EMAIL ADDRESS *</label>
+              <input type="email" id="email" name="email" placeholder="john@company.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">PHONE NUMBER</label>
+              <input type="tel" id="phone" name="phone" placeholder="+94 71 234 5678">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">SERVICE REQUIRED *</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option value="courier">Courier</option>
+              <option value="air">Air Freight</option>
+              <option value="sea">Sea Freight</option>
+              <option value="warehouse">Warehouse &amp; Logistics</option>
+              <option value="transport">Transport</option>
+              <option value="project">Project Cargo</option>
+              <option value="chb">CHB – Customs Brokerage</option>
+              <option value="bpo">3PL &amp; 4PL / BPO</option>
+              <option value="other">Other / General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">MESSAGE *</label>
+            <textarea id="message" name="message"
+              placeholder="Tell us about your shipment, cargo type, origin, destination and timeline..."
+              required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold"
+            style="width:100%;justify-content:center;font-size:1.1rem;padding:18px;">
+            SEND MESSAGE →
+          </button>
+          <p id="form-success"
+            style="display:none;text-align:center;color:var(--gold);margin-top:16px;font-family:var(--font-accent);letter-spacing:0.1em">
+            ✓ MESSAGE SENT! WE'LL BE IN TOUCH WITHIN 24 HOURS.
+          </p>
+        </form>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══ CONTACT FORM ═══ -->
-<section class="contact-form-section section">
-  <div class="container">
-    <div class="section-title-block reveal">
-      <span class="label">SEND A MESSAGE</span>
-      <h2>Get a <span class="gold">Free Quote</span></h2>
-      <p>Fill in your details and one of our logistics experts will get back to you within 24 hours.</p>
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-social-bar">
+      <p>GET CONNECTED WITH US ON SOCIAL NETWORKS</p>
+      <div class="footer-social-icons">
+        <a href="mailto:info@egxsupplychain.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24"
+            fill="currentColor">
+            <path
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg></a>
+        <a href="https://www.facebook.com/egxsupplychain" target="_blank" rel="noopener" aria-label="Facebook"><svg
+            width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+          </svg></a>
+        <a href="https://www.linkedin.com/company/egx-supply-chain" target="_blank" rel="noopener"
+          aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+            <circle cx="4" cy="4" r="2" />
+          </svg></a>
+        <a href="https://wa.me/94702878440" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18"
+            height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg></a>
+      </div>
     </div>
-    <div class="contact-form-wrap reveal">
-      <form id="contactForm" onsubmit="handleFormSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname">FIRST NAME *</label>
-            <input type="text" id="fname" name="fname" placeholder="John" required>
-          </div>
-          <div class="form-group">
-            <label for="lname">LAST NAME *</label>
-            <input type="text" id="lname" name="lname" placeholder="Smith" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="email">EMAIL ADDRESS *</label>
-            <input type="email" id="email" name="email" placeholder="john@company.com" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">PHONE NUMBER</label>
-            <input type="tel" id="phone" name="phone" placeholder="+94 71 234 5678">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="service">SERVICE REQUIRED *</label>
-          <select id="service" name="service" required>
-            <option value="" disabled selected>Select a service...</option>
-            <option value="courier">Courier</option>
-            <option value="air">Air Freight</option>
-            <option value="sea">Sea Freight</option>
-            <option value="warehouse">Warehouse &amp; Logistics</option>
-            <option value="transport">Transport</option>
-            <option value="project">Project Cargo</option>
-            <option value="chb">CHB – Customs Brokerage</option>
-            <option value="bpo">3PL &amp; 4PL / BPO</option>
-            <option value="other">Other / General Inquiry</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">MESSAGE *</label>
-          <textarea id="message" name="message" placeholder="Tell us about your shipment, cargo type, origin, destination and timeline..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;font-size:1.1rem;padding:18px;">
-          SEND MESSAGE →
-        </button>
-        <p id="form-success" style="display:none;text-align:center;color:var(--gold);margin-top:16px;font-family:var(--font-accent);letter-spacing:0.1em">
-          ✓ MESSAGE SENT! WE'LL BE IN TOUCH WITHIN 24 HOURS.
-        </p>
-      </form>
+    <div class="footer-main">
+      <div><img class="footer-logo" src="../images/egx-logo.webp" alt="EGX Supply Chain"
+          onerror="this.src='../images/EGXNavLogo.webp'">
+        <p class="footer-desc">EGX Supply Chain is your trusted logistics partner, delivering optimized, scalable, and
+          tech-driven solutions for global and local businesses.</p>
+      </div>
+      <div>
+        <p class="footer-heading">QUICK LINKS</p>
+        <div class="footer-quick-links"><a href="../index.html">Home</a><a href="services.html">Services</a><a
+            href="about.html">About</a><a href="contact.html">Contact</a></div>
+        <p class="footer-heading" style="margin-top:28px">OUR SERVICES</p>
+        <div class="footer-services-grid"><a href="sea-freight.html">Sea Freight</a><a
+            href="project-cargo.html">Projects</a><a href="air-freight.html">Air Freight</a><a
+            href="transport.html">Transport</a><a href="courier.html">Courier</a><a
+            href="warehouse.html">Warehousing</a><a href="chb.html">CHB</a><a href="bpo.html">BPO / 3PL</a></div>
+      </div>
+      <div>
+        <p class="footer-heading">CONTACT INFO</p>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)"
+            style="flex-shrink:0;margin-top:3px">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg><a href="#">No.281 R.A.De Mel Mawatha, Colombo 3</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)"
+            style="flex-shrink:0">
+            <path
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg><a href="mailto:info@egxsupplychain.com">info@egxsupplychain.com</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)"
+            style="flex-shrink:0">
+            <path
+              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+          </svg><a href="tel:0112301087">011 230 1087</a></div>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer id="footer">
-  <div class="footer-social-bar">
-    <p>GET CONNECTED WITH US ON SOCIAL NETWORKS</p>
-    <div class="footer-social-icons">
-      <a href="mailto:info@egxsupplychain.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-      <a href="https://www.facebook.com/egxsupplychain" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-      <a href="https://www.linkedin.com/company/egx-supply-chain" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-      <a href="https://wa.me/94702878440" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+    <div class="footer-bottom">
+      <p>© 2025 EGX INFOVIBE. All rights reserved.</p>
+      <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
-  </div>
-  <div class="footer-main">
-    <div><img class="footer-logo" src="../images/egx-logo.png" alt="EGX Supply Chain" onerror="this.src='../images/EGXNavLogo.png'"><p class="footer-desc">EGX Supply Chain is your trusted logistics partner, delivering optimized, scalable, and tech-driven solutions for global and local businesses.</p></div>
-    <div><p class="footer-heading">QUICK LINKS</p><div class="footer-quick-links"><a href="../index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a></div><p class="footer-heading" style="margin-top:28px">OUR SERVICES</p><div class="footer-services-grid"><a href="sea-freight.html">Sea Freight</a><a href="project-cargo.html">Projects</a><a href="air-freight.html">Air Freight</a><a href="transport.html">Transport</a><a href="courier.html">Courier</a><a href="warehouse.html">Warehousing</a><a href="chb.html">CHB</a><a href="bpo.html">BPO / 3PL</a></div></div>
-    <div><p class="footer-heading">CONTACT INFO</p><div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)" style="flex-shrink:0;margin-top:3px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><a href="#">No.281 R.A.De Mel Mawatha, Colombo 3</a></div><div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)" style="flex-shrink:0"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:info@egxsupplychain.com">info@egxsupplychain.com</a></div><div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)" style="flex-shrink:0"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><a href="tel:0112301087">011 230 1087</a></div></div>
-  </div>
-  <div class="footer-bottom"><p>© 2025 EGX INFOVIBE. All rights reserved.</p><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div></div>
-</footer>
+  </footer>
 
-<script src="../js/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-<script>
-emailjs.init("ocw9B9BGN-VDbPhJi");
+  <script>
+    emailjs.init("ocw9B9BGN-VDbPhJi");
 
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-  const data = {
-    fname: document.getElementById("fname").value,
-    lname: document.getElementById("lname").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
-    service: document.getElementById("service").value,
-    message: document.getElementById("message").value,
-  };
+      const data = {
+        fname: document.getElementById("fname").value,
+        lname: document.getElementById("lname").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        service: document.getElementById("service").value,
+        message: document.getElementById("message").value,
+      };
 
-  const btn = e.target.querySelector("button");
-  const successMsg = document.getElementById("successMsg");
+      const btn = e.target.querySelector("button");
+      const successMsg = document.getElementById("form-success");
 
-  btn.disabled = true;
-  btn.innerText = "SENDING...";
+      btn.disabled = true;
+      btn.innerText = "SENDING...";
 
-  let officeSent = false;
+      try {
 
-  try {
-    // 🔥 Send office email FIRST (important)
-    await emailjs.send("service_qd2fm1q", "template_xjyzky6", data);
-    officeSent = true;
-  } catch (err) {
-    console.log("Office email failed:", err);
-  }
+        // Send company email
+        await emailjs.send("service_qd2fm1q", "template_xjyzky6", data);
 
-  // 🔥 Send customer email in background (DO NOT BLOCK UI)
-  emailjs.send("service_qd2fm1q", "template_e9ykp21", data)
-    .catch(err => console.log("Customer email failed:", err));
+        // Send customer confirmation email
+        emailjs.send("service_qd2fm1q", "template_e9ykp21", data)
+          .catch(err => console.log("Customer email failed:", err));
 
-  // ✅ ALWAYS show success if office email worked
-  if (officeSent) {
-    successMsg.style.display = "block";
-    successMsg.innerText = "✓ Message sent successfully!";
 
-    document.getElementById("contactForm").reset();
+        // Show success message
+        successMsg.style.display = "block";
+        successMsg.innerHTML =
+          "Inquiry submitted successfully!<br>Our team will contact you soon.";
 
-    setTimeout(() => {
-      successMsg.style.display = "none";
-    }, 4000);
-  } else {
-    alert("Failed to send message. Try again.");
-  }
+        // Clear form
+        document.getElementById("contactForm").reset();
 
-  btn.disabled = false;
-  btn.innerText = "SEND MESSAGE →";
-});
-</script>
+
+        // Hide message after 6 seconds
+        setTimeout(() => {
+          successMsg.style.display = "none";
+        }, 6000);
+
+
+      } catch (error) {
+
+        console.log("Email failed:", error);
+
+        successMsg.style.display = "block";
+        successMsg.style.color = "red";
+        successMsg.innerHTML =
+          "Something went wrong. Please try again.";
+
+      }
+
+
+      btn.disabled = false;
+      btn.innerText = "SEND MESSAGE →";
+
+    });
+  </script>
 </body>
+
 </html>

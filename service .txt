@@ -11,7 +11,7 @@
       <div class="wheel-wrap">
         <div class="wheel" id="serviceWheel">
           <div class="wheel-center">
-            <img src="images/egx-logo.png" alt="EGX" onerror="this.style.display='none'">
+            <img src="images/egx-logo.webp" alt="EGX" onerror="this.style.display='none'">
           </div>
           <!-- Items positioned by JS -->
           <div class="wheel-item" data-name="Courier" data-desc="Fast and secure international courier services to 220+ countries with real-time tracking and express options." data-href="pages/courier.html">

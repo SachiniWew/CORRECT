@@ -1,612 +1,705 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="EGX Supply Chain — World-class logistics solutions including courier, air freight, sea freight, warehouse, transport, and customs brokerage services.">
+  <meta name="description"
+    content="EGX Supply Chain — World-class logistics solutions including courier, air freight, sea freight, warehouse, transport, and customs brokerage services.">
   <title>EGX Supply Chain | Global Logistics Excellence</title>
-  <link rel="icon" href="images/egx-logo.png">
+  <link rel="icon" href="images/egx-logo.webp">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/footer.css">
+
+  <link rel="stylesheet" href="css/chatbot.css">
+
+  <script src="js/egx-faq.js"></script>
+
+  <script src="js/chatbot.js"></script>
+
 </head>
+
 <body>
+  
 
-<!-- PRELOADER -->
-<div id="preloader">
-  <img class="preloader-logo" src="images/EGXNavLogo.png" alt="EGX" onerror="this.style.display='none'">
-  <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
-  <p class="preloader-text">LOADING EXCELLENCE</p>
-</div>
-<div id="page-transition"></div>
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
-<audio id="preloader-sound" src="sounds/flash.mp3" preload="none"></audio>
-<audio id="spin-sound" src="sounds/spin3.mp3" preload="none"></audio>
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <img class="preloader-logo" src="images/EGXNavLogo.webp" alt="EGX" onerror="this.style.display='none'">
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar"></div>
+    </div>
+    <p class="preloader-text">LOADING EXCELLENCE</p>
+  </div>
+  <div id="page-transition"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <audio id="preloader-sound" src="sounds/flash.mp3" preload="none"></audio>
+  <audio id="spin-sound" src="sounds/spin3.mp3" preload="none"></audio>
 
-<!-- NAVBAR -->
-<header id="navbar">
-  <a href="index.html" class="nav-logo">
-    <img src="images/EGXNavLogo.png" alt="EGX Supply Chain">
-  </a>
-  <nav class="nav-links">
-    <div class="nav-item"><a href="index.html" class="nav-link active">HOME</a></div>
-    <div class="nav-item">
-      <a href="pages/services.html" class="nav-link">OUR SERVICES <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
-      <div class="nav-dropdown">
-        
-        <a href="pages/courier.html" class="dropdown-link">Courier</a>
-        <a href="pages/air-freight.html" class="dropdown-link">Air Freight</a>
-        <a href="pages/sea-freight.html" class="dropdown-link">Sea Freight</a>
-        <a href="pages/warehouse.html" class="dropdown-link">Warehouse & Logistics</a>
-        <a href="pages/transport.html" class="dropdown-link">Transport</a>
-        <a href="pages/project-cargo.html" class="dropdown-link">Project Cargo</a>
-        <a href="pages/chb.html" class="dropdown-link">CHB</a>
-        <a href="pages/bpo.html" class="dropdown-link">3PL &amp; 4PL / BPO</a>
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="images/EGXNavLogo.webp" alt="EGX Supply Chain">
+    </a>
+    <nav class="nav-links">
+      <div class="nav-item"><a href="index.html" class="nav-link active">HOME</a></div>
+      <div class="nav-item">
+        <a href="pages/services.html" class="nav-link">OUR SERVICES <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9" />
+          </svg></a>
+        <div class="nav-dropdown">
+          <a href="pages/courier.html" class="dropdown-link">Courier</a>
+          <a href="pages/air-freight.html" class="dropdown-link">Air Freight</a>
+          <a href="pages/sea-freight.html" class="dropdown-link">Sea Freight</a>
+          <a href="pages/warehouse.html" class="dropdown-link">Warehouse & Logistics</a>
+          <a href="pages/transport.html" class="dropdown-link">Transport</a>
+          <a href="pages/project-cargo.html" class="dropdown-link">Project Cargo</a>
+          <a href="pages/chb.html" class="dropdown-link">CHB</a>
+          <a href="pages/bpo.html" class="dropdown-link">3PL &amp; 4PL / BPO</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="pages/about.html" class="nav-link">ABOUT US</a></div>
+      <div class="nav-item"><a href="pages/contact.html" class="nav-link">CONTACT US</a></div>
+    </nav>
+
+    <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <nav id="mobile-menu">
+    <div class="mobile-nav-item"><a href="index.html" class="mobile-nav-link">Home</a></div>
+    <div class="mobile-nav-item">
+      <div class="mobile-nav-link" data-toggle="true">Our Services <svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" width="20" height="20">
+          <polyline points="6 9 12 15 18 9" />
+        </svg></div>
+      <div class="mobile-submenu">
+        <a href="pages/courier.html" class="mobile-sub-link">Courier</a>
+        <a href="pages/air-freight.html" class="mobile-sub-link">Air Freight</a>
+        <a href="pages/sea-freight.html" class="mobile-sub-link">Sea Freight</a>
+        <a href="pages/warehouse.html" class="mobile-sub-link">Warehouse &amp; Logistics</a>
+        <a href="pages/transport.html" class="mobile-sub-link">Transport</a>
+        <a href="pages/project-cargo.html" class="mobile-sub-link">Project Cargo</a>
+        <a href="pages/chb.html" class="mobile-sub-link">CHB</a>
+        <a href="pages/bpo.html" class="mobile-sub-link">3PL &amp; 4PL / BPO</a>
       </div>
     </div>
-    <div class="nav-item"><a href="pages/about.html" class="nav-link">ABOUT US</a></div>
-    <div class="nav-item"><a href="pages/contact.html" class="nav-link">CONTACT US</a></div>
+    <div class="mobile-nav-item"><a href="pages/about.html" class="mobile-nav-link">About Us</a></div>
+    <div class="mobile-nav-item"><a href="pages/contact.html" class="mobile-nav-link">Contact Us</a></div>
+    <div class="mobile-cta"><a href="pages/contact.html" class="btn btn-gold">GET A QUOTE →</a></div>
   </nav>
-  
-  <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
-</header>
 
-<!-- MOBILE MENU -->
-<nav id="mobile-menu">
-  <div class="mobile-nav-item"><a href="index.html" class="mobile-nav-link">Home</a></div>
-  <div class="mobile-nav-item">
-    <div class="mobile-nav-link" data-toggle="true">Our Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg></div>
-    <div class="mobile-submenu">
-      <a href="pages/courier.html" class="mobile-sub-link">Courier</a>
-      <a href="pages/air-freight.html" class="mobile-sub-link">Air Freight</a>
-      <a href="pages/sea-freight.html" class="mobile-sub-link">Sea Freight</a>
-      <a href="pages/warehouse.html" class="mobile-sub-link">Warehouse &amp; Logistics</a>
-      <a href="pages/transport.html" class="mobile-sub-link">Transport</a>
-      <a href="pages/project-cargo.html" class="mobile-sub-link">Project Cargo</a>
-      <a href="pages/chb.html" class="mobile-sub-link">CHB</a>
-      <a href="pages/bpo.html" class="mobile-sub-link">3PL &amp; 4PL / BPO</a>
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- HERO SECTION -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section id="hero">
+    <!-- Background layers (always absolute/decorative) -->
+    <div class="hero-bg">
+      <img class="hero-bg-img" src="images/team-watermark.webp" alt="">
+      <div class="hero-grain"></div>
+      <div class="hero-vignette"></div>
     </div>
-  </div>
-  <div class="mobile-nav-item"><a href="pages/about.html" class="mobile-nav-link">About Us</a></div>
-  <div class="mobile-nav-item"><a href="pages/contact.html" class="mobile-nav-link">Contact Us</a></div>
-  <div class="mobile-cta"><a href="pages/contact.html" class="btn btn-gold">GET A QUOTE →</a></div>
-</nav>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- HERO SECTION -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section id="hero">
+    <!-- Orb (desktop only, hidden on mobile via CSS) -->
+    <div class="hero-orb"></div>
 
-  <!-- Background layers (always absolute/decorative) -->
-  <div class="hero-bg">
-    <img class="hero-bg-img" src="images/team-watermark.png" alt="">
-    <div class="hero-grain"></div>
-    <div class="hero-vignette"></div>
-  </div>
-
-  <!-- Orb (desktop only, hidden on mobile via CSS) -->
-  <div class="hero-orb"></div>
-
-  <!-- BIG EGX background text image
+    <!-- BIG EGX background text image
        Desktop: absolute centered behind logo
        Mobile:  flows at top of flex column -->
-  <img class="hero-big-egx" src="images/EGX.png" alt="">
+    <img class="hero-big-egx" src="images/EGX.webp" alt="">
 
-  <!-- Gold glow (desktop only) -->
-  <img class="hero-glow" src="images/yellow-glow.png" alt="">
+    <!-- Gold glow (desktop only) -->
+    <img class="hero-glow" src="images/yellow-glow.webp" alt="">
 
-  <!-- EGX Logo
+    <!-- EGX Logo
        Desktop: absolute centered over EGX text
        Mobile:  flows below EGX text image -->
-  <div class="hero-logo-wrap" id="heroLogoWrap">
-    <img src="images/egx-logo.png" alt="EGX Supply Chain Logo">
-  </div>
+    <div class="hero-logo-wrap" id="heroLogoWrap">
+      <img src="images/egx-logo.webp" alt="EGX Supply Chain Logo">
+    </div>
 
-  <!-- Text content + buttons
+    <!-- Text content + buttons
        Desktop: absolute bottom-left
        Mobile:  flows below logo -->
-  <div class="hero-content">
-   
-    <h1 class="hero-h1">Delivering Global Reach </h1>
-    <h2 class="hero-h1-sub">We Serve Value</h2>
-    <p class="hero-desc">From Colombo to the world, precision logistics, real time visibility, and supply chain solutions built for the modern era.</p>
-    <div class="hero-actions">
-      <a href="pages/services.html" class="btn btn-gold">EXPLORE SERVICES →</a>
-      <a href="pages/contact.html"  class="btn btn-outline">GET A QUOTE</a>
-    </div>
-  </div>
+    <div class="hero-content">
 
-  <!-- Stats
+      <h1 class="hero-h1">Delivering Global Reach </h1>
+      <h2 class="hero-h1-sub">We Serve Value</h2>
+      <p class="hero-desc">From Colombo to the world, precision logistics, real time visibility, and supply chain
+        solutions built for the modern era.</p>
+      <div class="hero-actions">
+        <a href="pages/services.html" class="btn btn-gold">EXPLORE SERVICES →</a>
+        <a href="pages/contact.html" class="btn btn-outline">GET A QUOTE</a>
+      </div>
+    </div>
+
+    <!-- Stats
        Desktop: absolute bottom-right
        Mobile:  flows below content -->
-  <div class="hero-stats">
-    <div class="hero-stat"><div class="num">8+</div><div class="lbl">YEARS EXCELLENCE</div></div>
-    <div class="hero-stat"><div class="num">150+</div><div class="lbl">COUNTRIES REACHED</div></div>
-    <div class="hero-stat"><div class="num">300+</div><div class="lbl"> HAPPY CUSTOMERS</div></div>
-  </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">8+</div>
+        <div class="lbl">YEARS EXCELLENCE</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">150+</div>
+        <div class="lbl">COUNTRIES REACHED</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">300+</div>
+        <div class="lbl"> HAPPY CUSTOMERS</div>
+      </div>
+    </div>
 
-  <!-- Scroll indicator (desktop only) -->
-  <div class="hero-scroll">
-    <span>SCROLL</span>
-    <div class="hero-scroll-line"></div>
-  </div>
+    <!-- Scroll indicator (desktop only) -->
+    <div class="hero-scroll">
+      <span>SCROLL</span>
+      <div class="hero-scroll-line"></div>
+    </div>
 
-</section>
+  </section>
 
 
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SERVICES WHEEL -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section id="services-section" class="section">
+    <div class="container">
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- SERVICES WHEEL -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section id="services-section" class="section">
-  <div class="container">
-    
 
-    <div class="wheel-container">
+      <div class="wheel-container">
 
-      <!-- ── LEFT: Detail Panel ── -->
-      <div class="wheel-detail reveal">
-        <div class="section-title-block reveal">
-          <span class="label">WHAT WE OFFER</span>
-          <h2>OUR SERVICES</h2>
-          <p>Comprehensive logistics solutions tailored to your business needs, from express courier to complex project cargo.</p>
-       </div>
-        <div class="wheel-detail-box">
-          <h2 class="wheel-detail-name">Courier Services</h2>
-          <div class="wheel-detail-inner">
-            <div class="wheel-detail-icon-circle">
-              <img class="wheel-detail-icon-img" src="icons/courier.png" alt="Service Icon">
+        <!-- ── LEFT: Detail Panel ── -->
+        <div class="wheel-detail reveal">
+          <div class="section-title-block reveal">
+            <span class="label">WHAT WE OFFER</span>
+            <h2>OUR SERVICES</h2>
+            <p>Comprehensive logistics solutions tailored to your business needs, from express courier to complex
+              project cargo.</p>
+          </div>
+          <div class="wheel-detail-box">
+            <h2 class="wheel-detail-name">Courier Services</h2>
+            <div class="wheel-detail-inner">
+              <div class="wheel-detail-icon-circle">
+                <img class="wheel-detail-icon-img" src="images/icons/courier.webp" alt="Service Icon">
+              </div>
+              <div class="wheel-detail-btns">
+                <a href="#" class="btn btn-outline wheel-detail-btn">MORE DETAILS</a>
+                <a href="pages/contact.html" class="btn btn-outline">CONTACT US</a>
+              </div>
             </div>
-            <div class="wheel-detail-btns">
-              <a href="#" class="btn btn-outline wheel-detail-btn">MORE DETAILS</a>
-              <a href="pages/contact.html" class="btn btn-outline">CONTACT US</a>
+          </div>
+          <a href="pages/services.html" class="btn btn-gold wheel-explore-btn">EXPLORE SERVICES</a>
+        </div>
+
+        <!-- ── RIGHT: Spinning Wheel ── -->
+        <div class="wheel-wrap">
+          <div class="wheel" id="serviceWheel">
+            <!-- Center: service name text (counter-rotated by JS) -->
+            <div class="wheel-center">
+              <span class="wheel-center-text">Courier Services</span>
+            </div>
+            <!-- Items (positioned + counter-rotated by JS) -->
+            <div class="wheel-item" data-name="Courier Services"
+              data-desc="Fast and secure international courier services to 220+ countries with real-time tracking and express options."
+              data-href="pages/courier.html">
+              <div class="wheel-item-icon"><img src="images/icons/courier.webp" alt="Courier"></div>
+            </div>
+            <div class="wheel-item" data-name="Air Freight"
+              data-desc="Time-critical air cargo solutions with global coverage, customs expertise and full-service handling."
+              data-href="pages/air-freight.html">
+              <div class="wheel-item-icon"><img src="images/icons/air.webp" alt="Air Freight"></div>
+            </div>
+            <div class="wheel-item" data-name="Sea Freight"
+              data-desc="Cost-effective FCL and LCL ocean freight services connecting Sri Lanka to every major port worldwide."
+              data-href="pages/sea-freight.html">
+              <div class="wheel-item-icon"><img src="images/icons/sea.webp" alt="Sea Freight"></div>
+            </div>
+            <div class="wheel-item" data-name="Warehouse &amp; Logistics"
+              data-desc="State-of-the-art warehousing facilities with inventory management, pick &amp; pack, and distribution services."
+              data-href="pages/warehouse.html">
+              <div class="wheel-item-icon"><img src="images/icons/warehouse.webp" alt="Warehouse"></div>
+            </div>
+            <div class="wheel-item" data-name="Ground Transport"
+              data-desc="Reliable road transport solutions across Sri Lanka with GPS tracking and flexible fleet options."
+              data-href="pages/transport.html">
+              <div class="wheel-item-icon"><img src="images/icons/transport.webp" alt="Transport"></div>
+            </div>
+            <div class="wheel-item" data-name="Project Cargo"
+              data-desc="Specialized handling for oversized, heavy-lift and complex project cargo requiring bespoke logistics."
+              data-href="pages/project-cargo.html">
+              <div class="wheel-item-icon"><img src="images/icons/project.webp" alt="Project Cargo"></div>
+            </div>
+            <div class="wheel-item" data-name="CHB"
+              data-desc="Expert Customs House Brokerage ensuring fast, compliant clearance for all your import and export shipments."
+              data-href="pages/chb.html">
+              <div class="wheel-item-icon"><img src="images/icons/chb.webp" alt="CHB"></div>
+            </div>
+            <div class="wheel-item" data-name="3PL &amp; 4PL / BPO"
+              data-desc="Third and fourth-party logistics management and business process outsourcing for scalable supply chains."
+              data-href="pages/bpo.html">
+              <div class="wheel-item-icon"><img src="images/icons/pl.webp" alt="BPO"></div>
             </div>
           </div>
         </div>
-        <a href="pages/services.html" class="btn btn-gold wheel-explore-btn">EXPLORE SERVICES</a>
-      </div>
+      </div><!-- /.wheel-container -->
+    </div>
+  </section>
 
-      <!-- ── RIGHT: Spinning Wheel ── -->
-      <div class="wheel-wrap">
-        <div class="wheel" id="serviceWheel">
-          <!-- Center: service name text (counter-rotated by JS) -->
-          <div class="wheel-center">
-            <span class="wheel-center-text">Courier Services</span>
-          </div>
-          <!-- Items (positioned + counter-rotated by JS) -->
-          <div class="wheel-item" data-name="Courier Services"         data-desc="Fast and secure international courier services to 220+ countries with real-time tracking and express options."         data-href="pages/courier.html">
-            <div class="wheel-item-icon"><img src="icons/courier.png"   alt="Courier"></div>
-          </div>
-          <div class="wheel-item" data-name="Air Freight"              data-desc="Time-critical air cargo solutions with global coverage, customs expertise and full-service handling."              data-href="pages/air-freight.html">
-            <div class="wheel-item-icon"><img src="icons/air.png"       alt="Air Freight"></div>
-          </div>
-          <div class="wheel-item" data-name="Sea Freight"              data-desc="Cost-effective FCL and LCL ocean freight services connecting Sri Lanka to every major port worldwide."              data-href="pages/sea-freight.html">
-            <div class="wheel-item-icon"><img src="icons/sea.png"       alt="Sea Freight"></div>
-          </div>
-          <div class="wheel-item" data-name="Warehouse &amp; Logistics" data-desc="State-of-the-art warehousing facilities with inventory management, pick &amp; pack, and distribution services." data-href="pages/warehouse.html">
-            <div class="wheel-item-icon"><img src="icons/warehouse.png" alt="Warehouse"></div>
-          </div>
-          <div class="wheel-item" data-name="Ground Transport"         data-desc="Reliable road transport solutions across Sri Lanka with GPS tracking and flexible fleet options."                  data-href="pages/transport.html">
-            <div class="wheel-item-icon"><img src="icons/transport.png" alt="Transport"></div>
-          </div>
-          <div class="wheel-item" data-name="Project Cargo"            data-desc="Specialized handling for oversized, heavy-lift and complex project cargo requiring bespoke logistics."            data-href="pages/project-cargo.html">
-            <div class="wheel-item-icon"><img src="icons/project.png"   alt="Project Cargo"></div>
-          </div>
-          <div class="wheel-item" data-name="CHB"                      data-desc="Expert Customs House Brokerage ensuring fast, compliant clearance for all your import and export shipments."      data-href="pages/chb.html">
-            <div class="wheel-item-icon"><img src="icons/chb.png"       alt="CHB"></div>
-          </div>
-          <div class="wheel-item" data-name="3PL &amp; 4PL / BPO"     data-desc="Third and fourth-party logistics management and business process outsourcing for scalable supply chains."         data-href="pages/bpo.html">
-            <div class="wheel-item-icon"><img src="icons/pl.png"        alt="BPO"></div>
-          </div>
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- ABOUT SECTION                                           -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section id="about-snippet">
+    <img class="about-team-img" src="images/about-us.webp" alt="EGX Team" loading="lazy"
+      onerror="this.src='images/about us.webp'">
+
+    <div class="about-split">
+      <div class="about-right reveal-right">
+        <span class="about-badge">WHO WE ARE</span>
+        <h2 class="about-heading">ABOUT US</h2>
+        <p class="about-body">At EGX Supply Chain (Pvt) Ltd, Sri Lanka, we specialize in delivering reliable, efficient,
+          and innovative supply chain solutions that keep businesses moving forward. Guided by our slogan “Serve
+          Values”, we prioritize trust, efficiency, and customer satisfaction in every logistics operation. From freight
+          forwarding to warehousing and distribution, our expert team ensures seamless global connectivity. With a
+          commitment to excellence, EGX Supply Chain is your trusted logistics partner in Sri Lanka and beyond.</p>
+        <a href="pages/about.html" class="btn btn-gold about-cta">MORE</a>
+      </div>
+    </div>
+  </section>
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- STATS COUNTERS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section id="counters">
+    <div class="container">
+      <div class="counters-grid">
+        <div>
+          <div class="counter-num" data-target="300" data-suffix="+">0+</div>
+          <div class="counter-label">HAPPY CUSTOMERS</div>
+        </div>
+        <div>
+          <div class="counter-num" data-target="150" data-suffix="+">0+</div>
+          <div class="counter-label">COUNTRIES SERVED</div>
+        </div>
+        <div>
+          <div class="counter-num" data-target="8" data-suffix="+">0+</div>
+          <div class="counter-label">YEARS EXPERIENCE</div>
+        </div>
+        <div>
+          <div class="counter-num" data-target="100" data-suffix="+">0+</div>
+          <div class="counter-label">GLOBAL PARTNERS</div>
         </div>
       </div>
-
-    </div><!-- /.wheel-container -->
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- ABOUT SECTION                                           -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section id="about-snippet">
-  <img class="about-team-img" src="images/about-us.jpg" alt="EGX Team" loading="lazy" onerror="this.src='images/about us.jpg'">
-
-  <div class="about-split">
-    <div class="about-right reveal-right">
-      <span class="about-badge">WHO WE ARE</span>
-      <h2 class="about-heading">ABOUT US</h2>
-      <p class="about-body">At EGX Supply Chain (Pvt) Ltd, Sri Lanka, we specialize in delivering reliable, efficient, and innovative supply chain solutions that keep businesses moving forward. Guided by our slogan “Serve Values”, we prioritize trust, efficiency, and customer satisfaction in every logistics operation. From freight forwarding to warehousing and distribution, our expert team ensures seamless global connectivity. With a commitment to excellence, EGX Supply Chain is your trusted logistics partner in Sri Lanka and beyond.</p>
-      <a href="pages/about.html" class="btn btn-gold about-cta">DOWNLOAD BROCHURE</a>
     </div>
-  </div>
-</section>
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- STATS COUNTERS -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section id="counters">
-  <div class="container">
-    <div class="counters-grid">
-      <div>
-        <div class="counter-num" data-target="300" data-suffix="+">0+</div>
-        <div class="counter-label">HAPPY CUSTOMERS</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- TEAM SNIPPET -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section id="team-snippet" class="section">
+    <div class="container">
+
+      <div class="section-title-block reveal">
+        <span class="label">THE LEADERSHIP</span>
+        <h2>IMPACT SQUAD</h2>
+        <p>Driven by experience, guided by vision.</p>
       </div>
-      <div>
-        <div class="counter-num" data-target="150" data-suffix="+">0+</div>
-        <div class="counter-label">COUNTRIES SERVED</div>
+
+      <!-- team-rows-wrap: on mobile becomes the horizontal scroll container -->
+      <div class="team-rows-wrap">
+
+        <div class="team-row-top">
+
+          <div class="team-card reveal delay-1">
+            <div class="team-img">
+              <img src="images/ExcoTeam/01 ashan .webp" alt="">
+            </div>
+            <div class="team-info">
+              <h4>Ashan Fernando</h4>
+              <p>MANAGING DIRECTOR</p>
+            </div>
+          </div>
+
+          <div class="team-card reveal delay-2">
+            <div class="team-img">
+              <img src="images/ExcoTeam/02. Nisansala .webp" alt="">
+            </div>
+            <div class="team-info">
+              <h4>Nisansala Samaraweera</h4>
+              <p>GENERAL MANAGER</p>
+            </div>
+          </div>
+
+          <div class="team-card reveal delay-3">
+            <div class="team-img">
+              <img src="images/ExcoTeam/06 chathurika .webp" alt="">
+            </div>
+            <div class="team-info">
+              <h4>Chathurika Dilrukshani</h4>
+              <p>HEAD OF FINANCE</p>
+            </div>
+          </div>
+
+          <div class="team-card reveal delay-4">
+            <div class="team-img">
+              <img src="images/ExcoTeam/05. janith.webp" alt="">
+            </div>
+            <div class="team-info">
+              <h4>Janith Perera</h4>
+              <p>HEAD OF FLEET</p>
+            </div>
+          </div>
+
+          <div class="team-card reveal delay-5">
+            <div class="team-img">
+              <img src="images/ExcoTeam/03. anne.webp" alt="">
+            </div>
+            <div class="team-info">
+              <h4>Anne Dilani</h4>
+              <p>HEAD OF COURIER</p>
+            </div>
+          </div>
+
+          <div class="team-card reveal delay-6">
+            <div class="team-img">
+              <img src="images/ExcoTeam/04. thushanthan .webp" alt="">
+            </div>
+            <div class="team-info">
+              <h4>Thushanthan Subramanium</h4>
+              <p>HEAD OF SALES</p>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div><!-- /.team-rows-wrap -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- EGX INFORVIBE                                              -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <section id="pulse-section">
+
+    <!-- Floating highlight box that follows hovered card -->
+    <div class="pulse-item-bg" id="pulseItemBg"></div>
+    <div class="pulse-inner">
+
+      <!-- Section heading -->
+      <div class="section-title-block reveal">
+        <span class="label">STAY AHEAD WITH</span>
+        <h2>EGX INFORVIBE</h2>
+        <p>Your source for daily logistics news, freight insights, supply chain trends, and industry updates.</p>
       </div>
-      <div>
-        <div class="counter-num" data-target="8" data-suffix="+">0+</div>
-        <div class="counter-label">YEARS EXPERIENCE</div>
-      </div>
-      <div>
-        <div class="counter-num" data-target="100" data-suffix="+">0+</div>
-        <div class="counter-label">GLOBAL PARTNERS</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- TEAM SNIPPET -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section id="team-snippet" class="section">
-  <div class="container">
 
-    <div class="section-title-block reveal">
-      <span class="label">THE LEADERSHIP</span>
-      <h2>IMPACT SQUAD</h2>
-      <p>Driven by experience, guided by vision.</p>
-    </div>
+      <!-- Swiper -->
+      <div class="swiper pulse-swiper">
+        <div class="swiper-wrapper">
 
-    <!-- team-rows-wrap: on mobile becomes the horizontal scroll container -->
-    <div class="team-rows-wrap">
-
-      <div class="team-row-top">
-
-  <div class="team-card reveal delay-1">
-    <div class="team-img">
-      <img src="images/ExcoTeam/01 ashan .webp" alt="">
-    </div>
-    <div class="team-info">
-      <h4>Ashan Fernando</h4>
-      <p>MANAGING DIRECTOR</p>
-    </div>
-  </div>
-
-  <div class="team-card reveal delay-2">
-    <div class="team-img">
-      <img src="images/ExcoTeam/02. Nisansala .webp" alt="">
-    </div>
-    <div class="team-info">
-      <h4>Nisansala Samaraweera</h4>
-      <p>GENERAL MANAGER</p>
-    </div>
-  </div>
-
-  <div class="team-card reveal delay-3">
-    <div class="team-img">
-      <img src="images/ExcoTeam/06 chathurika .webp" alt="">
-    </div>
-    <div class="team-info">
-      <h4>Chathurika Dilrukshani</h4>
-      <p>HEAD OF FINANCE</p>
-    </div>
-  </div>
-
-  <div class="team-card reveal delay-4">
-    <div class="team-img">
-      <img src="images/ExcoTeam/05. janith.webp" alt="">
-    </div>
-    <div class="team-info">
-      <h4>Janith Perera</h4>
-      <p>HEAD OF FLEET</p>
-    </div>
-  </div>
-
-  <div class="team-card reveal delay-5">
-    <div class="team-img">
-      <img src="images/ExcoTeam/03. anne.webp" alt="">
-    </div>
-    <div class="team-info">
-      <h4>Anne Dilani</h4>
-      <p>HEAD OF COURIER</p>
-    </div>
-  </div>
-
-  <div class="team-card reveal delay-6">
-    <div class="team-img">
-      <img src="images/ExcoTeam/04. thushanthan .webp" alt="">
-    </div>
-    <div class="team-info">
-      <h4>Thushanthan Subramanium</h4>
-      <p>HEAD OF SALES</p>
-    </div>
-  </div>
-
-</div>
-      
-
-    </div><!-- /.team-rows-wrap -->
-
-   
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- EGX PULSE                                               -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
-<section id="pulse-section">
-
-  <!-- Full-bleed background image (blurred, dark) -->
-  <div class="pulse-bg" id="pulseBg">
-    <img src="images/egxPulse/News (1).png" alt="" id="pulseBgImg">
-  </div>
-  <div class="pulse-bg-overlay"></div>
-
-  <!-- Floating highlight box that follows hovered card -->
-  <div class="pulse-item-bg" id="pulseItemBg"></div>
-
-  <div class="pulse-inner">
-
-    <!-- Section heading -->
-    <div class="pulse-heading reveal">
-      <span class="label">LATEST FROM EGX</span>
-      <h2>EGX PULSE</span></h2>
-    </div>
-
-    <!-- Swiper -->
-    <div class="swiper pulse-swiper">
-      <div class="swiper-wrapper">
-
-        <!-- ═══════════════════════════════════════════════
+          <!-- ═══════════════════════════════════════════════
              TO ADD A NEW POST:
              Copy one .swiper-slide block,
              paste at the TOP (newest first),
              update: date day/month, title, excerpt, img src, href
              ═══════════════════════════════════════════════ -->
 
-        <div class="swiper-slide">
-          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
-             data-img="images/egxPulse/News (1).png">
-            <div class="pulse-date">
-              <span class="pulse-date-day">12</span>
-              <span class="pulse-date-mon">May</span>
-            </div>
-            <div class="pulse-card-body">
-              
-              <h3 class="pulse-title">EGX expands courier network across Sri Lanka</h3>
-              <p class="pulse-excerpt">Reaching new milestones in domestic delivery with our growing fleet and dedicated partner network island-wide.</p>
-            </div>
-            <div class="pulse-card-img">
-              <img src="images/egxPulse/News (1).png" alt="EGX News">
-            </div>
-          </a>
+          <div class="swiper-slide">
+            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+              data-img="images/egxPulse/News (1).png">
+              <div class="pulse-date">
+                <span class="pulse-date-day">12</span>
+                <span class="pulse-date-mon">May</span>
+              </div>
+              <div class="pulse-card-body">
+
+                <h3 class="pulse-title">EGX expands courier network across Sri Lanka</h3>
+                <p class="pulse-excerpt">Reaching new milestones in domestic delivery with our growing fleet and
+                  dedicated partner network island-wide.</p>
+              </div>
+              <div class="pulse-card-img">
+                <img src="images/egxPulse/News (1).png" alt="EGX News">
+              </div>
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+              data-img="images/egxPulse/News (2).png">
+              <div class="pulse-date">
+                <span class="pulse-date-day">28</span>
+                <span class="pulse-date-mon">Apr</span>
+              </div>
+              <div class="pulse-card-body">
+
+                <h3 class="pulse-title">Record shipment volume achieved in Q1 2025</h3>
+                <p class="pulse-excerpt">Our sea freight division hits a new high with increased FCL &amp; LCL movements
+                  across major trade lanes.</p>
+              </div>
+              <div class="pulse-card-img">
+                <img src="images/egxPulse/News (2).png" alt="EGX News">
+              </div>
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+              data-img="images/egxPulse/News (3).png">
+              <div class="pulse-date">
+                <span class="pulse-date-day">15</span>
+                <span class="pulse-date-mon">Apr</span>
+              </div>
+              <div class="pulse-card-body">
+
+                <h3 class="pulse-title">New airline partnerships for faster cargo lanes</h3>
+                <p class="pulse-excerpt">EGX secures priority cargo agreements with leading carriers for time-sensitive
+                  shipments worldwide.</p>
+              </div>
+              <div class="pulse-card-img">
+                <img src="images/egxPulse/News (3).png" alt="EGX News">
+              </div>
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+              data-img="images/egxPulse/News (4).png">
+              <div class="pulse-date">
+                <span class="pulse-date-day">02</span>
+                <span class="pulse-date-mon">Mar</span>
+              </div>
+              <div class="pulse-card-body">
+
+                <h3 class="pulse-title">New warehouse facility opens in Colombo</h3>
+                <p class="pulse-excerpt">State-of-the-art storage and distribution centre now operational, serving more
+                  clients with faster fulfilment.</p>
+              </div>
+              <div class="pulse-card-img">
+                <img src="images/egxPulse/News (4).png" alt="EGX News">
+              </div>
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+              data-img="images/egxPulse/News (5).png">
+              <div class="pulse-date">
+                <span class="pulse-date-day">18</span>
+                <span class="pulse-date-mon">Feb</span>
+              </div>
+              <div class="pulse-card-body">
+
+                <h3 class="pulse-title">EGX recognised at National Logistics Awards</h3>
+                <p class="pulse-excerpt">Proud to be acknowledged for excellence in supply chain services across Sri
+                  Lanka and the wider region.</p>
+              </div>
+              <div class="pulse-card-img">
+                <img src="images/egxPulse/News (5).png" alt="EGX News">
+              </div>
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+              data-img="images/egxPulse/News (6).png">
+              <div class="pulse-date">
+                <span class="pulse-date-day">05</span>
+                <span class="pulse-date-mon">Jan</span>
+              </div>
+              <div class="pulse-card-body">
+
+                <h3 class="pulse-title">Strategic alliance with global logistics leader</h3>
+                <p class="pulse-excerpt">Strengthening our international network with a new global partnership agreement
+                  to serve more markets.</p>
+              </div>
+              <div class="pulse-card-img">
+                <img src="images/egxPulse/News (6).png" alt="EGX News">
+              </div>
+            </a>
+          </div>
+
+          <div class="swiper-slide">
+            <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
+              data-img="images/egxPulse/News (7).png">
+              <div class="pulse-date">
+                <span class="pulse-date-day">22</span>
+                <span class="pulse-date-mon">Dec</span>
+              </div>
+              <div class="pulse-card-body">
+
+                <h3 class="pulse-title">EGX team participates in community outreach</h3>
+                <p class="pulse-excerpt">Giving back to the communities we operate in — part of our Serve Values
+                  commitment at every level.</p>
+              </div>
+              <div class="pulse-card-img">
+                <img src="images/egxPulse/News (7).png" alt="EGX News">
+              </div>
+            </a>
+          </div>
+
+        </div><!-- /.swiper-wrapper -->
+
+        <!-- Controls -->
+        <div class="pulse-controls">
+          <button class="pulse-arrow pulse-prev" id="pulsePrev">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor">
+              <path
+                d="M0.704 17.696l9.856 9.856c0.896 0.896 2.432 0.896 3.328 0s0.896-2.432 0-3.328l-5.792-5.856h21.568c1.312 0 2.368-1.056 2.368-2.368s-1.056-2.368-2.368-2.368h-21.568l5.824-5.824c0.896-0.896 0.896-2.432 0-3.328-0.48-0.48-1.12-0.704-1.664-0.704s-1.184 0.224-1.664 0.704l-9.856 9.856c-0.448 0.448-0.704 1.056-0.704 1.664s0.256 1.216 0.704 1.664z" />
+            </svg>
+          </button>
+          <div class="pulse-pagination" id="pulsePagination"></div>
+          <button class="pulse-arrow pulse-next" id="pulseNext">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor">
+              <path
+                d="M31.296 14.304l-9.856-9.856c-0.896-0.896-2.432-0.896-3.328 0s-0.896 2.432 0 3.328l5.792 5.856h-21.536c-1.312 0-2.368 1.056-2.368 2.368s1.056 2.368 2.368 2.368h21.568l-5.824 5.824c-0.896 0.896-0.896 2.432 0 3.328 0.48 0.48 1.12 0.704 1.664 0.704s1.184-0.224 1.664-0.704l9.856-9.856c0.448-0.448 0.704-1.056 0.704-1.664s-0.256-1.216-0.704-1.664z" />
+            </svg>
+          </button>
         </div>
 
-        <div class="swiper-slide">
-          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
-             data-img="images/egxPulse/News (2).png">
-            <div class="pulse-date">
-              <span class="pulse-date-day">28</span>
-              <span class="pulse-date-mon">Apr</span>
-            </div>
-            <div class="pulse-card-body">
-              
-              <h3 class="pulse-title">Record shipment volume achieved in Q1 2025</h3>
-              <p class="pulse-excerpt">Our sea freight division hits a new high with increased FCL &amp; LCL movements across major trade lanes.</p>
-            </div>
-            <div class="pulse-card-img">
-              <img src="images/egxPulse/News (2).png" alt="EGX News">
-            </div>
-          </a>
-        </div>
+      </div><!-- /.swiper -->
 
-        <div class="swiper-slide">
-          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
-             data-img="images/egxPulse/News (3).png">
-            <div class="pulse-date">
-              <span class="pulse-date-day">15</span>
-              <span class="pulse-date-mon">Apr</span>
-            </div>
-            <div class="pulse-card-body">
-              
-              <h3 class="pulse-title">New airline partnerships for faster cargo lanes</h3>
-              <p class="pulse-excerpt">EGX secures priority cargo agreements with leading carriers for time-sensitive shipments worldwide.</p>
-            </div>
-            <div class="pulse-card-img">
-              <img src="images/egxPulse/News (3).png" alt="EGX News">
-            </div>
-          </a>
-        </div>
+    </div><!-- /.pulse-inner -->
 
-        <div class="swiper-slide">
-          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
-             data-img="images/egxPulse/News (4).png">
-            <div class="pulse-date">
-              <span class="pulse-date-day">02</span>
-              <span class="pulse-date-mon">Mar</span>
-            </div>
-            <div class="pulse-card-body">
-             
-              <h3 class="pulse-title">New warehouse facility opens in Colombo</h3>
-              <p class="pulse-excerpt">State-of-the-art storage and distribution centre now operational, serving more clients with faster fulfilment.</p>
-            </div>
-            <div class="pulse-card-img">
-              <img src="images/egxPulse/News (4).png" alt="EGX News">
-            </div>
-          </a>
-        </div>
+  </section>
 
-        <div class="swiper-slide">
-          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
-             data-img="images/egxPulse/News (5).png">
-            <div class="pulse-date">
-              <span class="pulse-date-day">18</span>
-              <span class="pulse-date-mon">Feb</span>
-            </div>
-            <div class="pulse-card-body">
-              
-              <h3 class="pulse-title">EGX recognised at National Logistics Awards</h3>
-              <p class="pulse-excerpt">Proud to be acknowledged for excellence in supply chain services across Sri Lanka and the wider region.</p>
-            </div>
-            <div class="pulse-card-img">
-              <img src="images/egxPulse/News (5).png" alt="EGX News">
-            </div>
-          </a>
-        </div>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-        <div class="swiper-slide">
-          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
-             data-img="images/egxPulse/News (6).png">
-            <div class="pulse-date">
-              <span class="pulse-date-day">05</span>
-              <span class="pulse-date-mon">Jan</span>
-            </div>
-            <div class="pulse-card-body">
-              
-              <h3 class="pulse-title">Strategic alliance with global logistics leader</h3>
-              <p class="pulse-excerpt">Strengthening our international network with a new global partnership agreement to serve more markets.</p>
-            </div>
-            <div class="pulse-card-img">
-              <img src="images/egxPulse/News (6).png" alt="EGX News">
-            </div>
-          </a>
-        </div>
+  <!-- SVG arrow icons -->
+  <svg hidden="hidden">
+    <defs>
+      <symbol id="icon-arrow-left" viewBox="0 0 32 32">
+        <path
+          d="M0.704 17.696l9.856 9.856c0.896 0.896 2.432 0.896 3.328 0s0.896-2.432 0-3.328l-5.792-5.856h21.568c1.312 0 2.368-1.056 2.368-2.368s-1.056-2.368-2.368-2.368h-21.568l5.824-5.824c0.896-0.896 0.896-2.432 0-3.328-0.48-0.48-1.12-0.704-1.664-0.704s-1.184 0.224-1.664 0.704l-9.856 9.856c-0.448 0.448-0.704 1.056-0.704 1.664s0.256 1.216 0.704 1.664z" />
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 32 32">
+        <path
+          d="M31.296 14.304l-9.856-9.856c-0.896-0.896-2.432-0.896-3.328 0s-0.896 2.432 0 3.328l5.792 5.856h-21.536c-1.312 0-2.368 1.056-2.368 2.368s1.056 2.368 2.368 2.368h21.568l-5.824 5.824c-0.896 0.896-0.896 2.432 0 3.328 0.48 0.48 1.12 0.704 1.664 0.704s1.184-0.224 1.664-0.704l9.856-9.856c0.448-0.448 0.704-1.056 0.704-1.664s-0.256-1.216-0.704-1.664z" />
+      </symbol>
+    </defs>
+  </svg>
 
-        <div class="swiper-slide">
-          <a href="https://www.facebook.com/egxsupplychain" target="_blank" class="pulse-card"
-             data-img="images/egxPulse/News (7).png">
-            <div class="pulse-date">
-              <span class="pulse-date-day">22</span>
-              <span class="pulse-date-mon">Dec</span>
-            </div>
-            <div class="pulse-card-body">
-              
-              <h3 class="pulse-title">EGX team participates in community outreach</h3>
-              <p class="pulse-excerpt">Giving back to the communities we operate in — part of our Serve Values commitment at every level.</p>
-            </div>
-            <div class="pulse-card-img">
-              <img src="images/egxPulse/News (7).png" alt="EGX News">
-            </div>
-          </a>
-        </div>
 
-      </div><!-- /.swiper-wrapper -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PARALLAX BANNER -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section id="parallax-banner" class="parallax-section">
+    <div class="parallax-img" data-parallax="0.3" style="background-image:url('images/AirFrieghtAssests/MainPic.webp')">
+    </div>
+    <div class="parallax-content reveal">
+      <span class="label" style="display:block;margin-bottom:16px">TRUSTED SINCE 2018</span>
+      <h2>Ready to Move Your Cargo<br><span class="gold">Smarter &amp; Faster?</span></h2>
+      <p>Let EGX Supply Chain handle your logistics while you focus on growing your business.</p>
+      <a href="pages/contact.html" class="btn btn-gold">GET STARTED TODAY →</a>
+    </div>
+  </section>
 
-      <!-- Controls -->
-      <div class="pulse-controls">
-        <button class="pulse-arrow pulse-prev" id="pulsePrev">
-          <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor">
-            <path d="M0.704 17.696l9.856 9.856c0.896 0.896 2.432 0.896 3.328 0s0.896-2.432 0-3.328l-5.792-5.856h21.568c1.312 0 2.368-1.056 2.368-2.368s-1.056-2.368-2.368-2.368h-21.568l5.824-5.824c0.896-0.896 0.896-2.432 0-3.328-0.48-0.48-1.12-0.704-1.664-0.704s-1.184 0.224-1.664 0.704l-9.856 9.856c-0.448 0.448-0.704 1.056-0.704 1.664s0.256 1.216 0.704 1.664z"/>
-          </svg>
-        </button>
-        <div class="pulse-pagination" id="pulsePagination"></div>
-        <button class="pulse-arrow pulse-next" id="pulseNext">
-          <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor">
-            <path d="M31.296 14.304l-9.856-9.856c-0.896-0.896-2.432-0.896-3.328 0s-0.896 2.432 0 3.328l5.792 5.856h-21.536c-1.312 0-2.368 1.056-2.368 2.368s1.056 2.368 2.368 2.368h21.568l-5.824 5.824c-0.896 0.896-0.896 2.432 0 3.328 0.48 0.48 1.12 0.704 1.664 0.704s1.184-0.224 1.664-0.704l9.856-9.856c0.448-0.448 0.704-1.056 0.704-1.664s-0.256-1.216-0.704-1.664z"/>
-          </svg>
-        </button>
+
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-social-bar">
+      <p>GET CONNECTED WITH US ON SOCIAL NETWORKS</p>
+      <div class="footer-social-icons">
+        <a href="mailto:info@egxsupplychain.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24"
+            fill="currentColor">
+            <path
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg></a>
+        <a href="https://www.facebook.com/egxsupplychain" target="_blank" rel="noopener" aria-label="Facebook"><svg
+            width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+          </svg></a>
+        <a href="https://www.instagram.com/egx.sc" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18"
+            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+          </svg></a>
+        <a href="https://www.linkedin.com/company/egx-supply-chain" target="_blank" rel="noopener"
+          aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+            <circle cx="4" cy="4" r="2" />
+          </svg></a>
+        <a href="https://wa.me/94702878440" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18"
+            height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg></a>
       </div>
-
-    </div><!-- /.swiper -->
-
-  </div><!-- /.pulse-inner -->
-
-</section>
-
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<!-- SVG arrow icons -->
-<svg hidden="hidden">
-  <defs>
-    <symbol id="icon-arrow-left" viewBox="0 0 32 32">
-      <path d="M0.704 17.696l9.856 9.856c0.896 0.896 2.432 0.896 3.328 0s0.896-2.432 0-3.328l-5.792-5.856h21.568c1.312 0 2.368-1.056 2.368-2.368s-1.056-2.368-2.368-2.368h-21.568l5.824-5.824c0.896-0.896 0.896-2.432 0-3.328-0.48-0.48-1.12-0.704-1.664-0.704s-1.184 0.224-1.664 0.704l-9.856 9.856c-0.448 0.448-0.704 1.056-0.704 1.664s0.256 1.216 0.704 1.664z"/>
-    </symbol>
-    <symbol id="icon-arrow-right" viewBox="0 0 32 32">
-      <path d="M31.296 14.304l-9.856-9.856c-0.896-0.896-2.432-0.896-3.328 0s-0.896 2.432 0 3.328l5.792 5.856h-21.536c-1.312 0-2.368 1.056-2.368 2.368s1.056 2.368 2.368 2.368h21.568l-5.824 5.824c-0.896 0.896-0.896 2.432 0 3.328 0.48 0.48 1.12 0.704 1.664 0.704s1.184-0.224 1.664-0.704l9.856-9.856c0.448-0.448 0.704-1.056 0.704-1.664s-0.256-1.216-0.704-1.664z"/>
-    </symbol>
-  </defs>
-</svg>
-
-
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- PARALLAX BANNER -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section id="parallax-banner" class="parallax-section">
-  <div class="parallax-img" data-parallax="0.3" style="background-image:url('images/AirFrieghtAssests/MainPic.png')"></div>
-  <div class="parallax-content reveal">
-    <span class="label" style="display:block;margin-bottom:16px">TRUSTED SINCE 2014</span>
-    <h2>Ready to Move Your Cargo<br><span class="gold">Smarter &amp; Faster?</span></h2>
-    <p>Let EGX Supply Chain handle your logistics while you focus on growing your business.</p>
-    <a href="pages/contact.html" class="btn btn-gold">GET STARTED TODAY →</a>
-  </div>
-</section>
-
-
-
-
-
-<!-- FOOTER -->
-<footer id="footer">
-  <div class="footer-social-bar">
-    <p>GET CONNECTED WITH US ON SOCIAL NETWORKS</p>
-    <div class="footer-social-icons">
-      <a href="mailto:info@egxsupplychain.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-      <a href="https://www.facebook.com/egxsupplychain" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-      <a href="https://www.instagram.com/egx.sc" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
-      <a href="https://www.linkedin.com/company/egx-supply-chain" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-      <a href="https://wa.me/94702878440" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
     </div>
-  </div>
-  <div class="footer-main">
-    <div>
-      <img class="footer-logo" src="images/egx-logo.png" alt="EGX Supply Chain" onerror="this.src='images/EGXNavLogo.png'">
-      <p class="footer-desc">EGX Supply Chain is your trusted logistics partner, delivering optimized, scalable, and tech-driven solutions for global and local businesses.</p>
-    </div>
-    <div>
-      <p class="footer-heading">QUICK LINKS</p>
-      <div class="footer-quick-links">
-        <a href="index.html">Home</a>
-        <a href="pages/services.html">Services</a>
-        <a href="pages/about.html">About</a>
-        <a href="pages/contact.html">Contact</a>
+    <div class="footer-main">
+      <div>
+        <img class="footer-logo" src="images/egx-logo.webp" alt="EGX Supply Chain"
+          onerror="this.src='images/EGXNavLogo.webp'">
+        <p class="footer-desc">EGX Supply Chain is your trusted logistics partner, delivering optimized, scalable, and
+          tech-driven solutions for global and local businesses.</p>
       </div>
-      <p class="footer-heading" style="margin-top:28px">OUR SERVICES</p>
-      <div class="footer-services-grid">
-        <a href="pages/sea-freight.html">Sea Freight</a>
-        <a href="pages/project-cargo.html">Projects</a>
-        <a href="pages/air-freight.html">Air Freight</a>
-        <a href="pages/transport.html">Transport</a>
-        <a href="pages/courier.html">Courier</a>
-        <a href="pages/warehouse.html">Warehousing</a>
-        <a href="pages/chb.html">CHB</a>
-        <a href="pages/bpo.html">BPO / 3PL</a>
+      <div>
+        <p class="footer-heading">QUICK LINKS</p>
+        <div class="footer-quick-links">
+          <a href="index.html">Home</a>
+          <a href="pages/services.html">Services</a>
+          <a href="pages/about.html">About</a>
+          <a href="pages/contact.html">Contact</a>
+        </div>
+        <p class="footer-heading" style="margin-top:28px">OUR SERVICES</p>
+        <div class="footer-services-grid">
+          <a href="pages/sea-freight.html">Sea Freight</a>
+          <a href="pages/project-cargo.html">Projects</a>
+          <a href="pages/air-freight.html">Air Freight</a>
+          <a href="pages/transport.html">Transport</a>
+          <a href="pages/courier.html">Courier</a>
+          <a href="pages/warehouse.html">Warehousing</a>
+          <a href="pages/chb.html">CHB</a>
+          <a href="pages/bpo.html">BPO / 3PL</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">CONTACT INFO</p>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)"
+            style="flex-shrink:0;margin-top:3px">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg><a href="https://maps.google.com/?q=No.281+R.A.+De+Mel+Mawatha+Colombo+3" target="_blank">No.281 R.A.De
+            Mel Mawatha, Colombo 3</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)"
+            style="flex-shrink:0">
+            <path
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg><a href="mailto:info@egxsupplychain.com">info@egxsupplychain.com</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)"
+            style="flex-shrink:0">
+            <path
+              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+          </svg><a href="tel:0112301087">011 230 1087</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)"
+            style="flex-shrink:0">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg><a href="https://wa.me/94702878440">070 287 8440</a></div>
       </div>
     </div>
-    <div>
-      <p class="footer-heading">CONTACT INFO</p>
-      <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)" style="flex-shrink:0;margin-top:3px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><a href="https://maps.google.com/?q=No.281+R.A.+De+Mel+Mawatha+Colombo+3" target="_blank">No.281 R.A.De Mel Mawatha, Colombo 3</a></div>
-      <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)" style="flex-shrink:0"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:info@egxsupplychain.com">info@egxsupplychain.com</a></div>
-      <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)" style="flex-shrink:0"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><a href="tel:0112301087">011 230 1087</a></div>
-      <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><a href="https://wa.me/94702878440">070 287 8440</a></div>
+    <div class="footer-bottom">
+      <p>© 2026 EGX INFOVIBE. All rights reserved.</p>
+      <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 EGX INFOVIBE. All rights reserved.</p>
-    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
-  </div>
-</footer>
+  </footer>
 
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
+
+
+  <div id="chatbot-container"></div>
+
+
+
+
 </body>
+
 </html>
-
-
-

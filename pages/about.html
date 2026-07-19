@@ -1,666 +1,771 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About EGX Supply Chain — Our story, mission, vision and the team driving logistics excellence since 2014.">
+  <meta name="description"
+    content="About EGX Supply Chain — Our story, mission, vision and the team driving logistics excellence since 2014.">
   <title>About Us | EGX Supply Chain</title>
-  <link rel="icon" href="../images/egx-logo.png">
+  <link rel="icon" href="../images/egx-logo.webp">
   <link rel="stylesheet" href="../css/global.css">
-<link rel="stylesheet" href="../css/navbar.css">
-<link rel="stylesheet" href="../css/pages.css">
-<link rel="stylesheet" href="../css/footer.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="../css/chatbot.css">
 
- 
+  <script src="../js/egx-faq.js"></script>
+
+  <script src="../js/chatbot.js"></script>
+
 
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 </head>
+
 <body>
+    <div id="chatbot-container"></div>
 
-<div id="preloader">
-  <img class="preloader-logo" src="../images/EGXNavLogo.png" alt="EGX">
-  <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
-  <p class="preloader-text">LOADING EXCELLENCE</p>
-</div>
-<div id="page-transition"></div>
-<div class="cursor-dot"></div><div class="cursor-ring"></div>
-<audio id="preloader-sound" src="../sounds/flash.mp3" preload="none"></audio>
+  <div id="preloader">
+    <img class="preloader-logo" src="../images/EGXNavLogo.webp" alt="EGX">
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar"></div>
+    </div>
+    <p class="preloader-text">LOADING EXCELLENCE</p>
+  </div>
+  <div id="page-transition"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <audio id="preloader-sound" src="../sounds/flash.mp3" preload="none"></audio>
 
-<!-- NAVBAR -->
-<header id="navbar">
-  <a href="../index.html" class="nav-logo"><img src="../images/EGXNavLogo.png" alt="EGX Supply Chain"></a>
-  <nav class="nav-links">
-    <div class="nav-item"><a href="../index.html" class="nav-link">HOME</a></div>
-    <div class="nav-item">
-      <a href="services.html" class="nav-link">OUR SERVICES <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="6 9 12 15 18 9"/></svg></a>
-      <div class="nav-dropdown">
-        <span class="dropdown-label">Our Services</span>
-        <a href="courier.html"       class="dropdown-link">Courier</a>
-        <a href="air-freight.html"   class="dropdown-link">Air Freight</a>
-        <a href="sea-freight.html"   class="dropdown-link">Sea Freight</a>
-        <a href="warehouse.html"     class="dropdown-link">Warehouse &amp; Logistics</a>
-        <a href="transport.html"     class="dropdown-link">Transport</a>
-        <a href="project-cargo.html" class="dropdown-link">Project Cargo</a>
-        <a href="chb.html"           class="dropdown-link">CHB</a>
-        <a href="bpo.html"           class="dropdown-link">3PL &amp; 4PL / BPO</a>
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <a href="../index.html" class="nav-logo"><img src="../images/EGXNavLogo.webp" alt="EGX Supply Chain"></a>
+    <nav class="nav-links">
+      <div class="nav-item"><a href="../index.html" class="nav-link">HOME</a></div>
+      <div class="nav-item">
+        <a href="services.html" class="nav-link">OUR SERVICES <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" width="14" height="14">
+            <polyline points="6 9 12 15 18 9" />
+          </svg></a>
+        <div class="nav-dropdown">
+
+          <a href="courier.html" class="dropdown-link">Courier</a>
+          <a href="air-freight.html" class="dropdown-link">Air Freight</a>
+          <a href="sea-freight.html" class="dropdown-link">Sea Freight</a>
+          <a href="warehouse.html" class="dropdown-link">Warehouse &amp; Logistics</a>
+          <a href="transport.html" class="dropdown-link">Transport</a>
+          <a href="project-cargo.html" class="dropdown-link">Project Cargo</a>
+          <a href="chb.html" class="dropdown-link">CHB</a>
+          <a href="bpo.html" class="dropdown-link">3PL &amp; 4PL / BPO</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html" class="nav-link active">ABOUT US</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">CONTACT US</a></div>
+    </nav>
+    <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </header>
+  <nav id="mobile-menu">
+    <div class="mobile-nav-item"><a href="../index.html" class="mobile-nav-link">Home</a></div>
+    <div class="mobile-nav-item">
+      <div class="mobile-nav-link" data-toggle="true">Our Services <svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" width="20" height="20">
+          <polyline points="6 9 12 15 18 9" />
+        </svg></div>
+      <div class="mobile-submenu">
+        <a href="courier.html" class="mobile-sub-link">Courier</a>
+        <a href="air-freight.html" class="mobile-sub-link">Air Freight</a>
+        <a href="sea-freight.html" class="mobile-sub-link">Sea Freight</a>
+        <a href="warehouse.html" class="mobile-sub-link">Warehouse</a>
+        <a href="transport.html" class="mobile-sub-link">Transport</a>
+        <a href="project-cargo.html" class="mobile-sub-link">Project Cargo</a>
+        <a href="chb.html" class="mobile-sub-link">CHB</a>
+        <a href="bpo.html" class="mobile-sub-link">3PL / BPO</a>
       </div>
     </div>
-    <div class="nav-item"><a href="about.html" class="nav-link active">ABOUT US</a></div>
-    <div class="nav-item"><a href="contact.html" class="nav-link">CONTACT US</a></div>
+    <div class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">About Us</a></div>
+    <div class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact Us</a></div>
+    <div class="mobile-cta"><a href="contact.html" class="btn btn-gold">GET A QUOTE →</a></div>
   </nav>
-  <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
-</header>
-<nav id="mobile-menu">
-  <div class="mobile-nav-item"><a href="../index.html" class="mobile-nav-link">Home</a></div>
-  <div class="mobile-nav-item">
-    <div class="mobile-nav-link" data-toggle="true">Our Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 12 15 18 9"/></svg></div>
-    <div class="mobile-submenu">
-      <a href="courier.html" class="mobile-sub-link">Courier</a>
-      <a href="air-freight.html" class="mobile-sub-link">Air Freight</a>
-      <a href="sea-freight.html" class="mobile-sub-link">Sea Freight</a>
-      <a href="warehouse.html" class="mobile-sub-link">Warehouse</a>
-      <a href="transport.html" class="mobile-sub-link">Transport</a>
-      <a href="project-cargo.html" class="mobile-sub-link">Project Cargo</a>
-      <a href="chb.html" class="mobile-sub-link">CHB</a>
-      <a href="bpo.html" class="mobile-sub-link">3PL / BPO</a>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SCENE 1 — THE HOOK                                      -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="ab-scene ab-scene--hook">
+    <div class="ab-hook-inner">
+      <div class="ab-vline"></div>
+      <span class="ab-meta">EST. 2018 — COLOMBO, SRI LANKA</span>
+      <h1 class="ab-giant">
+        WE MOVE THE<br>
+        <span class="ab-outline">IMMOVABLE.</span>
+      </h1>
+      <p class="ab-sub">The story of EGX isn't about cargo.<br>It's about promises kept across oceans, borders, and time
+        zones.</p>
+      <div class="ab-hook-actions">
+        <a href="contact.html" class="btn btn-gold">GET IN TOUCH →</a>
+        <a href="services.html" class="btn btn-outline">OUR SERVICES</a>
+      </div>
+      <div class="ab-scroll-hint">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <polyline points="19 12 12 19 5 12" />
+        </svg>
+      </div>
     </div>
-  </div>
-  <div class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">About Us</a></div>
-  <div class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact Us</a></div>
-  <div class="mobile-cta"><a href="contact.html" class="btn btn-gold">GET A QUOTE →</a></div>
-</nav>
+  </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- SCENE 1 — THE HOOK                                      -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="ab-scene ab-scene--hook">
-  <div class="ab-hook-inner">
-    <div class="ab-vline"></div>
-    <span class="ab-meta">EST. 2014 — COLOMBO, SRI LANKA</span>
-    <h1 class="ab-giant">
-      WE MOVE THE<br>
-      <span class="ab-outline">IMMOVABLE.</span>
-    </h1>
-    <p class="ab-sub">The story of EGX isn't about cargo.<br>It's about promises kept across oceans, borders, and time zones.</p>
-    <div class="ab-hook-actions">
-      <a href="contact.html" class="btn btn-gold">GET IN TOUCH →</a>
-      <a href="services.html" class="btn btn-outline">OUR SERVICES</a>
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SCENE 2 — COMPANY TIMELINE                              -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="ab-scene ab-scene--timeline">
+    <div class="ab-tl-header">
+      <span class="label">OUR JOURNEY</span>
+      <h2>A Decade of <span class="gold">Excellence</span></h2>
     </div>
-    <div class="ab-scroll-hint">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-    </div>
-  </div>
-</section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- SCENE 2 — COMPANY TIMELINE                              -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="ab-scene ab-scene--timeline">
-  <div class="ab-tl-header">
-    <span class="label">OUR JOURNEY</span>
-    <h2>A Decade of <span class="gold">Excellence</span></h2>
-  </div>
+    <div class="ab-tl-scroll-wrap">
+      <div class="ab-tl-stage" id="tlStage">
 
-  <div class="ab-tl-scroll-wrap">
-    <div class="ab-tl-stage" id="tlStage">
-
-      <!-- THE ROAD LINE -->
-      <div class="ab-tl-road">
-        <div class="ab-tl-road-fill" id="tlRoadFill"></div>
-      </div>
-
-      <!-- ── POINT 1 — above line ── -->
-      <!-- left % = where the dot sits on the road (10% to 90%) -->
-      <div class="ab-tl-point ab-tl-point--above" style="left:10%">
-        <div class="ab-tl-stem ab-tl-stem--above"></div>
-        <div class="ab-tl-dot"></div>
-        <div class="ab-tl-stem ab-tl-stem--below" style="visibility:hidden"></div>
-        <div class="ab-tl-card ab-tl-card--above">
-          <div class="ab-tl-year">2014</div>
-          <h4>Founded</h4>
-          <p>EGX Supply Chain in Colombo with a bold vision making global trade effortless for Sri Lankan businesses.</p>
+        <!-- THE ROAD LINE -->
+        <div class="ab-tl-road">
+          <div class="ab-tl-road-fill" id="tlRoadFill"></div>
         </div>
-      </div>
 
-      <!-- ── POINT 2 — below line ── -->
-      <div class="ab-tl-point ab-tl-point--below" style="left:28%">
-        <div class="ab-tl-stem ab-tl-stem--above" style="visibility:hidden"></div>
-        <div class="ab-tl-dot"></div>
-        <div class="ab-tl-stem ab-tl-stem--below"></div>
-        <div class="ab-tl-card ab-tl-card--below">
-          <div class="ab-tl-year">2016</div>
-          <h4>Air &amp; Sea Freight</h4>
-          <p>Full air &amp; sea freight operations launched, connecting Sri Lanka to 50+ countries with expert customs brokerage.</p>
+        <!-- ── POINT 1 — above line ── -->
+        <!-- left % = where the dot sits on the road (10% to 90%) -->
+        <div class="ab-tl-point ab-tl-point--above" style="left:10%">
+          <div class="ab-tl-stem ab-tl-stem--above"></div>
+          <div class="ab-tl-dot"></div>
+          <div class="ab-tl-stem ab-tl-stem--below" style="visibility:hidden"></div>
+          <div class="ab-tl-card ab-tl-card--above">
+            <div class="ab-tl-year">2018</div>
+            <h4>Global Beginnings</h4>
+            <p>Began operations as an international courier company, laying the foundation for our global logistics
+              network.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- ── POINT 3 — above line ── -->
-      <div class="ab-tl-point ab-tl-point--above" style="left:46%">
-        <div class="ab-tl-stem ab-tl-stem--above"></div>
-        <div class="ab-tl-dot"></div>
-        <div class="ab-tl-stem ab-tl-stem--below" style="visibility:hidden"></div>
-        <div class="ab-tl-card ab-tl-card--above">
-          <div class="ab-tl-year">2018</div>
-          <h4>3PL &amp; Transport</h4>
-          <p>Warehousing, nationwide ground transport and full 3PL services launched to serve growing domestic demand.</p>
+        <!-- ── POINT 2 — below line ── -->
+        <div class="ab-tl-point ab-tl-point--below" style="left:28%">
+          <div class="ab-tl-stem ab-tl-stem--above" style="visibility:hidden"></div>
+          <div class="ab-tl-dot"></div>
+          <div class="ab-tl-stem ab-tl-stem--below"></div>
+          <div class="ab-tl-card ab-tl-card--below">
+            <div class="ab-tl-year">2021</div>
+            <h4>Expansion & Mobility</h4>
+            <p>FRelocated to a new headquarters in Kollupitiya and officially launched <strong>EGX Fleet</strong>,
+              marking our entry into dedicated transportation services.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- ── POINT 4 — below line ── -->
-      <div class="ab-tl-point ab-tl-point--below" style="left:64%">
-        <div class="ab-tl-stem ab-tl-stem--above" style="visibility:hidden"></div>
-        <div class="ab-tl-dot"></div>
-        <div class="ab-tl-stem ab-tl-stem--below"></div>
-        <div class="ab-tl-card ab-tl-card--below">
-          <div class="ab-tl-year">2020</div>
-          <h4>Digital Leap</h4>
-          <p>All operations digitized with real-time tracking, WMS integration and live shipment visibility for every client.</p>
+        <!-- ── POINT 3 — above line ── -->
+        <div class="ab-tl-point ab-tl-point--above" style="left:46%">
+          <div class="ab-tl-stem ab-tl-stem--above"></div>
+          <div class="ab-tl-dot"></div>
+          <div class="ab-tl-stem ab-tl-stem--below" style="visibility:hidden"></div>
+          <div class="ab-tl-card ab-tl-card--above">
+            <div class="ab-tl-year">2022</div>
+            <h4>Storage & Scale</h4>
+            <p>Inaugurated <strong>EGX Space</strong>, establishing our first major warehousing facility in Maguruwela.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- ── POINT 5 — above line ── -->
-      <div class="ab-tl-point ab-tl-point--above" style="left:82%">
-        <div class="ab-tl-stem ab-tl-stem--above"></div>
-        <div class="ab-tl-dot"></div>
-        <div class="ab-tl-stem ab-tl-stem--below" style="visibility:hidden"></div>
-        <div class="ab-tl-card ab-tl-card--above">
-          <div class="ab-tl-year">2024</div>
-          <h4>10 Years Strong</h4>
-          <p>A decade of excellence — 500+ satisfied clients, 220+ countries served and 50+ global strategic partners.</p>
+        <!-- ── POINT 4 — below line ── -->
+        <div class="ab-tl-point ab-tl-point--below" style="left:64%">
+          <div class="ab-tl-stem ab-tl-stem--above" style="visibility:hidden"></div>
+          <div class="ab-tl-dot"></div>
+          <div class="ab-tl-stem ab-tl-stem--below"></div>
+          <div class="ab-tl-card ab-tl-card--below">
+            <div class="ab-tl-year">2023</div>
+            <h4>Heavy Lifting & Reach</h4>
+            <p>Extended the EGX Fleet with heavy-duty prime movers and expanded our regional footprint by opening the
+              <strong>EGX Biyagama Branch</strong>.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- ── ANIMATED TRUCK — rides on top of the road line ── -->
-      <div class="ab-truck-wrap" id="tlTruck">
-        <!-- Smoke puffs come out the back (left side) -->
-        <div class="ab-smoke-wrap">
-          <span class="ab-smoke ab-smoke--1"></span>
-          <span class="ab-smoke ab-smoke--2"></span>
-          <span class="ab-smoke ab-smoke--3"></span>
+        <!-- ── POINT 5 — above line ── -->
+        <div class="ab-tl-point ab-tl-point--above" style="left:82%">
+          <div class="ab-tl-stem ab-tl-stem--above"></div>
+          <div class="ab-tl-dot"></div>
+          <div class="ab-tl-stem ab-tl-stem--below" style="visibility:hidden"></div>
+          <div class="ab-tl-card ab-tl-card--above">
+            <div class="ab-tl-year">2024</div>
+            <h4>The Logistics Hub</h4>
+            <p>
+            <p>Opened the <strong>EGX Logistic Center </strong> and established new subsidiaries <strong>HD SwiftMove
+                Pvt Ltd</strong> and <strong>Nexlog Freight Flow Pvt Ltd</strong>.</p>
+            </p>
+          </div>
         </div>
+
+        <!-- ── ANIMATED TRUCK — rides on top of the road line ── -->
+        <div class="ab-truck-wrap" id="tlTruck">
+          <!-- Smoke puffs come out the back (left side) -->
+          <div class="ab-smoke-wrap">
+            <span class="ab-smoke ab-smoke--1"></span>
+            <span class="ab-smoke ab-smoke--2"></span>
+            <span class="ab-smoke ab-smoke--3"></span>
+          </div>
 
           <!-- PNG TRUCK -->
-        <img 
-          class="ab-truck-img" 
-          src="../images/AboutUs/Truck.png" 
-          alt="EGX Truck"
-        />
+          <img class="ab-truck-img" src="../images/AboutUs/Truck.png" alt="EGX Truck" />
+        </div>
+
+      </div><!-- /.ab-tl-stage -->
+    </div><!-- /.ab-tl-scroll-wrap -->
+
+    <p class="ab-tl-hint">← swipe to explore the journey →</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SCENE 3 — MISSION / VISION contrast panels              -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="ab-scene ab-scene--mv">
+    <div class="ab-mv-wrap">
+
+      <div class="ab-mv-pane ab-mv-pane--dark">
+        <div class="ab-mv-content">
+          <div class="ab-mv-icon">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" />
+              <line x1="12" y1="2" x2="12" y2="4" />
+              <line x1="12" y1="20" x2="12" y2="22" />
+              <line x1="2" y1="12" x2="4" y2="12" />
+              <line x1="20" y1="12" x2="22" y2="12" />
+            </svg>
+          </div>
+          <span class="ab-mv-label">Our Mission</span>
+          <h3 class="ab-mv-title">To Deliver<br><span class="ab-gold ab-italic">With Purpose</span></h3>
+          <p>Our daily mission is to provide reliable logistics solutions that create value and remove complexity.
+            Through professionalism, responsibility, and a commitment to safety, we make supply chains work seamlessly
+            for our clients and employees alike.</p>
+        </div>
       </div>
 
-    </div><!-- /.ab-tl-stage -->
-  </div><!-- /.ab-tl-scroll-wrap -->
-
-  <p class="ab-tl-hint">← swipe to explore the journey →</p>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- SCENE 3 — MISSION / VISION contrast panels              -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="ab-scene ab-scene--mv">
-  <div class="ab-mv-wrap">
-
-    <div class="ab-mv-pane ab-mv-pane--dark">
-      <div class="ab-mv-content">
-         <div class="ab-mv-icon">
-  <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
-    <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
-    <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
-  </svg>
-</div>
-        <span class="ab-mv-label">Our Mission</span>
-        <h3 class="ab-mv-title">To Deliver<br><span class="ab-gold ab-italic">With Purpose</span></h3>
-        <p>Our daily mission is to provide reliable logistics solutions that create value and remove complexity. Through professionalism, responsibility, and a commitment to safety, we make supply chains work seamlessly for our clients and employees alike.</p>
+      <div class="ab-mv-pane ab-mv-pane--light">
+        <div class="ab-mv-content">
+          <div class="ab-mv-icon ab-mv-icon--dark">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </div>
+          <span class="ab-mv-label ab-mv-label--dark">Our Vision</span>
+          <h3 class="ab-mv-title ab-mv-title--dark">To Erase<br><span class="ab-outline-dark ab-italic">Distance.</span>
+          </h3>
+          <p class="ab-mv-desc--dark">We see a future where logistics powers global growth and connects businesses,
+            communities, and opportunities. By delivering exceptional end-to-end supply chain solutions, we help our
+            customers overcome complexity, expand their reach, and thrive in a constantly changing world.</p>
+        </div>
       </div>
+
     </div>
+  </section>
 
-    <div class="ab-mv-pane ab-mv-pane--light">
-      <div class="ab-mv-content">
-        <div class="ab-mv-icon ab-mv-icon--dark">
-  <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
-  </svg>
-</div>
-        <span class="ab-mv-label ab-mv-label--dark">Our Vision</span>
-        <h3 class="ab-mv-title ab-mv-title--dark">To Erase<br><span class="ab-outline-dark ab-italic">Distance.</span></h3>
-        <p class="ab-mv-desc--dark">We see a future where logistics powers global growth and connects businesses, communities, and opportunities. By delivering exceptional end-to-end supply chain solutions, we help our customers overcome complexity, expand their reach, and thrive in a constantly changing world.</p>
-      </div>
-    </div>
 
+
+
+
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SCENE 5 — IMAGE REEL (infinite scroll strip)           -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+
+  <div class="ab-tl-header">
+    <span class="label">OUR MEMORIES</span>
+    <h2>EGX Gallery</h2>
   </div>
-</section>
+
+  <!-- OFFICE-->
+
+  <section class="ab-scene ab-scene--journey">
+
+    <div class="reel-wrap">
+      <div class="reel-track" id="reelTrack">
+
+        <!-- Original set -->
+        <div class="reel-item"><img src="../images/AboutUs/EGX SPACE/EGX OFFICE 1.webp " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX SPACE/EGX OFFICE 2.webp " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX SPACE/EGX OFFICE 3.webp " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX SPACE/EGX OFFICE 4.webp " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX SPACE/EGX OFFICE 5.webp " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX SPACE/EGX OFFICE 6.webp " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX SPACE/EGX OFFICE 7.webp " alt=""></div>
 
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- SCENE 6 EGX US         -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="people-section">
+      </div>
+    </div>
+
+
+
+  </section>
+
+  <!-- AWURUDU-->
+
+  <section class="ab-scene ab-scene--journey">
+
+    <div class="reel-wrap">
+      <div class="reel-track" id="reelTrack">
+
+        <!-- Original set -->
+        <div class="reel-item"><img src="../images/AboutUs/EGX AWURUDU/EGX 0.jpeg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX AWURUDU/EGX 1.jpeg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX AWURUDU/EGX 2.jpeg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX AWURUDU/EGX 3.jpeg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX AWURUDU/EGX 4.jpeg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX AWURUDU/EGX 5.jpeg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX AWURUDU/EGX 6.jpg " alt=""></div>
+
+      </div>
+    </div>
+
+
+
+  </section>
+
+  <!-- CHRISTMAS-->
+  <section class="ab-scene ab-scene--journey">
+    <div class="reel-wrap">
+      <div class="reel-track" id="reelTrack">
+
+        <!-- Original set -->
+        <div class="reel-item"><img src="../images/AboutUs/EGX CHRISTMAS/a1.jpg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX CHRISTMAS/a2.jpg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX CHRISTMAS/a3.jpg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX CHRISTMAS/a4.jpg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX CHRISTMAS/a5.jpg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX CHRISTMAS/a6.jpg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX CHRISTMAS/a7.jpg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX CHRISTMAS/a8.jpg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX CHRISTMAS/a9.jpg " alt=""></div>
+        <div class="reel-item"><img src="../images/AboutUs/EGX CHRISTMAS/a10.jpg" alt=""></div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SCENE 4- EGX US         -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="people-section">
 
     <!-- Title stays visible -->
-    <div class="section-header">
-        <h1>OUR PEOPLE</h1>
-        <p>The Faces Behind Every Delivery</p>
-    </div>
- <div class="viewport" id="viewport">
-    <div class="grid-container" id="gridContainer">
-      </div>
-  </div>
 
-  <div class="split-screen-container" id="splitScreenContainer">
-    <button class="close-button" id="closeButton" aria-label="Close Profile">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 1L17 17M17 1L1 17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </button>
-    
-    <div class="split-left" id="splitLeft">
-      <div class="zoom-target-wrapper" id="zoomTarget">
+    <div class="ab-tl-header">
+      <span class="label">The Faces Behind Every Delivery</span>
+      <h2>OUR PEOPLE</h2>
+    </div>
+
+    <div class="viewport" id="viewport">
+      <div class="grid-container" id="gridContainer">
+      </div>
+    </div>
+
+    <div class="split-screen-container" id="splitScreenContainer">
+      <button class="close-button" id="closeButton" aria-label="Close Profile">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L17 17M17 1L1 17" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <div class="split-left" id="splitLeft">
+        <div class="zoom-target-wrapper" id="zoomTarget">
         </div>
-    </div>
-    
-    <div class="split-right">
-      <div class="details-content" id="detailsContent">
-        <span class="details-role" id="targetRole">DEPARTMENT HEAD</span>
-        <h2 class="details-name" id="targetName">Employee Name</h2>
-        <div class="details-divider"></div>
-        <p class="details-bio" id="targetBio">Biography narrative goes here...</p>
+      </div>
+
+      <div class="split-right">
+        <div class="details-content" id="detailsContent">
+          <span class="details-role" id="targetRole">DEPARTMENT HEAD</span>
+          <h2 class="details-name" id="targetName">Employee Name</h2>
+          <div class="details-divider"></div>
+          <p class="details-bio" id="targetBio">Biography narrative goes here...</p>
+        </div>
       </div>
     </div>
-  </div> 
-</section>
+  </section>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- SCENE 5 — IMAGE REEL (infinite scroll strip)           -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="ab-scene ab-scene--journey">
-  <!-- The infinite scroll reel -->
-  <div class="reel-wrap">
-    <div class="reel-track" id="reelTrack">
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SCENE 4 — GOLD STATEMENT                               -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section class="ab-scene ab-scene--gold">
+    <div class="ab-gold-inner">
 
-      <!-- Original set -->
-      <div class="reel-item"><img src="../images/AboutUs/a1.jpg "  alt=""></div>
-      <div class="reel-item"><img src="../images/AboutUs/a2.jpg "  alt=""></div>
-      <div class="reel-item"><img src="../images/AboutUs/a3.jpg "  alt=""></div>
-      <div class="reel-item"><img src="../images/AboutUs/a4.jpg "  alt=""></div>
-      <div class="reel-item"><img src="../images/AboutUs/a5.jpg "  alt=""></div>
-      <div class="reel-item"><img src="../images/AboutUs/a6.jpg "  alt=""></div>
-      <div class="reel-item"><img src="../images/AboutUs/a7.jpg "  alt=""></div>
-      <div class="reel-item"><img src="../images/AboutUs/a8.jpg "  alt=""></div>
-      <div class="reel-item"><img src="../images/AboutUs/a9.jpg "  alt=""></div>
-      <div class="reel-item"><img src="../images/AboutUs/a10.jpg"  alt=""></div>
-  
-
-      <!-- Duplicate set for seamless loop (JS clones these) -->
-
+      <h2 class="ab-massive">NO BORDERS.</h2>
+      <h2 class="ab-massive ab-massive--offset">JUST BRIDGES.</h2>
+      <p class="ab-gold-desc">From Shanghai to Los Angeles, we forged a network of 50+ partners who speak one language:
+        <strong>Excellence</strong>.
+      </p>
     </div>
-  </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- JOIN EGX FORCE SECTION -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <section class="egx-force-section">
+
+    <div class="container">
+
+      <div class="egx-force-content reveal">
+
+        <span class="label">CAREERS</span>
+
+        <h2>
+          Start Your Career with
+          <span class="gold">EGX </span>
+        </h2>
+
+        <div class="divider divider-center"></div>
+
+        <p>
+          Join a team where passion, innovation, and teamwork
+          drive the future of supply chain excellence.
+        </p>
+
+        <div class="force-buttons">
+
+          <a href="https://forms.gle/rfMoriCZFEEhzhWx7" target="_blank" class="btn btn-gold">
+            APPLY NOW
+          </a>
 
 
 
-</section>
+        </div>
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- SCENE 4 — GOLD STATEMENT                               -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="ab-scene ab-scene--gold">
-  <div class="ab-gold-inner">
-    
-    <h2 class="ab-massive">NO BORDERS.</h2>
-    <h2 class="ab-massive ab-massive--offset">JUST BRIDGES.</h2>
-    <p class="ab-gold-desc">From Shanghai to Los Angeles, we forged a network of 50+ partners who speak one language: <strong>Excellence</strong>.</p>
-  </div>
-</section>
-
-
-
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- SCENE 8 — FOOTER CTA                                   -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section class="ab-scene ab-scene--cta">
-  <div class="ab-cta-inner">
-    <span class="ab-cta-eyebrow">YOUR MOVE</span>
-    <a href="contact.html" class="ab-cta-link">
-      Start The Journey
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer id="footer">
-  <div class="footer-social-bar">
-    <p>GET CONNECTED WITH US ON SOCIAL NETWORKS</p>
-    <div class="footer-social-icons">
-      <a href="mailto:info@egxsupplychain.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-      <a href="https://www.facebook.com/egxsupplychain" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-      <a href="https://www.instagram.com/egx.sc" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
-      <a href="https://www.linkedin.com/company/egx-supply-chain" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-      <a href="https://wa.me/94702878440" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
-    </div>
-  </div>
-  <div class="footer-main">
-    <div>
-      <img class="footer-logo" src="../images/egx-logo.png" alt="EGX Supply Chain" onerror="this.src='../images/EGXNavLogo.png'">
-      <p class="footer-desc">EGX Supply Chain is your trusted logistics partner, delivering optimized, scalable, and tech-driven solutions for global and local businesses.</p>
-    </div>
-    <div>
-      <p class="footer-heading">QUICK LINKS</p>
-      <div class="footer-quick-links">
-        <a href="../index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
       </div>
-      <p class="footer-heading" style="margin-top:28px">OUR SERVICES</p>
-      <div class="footer-services-grid">
-        <a href="sea-freight.html">Sea Freight</a><a href="project-cargo.html">Projects</a>
-        <a href="air-freight.html">Air Freight</a><a href="transport.html">Transport</a>
-        <a href="courier.html">Courier</a><a href="warehouse.html">Warehousing</a>
-        <a href="chb.html">CHB</a><a href="bpo.html">BPO / 3PL</a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SCENE 8 — FOOTER CTA                                   -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-social-bar">
+      <p>GET CONNECTED WITH US ON SOCIAL NETWORKS</p>
+      <div class="footer-social-icons">
+        <a href="mailto:info@egxsupplychain.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24"
+            fill="currentColor">
+            <path
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg></a>
+        <a href="https://www.facebook.com/egxsupplychain" target="_blank" rel="noopener" aria-label="Facebook"><svg
+            width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+          </svg></a>
+        <a href="https://www.instagram.com/egx.sc" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18"
+            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+          </svg></a>
+        <a href="https://www.linkedin.com/company/egx-supply-chain" target="_blank" rel="noopener"
+          aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+            <circle cx="4" cy="4" r="2" />
+          </svg></a>
+        <a href="https://wa.me/94702878440" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18"
+            height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg></a>
       </div>
     </div>
-    <div>
-      <p class="footer-heading">CONTACT INFO</p>
-      <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)" style="flex-shrink:0;margin-top:3px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><a href="https://maps.google.com/?q=No.281+R.A.+De+Mel+Mawatha+Colombo+3" target="_blank">No.281 R.A.De Mel Mawatha, Colombo 3</a></div>
-      <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)" style="flex-shrink:0"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:info@egxsupplychain.com">info@egxsupplychain.com</a></div>
-      <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)" style="flex-shrink:0"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><a href="tel:0112301087">011 230 1087</a></div>
-      <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><a href="https://wa.me/94702878440">070 287 8440</a></div>
+    <div class="footer-main">
+      <div>
+        <img class="footer-logo" src="../images/egx-logo.webp" alt="EGX Supply Chain"
+          onerror="this.src='../images/EGXNavLogo.webp'">
+        <p class="footer-desc">EGX Supply Chain is your trusted logistics partner, delivering optimized, scalable, and
+          tech-driven solutions for global and local businesses.</p>
+      </div>
+      <div>
+        <p class="footer-heading">QUICK LINKS</p>
+        <div class="footer-quick-links">
+          <a href="../index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p class="footer-heading" style="margin-top:28px">OUR SERVICES</p>
+        <div class="footer-services-grid">
+          <a href="sea-freight.html">Sea Freight</a><a href="project-cargo.html">Projects</a>
+          <a href="air-freight.html">Air Freight</a><a href="transport.html">Transport</a>
+          <a href="courier.html">Courier</a><a href="warehouse.html">Warehousing</a>
+          <a href="chb.html">CHB</a><a href="bpo.html">BPO / 3PL</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">CONTACT INFO</p>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)"
+            style="flex-shrink:0;margin-top:3px">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg><a href="https://maps.google.com/?q=No.281+R.A.+De+Mel+Mawatha+Colombo+3" target="_blank">No.281 R.A.De
+            Mel Mawatha, Colombo 3</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)"
+            style="flex-shrink:0">
+            <path
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg><a href="mailto:info@egxsupplychain.com">info@egxsupplychain.com</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)"
+            style="flex-shrink:0">
+            <path
+              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+          </svg><a href="tel:0112301087">011 230 1087</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)"
+            style="flex-shrink:0">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg><a href="https://wa.me/94702878440">070 287 8440</a></div>
+      </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 EGX INFOVIBE. All rights reserved.</p>
-    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
-  </div>
-</footer>
+    <div class="footer-bottom">
+      <p>© 2025 EGX INFOVIBE. All rights reserved.</p>
+      <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+  </footer>
 
- <script>
-// ── 1. YOUR REAL PEOPLE DATA LIST ────────────────────────────────
-// Simply add your real names, positions, and quotes here in order.
-// The engine handles matching them to E1.webp, E2.webp, etc. automatically!
-const staffList = [
-  {
-    name: "Alexander Vanguard",
-    position: "Chief Executive Officer",
-    quote: "Serving Values. Connecting businesses through reliable logistics solutions."
-  },
-  {
-    name: "Elena Sterling",
-    position: "Managing Director",
-    quote: "Optimizing global trade pathways with relentless precision and care."
-  },
-  {
-    name: "Marcus Rothschild",
-    position: "Head of Supply Chain",
-    quote: "Bridging architectural framework gaps with high-efficiency fleet mechanics."
-  },
-  {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-  {
-    name: "Liam Hawthorne",
-    position: "Logistics Coordinator",
-    quote: "Ensuring seamless transitions across every node of the supply chain."
-  },
-  {
-    name: "Isabella Kensington",
-    position: "Customer Relations Manager",
-    quote: "Building trust and transparency with every client interaction."
-  },
-  {
-    name: "Ethan Blackwood",
-    position: "Warehouse Supervisor",
-    quote: "Maintaining operational excellence in every storage and retrieval process."
-  },
-  {
-    name: "Olivia Fairchild",
-    position: "Transport Manager",
-    quote: "Navigating complex routes to ensure timely deliveries worldwide."
-  },
-  {
-    name: "Noah Whitmore",
-    position: "Customs Compliance Officer",
-    quote: "Streamlining regulatory processes for hassle-free international trade."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
-   {
-    name: "Sophia Marlowe",
-    position: "Operations Lead",
-    quote: "Delivering institutional scale performance metrics to every modern partner."
-  },
+  <script>
+    // ── 1. YOUR REAL PEOPLE DATA LIST ────────────────────────────────
+    // Simply add your real names, positions, and quotes here in order.
+    // The engine handles matching them to E1.webp, E2.webp, etc. automatically!
 
-  
-  // ... Keep adding your profiles down to 50 here ...
-  
-];
+    const staffList = [
+      {
+        name: "Shalaby",
+        position: "Senior Executive 3"
+      },
+      {
+        name: "Ruchini",
+        position: "Senior Executive 2"
+      },
+      {
+        name: "Yuuk",
+        position: "Senior Executive 1"
+      },
+      {
+        name: "Abhisheka",
+        position: "Senior Executive 1"
+      },
 
-// ── 2. DATA PROCESSING ENGINE ────────────────────────────────────
-// This automatically maps your list items to their sequential file paths (E1, E2, E3...)
-const employees = staffList.map((person, index) => {
-  const fileNumber = index + 1; // Generates 1, 2, 3... up to 50
-  return {
-    id: `emp-${fileNumber}`,
-    name: person.name,
-    position: person.position,
-    quote: person.quote,
-    image: `../images/AboutUs/Employee/E${fileNumber}.webp` // Maps perfectly to E1.webp, E2.webp...
-  };
-});
+      {
+        name: "Kavisini",
+        position: "Senior Executive 1"
+      },
+      {
+        name: "Suzanne",
+        position: "Senior Executive 1"
+      },
 
-const gridContainer = document.getElementById("gridContainer");
-const splitScreen = document.getElementById("splitScreenContainer");
-const zoomTarget = document.getElementById("zoomTarget");
-const closeBtn = document.getElementById("closeButton");
+      {
+        name: "Lochana",
+        position: "Senior Executive 1"
+      },
+      {
+        name: "Gayan",
+        position: "Senior Executive 1"
+      },
+      {
+        name: "Nimasha",
+        position: "Executive 3"
+      },
+      {
+        name: "Sachini",
+        position: "Executive 2"
+      },
+      {
+        name: "Anjalie",
+        position: "Executive 2"
+      },
+      {
+        name: "Kasun",
+        position: "Executive 1 – Finance"
+      },
+      {
+        name: "Sayuri",
+        position: "Executive – Finance"
+      },
+      {
+        name: "Kenn",
+        position: "Executive – Strategic Business Analysis"
+      },
+      {
+        name: "Kaveesha",
+        position: "PA to MD cum Sales Coordinator"
+      },
+      {
+        name: "Asini",
+        position: "Junior Executive"
+      },
+      {
+        name: "Gayathri",
+        position: "Junior Executive"
+      },
+      {
+        name: "Jayan",
+        position: "Junior Executive – Pricing"
+      },
+      {
+        name: "Malki",
+        position: "Junior Executive – Customer Service"
+      },
+      {
+        name: "Rashik",
+        position: "Assistant – Business Development"
+      },
+      {
+        name: "Samith",
+        position: "Assistant – Business Development"
+      },
+      {
+        name: "Nimesh",
+        position: "Assistant – Business Development"
+      },
+      {
+        name: "Shashini",
+        position: "Assistant – Customer Service"
+      },
+      {
+        name: "Menoli",
+        position: "Assistant – Finance"
+      },
+      {
+        name: "Yasith",
+        position: "Forklift Operator"
+      }
+    ];
 
-let activeGridItem = null;
+    // ── 2. DATA PROCESSING ENGINE ────────────────────────────────────
+    // This automatically maps list items to their sequential file paths (E1, E2, E3...)
+    const employees = staffList.map((person, index) => {
+      const fileNumber = index + 1; // Generates 1, 2, 3... up to 50
+      return {
+        id: `emp-${fileNumber}`,
+        name: person.name,
+        position: person.position,
+        quote: person.quote,
+        image: `../images/AboutUs/Employee/E${fileNumber}.webp`
+      };
+    });
 
-// ── 3. GENERATING PORTFOLIO GRID ON LAYER RUNTIME ───────────────
-function buildStructure() {
-  employees.forEach((emp) => {
-    const item = document.createElement("div");
-    item.classList.add("grid-item");
-    item.dataset.id = emp.id;
-    
-    item.innerHTML = `
+    const gridContainer = document.getElementById("gridContainer");
+    const splitScreen = document.getElementById("splitScreenContainer");
+    const zoomTarget = document.getElementById("zoomTarget");
+    const closeBtn = document.getElementById("closeButton");
+
+    let activeGridItem = null;
+
+    // ── 3. GENERATING PORTFOLIO GRID ON LAYER RUNTIME ───────────────
+    function buildStructure() {
+      employees.forEach((emp) => {
+        const item = document.createElement("div");
+        item.classList.add("grid-item");
+        item.dataset.id = emp.id;
+
+        item.innerHTML = `
       <img src="${emp.image}" alt="${emp.name}" loading="lazy">
       <div class="grid-item-overlay">
         <h3>${emp.name}</h3>
         <p>${emp.position}</p>
       </div>
     `;
-    
-    item.addEventListener("click", () => expandEmployee(item, emp));
-    gridContainer.appendChild(item);
-  });
-  
-  // Clear System Preloader Screen
-  setTimeout(() => {
-    document.getElementById("preloader").classList.add("done");
-  }, 1000);
-}
 
-// ── 4. EXPAND ELEMENT INTO SPLIT-SCREEN (FLIP INTERACTION) ───────
-function expandEmployee(item, data) {
-  activeGridItem = item;
-  const targetImage = item.querySelector("img");
-
-  // Map real values dynamically into screen panel nodes
-  document.getElementById("targetName").textContent = data.name;
-  document.getElementById("targetRole").textContent = data.position;
-  document.getElementById("targetBio").textContent = data.quote;
-
-  // Capture layout state
-  const state = Flip.getState(targetImage);
-
-  // Transfer image node to the detailed left-hand viewer split panel
-  zoomTarget.appendChild(targetImage);
-  splitScreen.classList.add("active");
-
-  // Animate transition path
-  Flip.from(state, {
-    duration: 0.85,
-    ease: "power4.inOut",
-    onComplete: () => {
-      gsap.to("#detailsContent", {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power2.out"
+        item.addEventListener("click", () => expandEmployee(item, emp));
+        gridContainer.appendChild(item);
       });
+
+      // Clear System Preloader Screen
+      setTimeout(() => {
+        document.getElementById("preloader").classList.add("done");
+      }, 1000);
     }
-  });
-}
 
-// ── 5. COLLAPSE PROFILE ACTIVE VIEWER AND RETURN TO GRID ─────────
-function collapseActiveEmployee() {
-  if (!activeGridItem) return;
+    // ── 4. EXPAND ELEMENT INTO SPLIT-SCREEN (FLIP INTERACTION) ───────
+    function expandEmployee(item, data) {
+      activeGridItem = item;
+      const targetImage = item.querySelector("img");
 
-  const activeImage = zoomTarget.querySelector("img");
-  
-  gsap.to("#detailsContent", {
-    opacity: 0,
-    y: 30,
-    duration: 0.3,
-    ease: "power2.in",
-    onComplete: () => {
-      const state = Flip.getState(activeImage);
-      
-      // Return physical image tag home to its designated box slot inside the grid
-      activeGridItem.insertBefore(activeImage, activeGridItem.firstChild);
-      splitScreen.classList.remove("active");
+      // Map real values dynamically into screen panel nodes
+      document.getElementById("targetName").textContent = data.name;
+      document.getElementById("targetRole").textContent = data.position;
+      document.getElementById("targetBio").textContent = data.quote;
 
+      // Capture layout state
+      const state = Flip.getState(targetImage);
+
+      // Transfer image node to the detailed left-hand viewer split panel
+      zoomTarget.appendChild(targetImage);
+      splitScreen.classList.add("active");
+
+      // Animate transition path
       Flip.from(state, {
         duration: 0.85,
-        ease: "power4.inOut"
+        ease: "power4.inOut",
+        onComplete: () => {
+          gsap.to("#detailsContent", {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: "power2.out"
+          });
+        }
       });
     }
-  });
-}
 
-// ── EVENT REGISTRATION PIPELINES ──────────────────────────────────
-closeBtn.addEventListener("click", collapseActiveEmployee);
-document.addEventListener("keydown", (e) => { if(e.key === "Escape") collapseActiveEmployee(); });
+    // ── 5. COLLAPSE PROFILE ACTIVE VIEWER AND RETURN TO GRID ─────────
+    function collapseActiveEmployee() {
+      if (!activeGridItem) return;
 
-window.addEventListener("DOMContentLoaded", buildStructure);
-</script>
+      const activeImage = zoomTarget.querySelector("img");
 
-<script src="../js/main.js"></script>
-<script src="../js/about.js"></script>
+      gsap.to("#detailsContent", {
+        opacity: 0,
+        y: 30,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => {
+          const state = Flip.getState(activeImage);
+
+          // Return physical image tag home to its designated box slot inside the grid
+          activeGridItem.insertBefore(activeImage, activeGridItem.firstChild);
+          splitScreen.classList.remove("active");
+
+          Flip.from(state, {
+            duration: 0.85,
+            ease: "power4.inOut"
+          });
+        }
+      });
+    }
+
+    // ── EVENT REGISTRATION PIPELINES ──────────────────────────────────
+    closeBtn.addEventListener("click", collapseActiveEmployee);
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") collapseActiveEmployee(); });
+
+    window.addEventListener("DOMContentLoaded", buildStructure);
+  </script>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/about.js"></script>
 
 
 </body>
+
 </html>

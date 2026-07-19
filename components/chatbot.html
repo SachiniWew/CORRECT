@@ -1,0 +1,102 @@
+<div class="egx-chatbot">
+
+    <!-- Floating Logo Button -->
+    <button class="chatbot-toggle" onclick="openChat()">
+        <img src="../images/egx-logo.webp" alt="EGX">
+    </button>
+
+
+    <!-- Chat Window -->
+    <div class="chat-window" id="egxChat">
+
+
+        <div class="chat-header">
+
+            <div>
+                <h3>EGX Assistant</h3>
+                <span>SUPPLY CHAIN SUPPORT</span>
+            </div>
+
+            <button onclick="closeChat()">×</button>
+
+        </div>
+
+
+
+        <div class="chat-content" id="chatBody">
+
+
+            <div class="bot-message">
+
+                Welcome to <span class="gold">
+                EGX Supply Chain
+                </span> 👋
+
+                <br><br>
+
+                How can we assist you today?
+
+            </div>
+
+
+
+            <div class="chat-options">
+
+
+                <button onclick="getQuote()">
+                     Get a Quote
+                </button>
+
+
+                <button onclick="trackShipment()">
+                     Track Your Shipment
+                </button>
+
+
+                <button onclick="joinEGX()">
+                     Join EGX Team
+                </button>
+
+
+                <button onclick="businessAdvice()">
+                     Supply Chain Advice
+                </button>
+
+
+                <button onclick="otherQuestions()">
+                    Other Questions
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- User Input -->
+
+        <div class="chat-input">
+
+
+            <input 
+            type="text"
+            id="userQuestion"
+            placeholder="Type your question..."
+            onkeypress="if(event.key==='Enter') sendUserMessage()"
+            >
+
+
+            <button onclick="sendUserMessage()">
+                ➤
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
