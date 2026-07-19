@@ -1,14 +1,23 @@
 // LOAD CHATBOT HTML
 
-fetch("/components/chatbot.html")
+const chatbotFile = window.location.pathname.includes("/pages/")
+    ? "../components/chatbot.html"
+    : "components/chatbot.html";
 
-.then(response=>response.text())
 
-.then(data=>{
+fetch(chatbotFile)
 
-document.getElementById("chatbot-container")
-.innerHTML=data;
+.then(response => response.text())
 
+.then(data => {
+
+document.getElementById("chatbot-container").innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error("Chatbot loading error:", error);
 
 });
 
