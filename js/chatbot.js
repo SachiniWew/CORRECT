@@ -6,20 +6,34 @@ const chatbotFile = window.location.pathname.includes("/pages/")
 
 
 fetch(chatbotFile)
-
 .then(response => response.text())
-
 .then(data => {
 
-document.getElementById("chatbot-container").innerHTML = data;
+document.getElementById("chatbot-container").innerHTML=data;
 
-})
 
-.catch(error => {
+const logo = document.getElementById("egxLogo");
 
-console.error("Chatbot loading error:", error);
+
+if(logo){
+
+    if(window.location.pathname.includes("/pages/")){
+
+        logo.src="../images/egx-logo.webp";
+
+    }
+    else{
+
+        logo.src="images/egx-logo.webp";
+
+    }
+
+}
 
 });
+
+
+
 
 
 
