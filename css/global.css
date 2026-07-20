@@ -626,3 +626,4 @@ p {
 
 .close-button svg stroke { transition: stroke 0.3s ease; }
 .close-button:hover svg stroke { stroke: var(--gold); }
+
