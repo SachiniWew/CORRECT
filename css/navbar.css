@@ -164,15 +164,16 @@
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
   background: none;
   border: none;
+  color: var(--white);
 }
 .nav-hamburger span {
   display: block;
   width: 26px;
   height: 2px;
-  background: var(--gold);
+  background: var(--white);
   border-radius: 2px;
   transition: all 0.35s ease;
   transform-origin: center;
