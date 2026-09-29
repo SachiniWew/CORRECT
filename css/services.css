@@ -104,6 +104,20 @@
   pointer-events: none;
 }
 
+@media (max-width: 768px) {
+
+  .service-hero{
+    margin-top: 0;
+    min-height: calc(100dvh - var(--nav-h));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+}
+
 /* =========================================
    SERVICE FEATURES
 ========================================= */
