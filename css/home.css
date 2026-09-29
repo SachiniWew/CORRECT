@@ -245,7 +245,7 @@
 @media (max-width: 768px) {
 
   #hero {
-    margin-top: 0;
+    margin-top: 80px;
     min-height: calc(100dvh - var(--nav-h));
     display: flex;
     flex-direction: column;
@@ -255,15 +255,14 @@
     padding-bottom: 40px;
   }
 
-  /* Background layers stay absolute — they're decorative */
   .hero-bg        { position: absolute; inset: 0; z-index: 0; }
   .hero-grain,
   .hero-vignette  { position: absolute; inset: 0; }
-  .hero-orb       { display: none; } /* too large on mobile */
+  .hero-orb       { display: none; } 
 
   /* BIG EGX IMAGE — top of the stack, flows in document */
   .hero-big-egx {
-    position: relative;       /* out of absolute, into flow */
+    position: relative;       
     top: auto; left: auto;
     transform: none;
     width: 100vw;
