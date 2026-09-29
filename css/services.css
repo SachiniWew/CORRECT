@@ -3,15 +3,18 @@
    ============================================================ */
 
 /* ── SERVICE PAGE HERO ───────────────────────────────────── */
+
+
 .service-hero {
-  margin-top: 0;
-  min-height: calc(100dvh - var(--nav-h));
+  margin-top: var(--nav-h);
+  height: calc(100dvh - var(--nav-h));
+  min-height: 550px;
   position: relative;
-  height: clamp(500px, 70vh, 800px);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
 }
+
 .service-hero-bg {
   position: absolute;
   inset: 0;
@@ -379,10 +382,14 @@
    HERO
 ========================================== */
 
-.services-hero{
-    height:100vh;
-    position:relative;
-    overflow:hidden;
+
+
+.services-hero {
+    height: calc(100dvh - var(--nav-h));
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+    margin-top: var(--nav-h);
 }
 
 .services-hero img{
