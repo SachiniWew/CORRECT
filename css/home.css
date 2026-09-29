@@ -55,22 +55,17 @@
 /* ── BIG "EGX" BACKGROUND IMAGE ──────────────────────────── */
 .hero-big-egx {
   position: absolute;
-  top: 55%;
+ 
+  top: 60%;
   left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: min(1200px, 88vw);
-  max-height: 58vh;
-
-  height: auto;
-  object-fit: contain;
-
+  transform: translate(-50%, -52%);
+  width: min(1500px, 100vw);
   pointer-events: none;
   opacity: 1;
-
   animation: fadeIn 0.9s ease 0.3s both;
   z-index: 1;
 }
+
 /* ── GOLD GLOW ───────────────────────────────────────────── */
 .hero-glow {
   position: absolute;
@@ -350,30 +345,36 @@
 
 @media (min-width: 769px) and (max-height: 800px) {
 
-  .hero-big-egx {
-    top: 53%;
-    width: min(1100px, 82vw);
-    max-height: 52vh;
+  .hero-content {
+    bottom: 55px;
   }
 
-  .hero-logo-wrap {
-    top: 50%;
+  .hero-tag {
+    margin-bottom: 16px;
   }
 
-  .hero-logo-wrap img {
-    width: min(280px, 32vw);
+  .hero-h1 {
+    margin-bottom: 10px;
   }
 
-  .hero-glow {
-    top: 50%;
-    width: min(600px, 65vw);
+  .hero-h1-sub {
+    margin-bottom: 20px;
   }
 
-  .hero-orb {
-    width: 600px;
-    height: 600px;
-    top: 52%;
+  .hero-desc {
+    margin-bottom: 25px;
+    line-height: 1.5;
   }
+
+  .hero-stats {
+    bottom: 25px;
+    gap: 16px;
+  }
+
+  .hero-scroll {
+    bottom: 20px;
+  }
+
 }
 
 /* ── SERVICES WHEEL / GRID ───────────────────────────────── */
