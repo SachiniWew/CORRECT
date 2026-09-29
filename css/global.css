@@ -31,6 +31,22 @@
   --transition:  0.35s cubic-bezier(0.4,0,0.2,1);
 }
 
+/*NAVBAR SET*/
+:root {
+  --nav-h: 88px;
+}
+
+/* Fixed navbar compensation */
+html {
+  scroll-padding-top: var(--nav-h);
+}
+
+/* Everything starts below fixed navbar */
+body {
+  padding-top: var(--nav-h);
+}
+
+
 /* ── RESET ───────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 

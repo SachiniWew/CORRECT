@@ -2,18 +2,12 @@
    HOME PAGE — EGX Supply Chain
    ============================================================ */
 
-/* ============================================================
-   HERO SECTION — FIXED
-   Replace the entire hero block in home.css
-   (everything from "/* ── HERO" down to the last hero rule)
-   ============================================================ */
-
 /* ── HERO BASE ───────────────────────────────────────────── */
 #hero {
   position: relative;
-  margin-top: var(--nav-h);
+  margin-top: 0;
 
-  min-height: calc(100vh - var(--nav-h));
+  
   min-height: calc(100dvh - var(--nav-h));
 
   overflow: hidden;
@@ -23,6 +17,7 @@
   flex-direction: column;
   align-items: stretch;
 }
+
 
 /* ── BACKGROUND LAYERS ───────────────────────────────────── */
 .hero-bg {
@@ -241,18 +236,24 @@
      4. Stats row
    No absolute positioning on mobile — everything flows naturally.
    ══════════════════════════════════════════════════════════ */
-@media (max-width: 768px) {
+
+  @media (max-width: 768px) {
 
   #hero {
     margin-top: 0;
-    min-height: 100dvh;
+
+    min-height: calc(100dvh - var(--nav-h));
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-top: var(--nav-h);
+
+    padding-top: 0;
     padding-bottom: 40px;
   }
+
+}
 
   /* Background layers stay absolute — they're decorative */
   .hero-bg        { position: absolute; inset: 0; z-index: 0; }
@@ -340,42 +341,7 @@
 
   /* SCROLL INDICATOR — hide on mobile */
   .hero-scroll { display: none; }
-}
 
-
-@media (min-width: 769px) and (max-height: 800px) {
-
-  .hero-content {
-    bottom: 55px;
-  }
-
-  .hero-tag {
-    margin-bottom: 16px;
-  }
-
-  .hero-h1 {
-    margin-bottom: 10px;
-  }
-
-  .hero-h1-sub {
-    margin-bottom: 20px;
-  }
-
-  .hero-desc {
-    margin-bottom: 25px;
-    line-height: 1.5;
-  }
-
-  .hero-stats {
-    bottom: 25px;
-    gap: 16px;
-  }
-
-  .hero-scroll {
-    bottom: 20px;
-  }
-
-}
 
 /* ── SERVICES WHEEL / GRID ───────────────────────────────── */
 #services-section {
