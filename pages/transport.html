@@ -78,7 +78,7 @@
 <!-- SERVICE HERO -->
 <section class="service-hero">
   <div class="service-hero-bg">
-    <img src="../images/TransportAssests/Transport.png" alt="Transport" loading="eager">
+    <img src="../images/TransportAssests/v.jpeg" alt="Transport" loading="eager">
   </div>
   <div class="service-hero-overlay"></div>
   <div class="service-hero-content container">
@@ -90,7 +90,7 @@
       <span>Transport</span>
     </div>
     <span class="label">EGX FLEET</span>
-    <h1>Nationwide Road Logistics<br><span class='gold'>You Can Trust</span></h1>
+    <h1>Road Logistics<br><span class='gold'>You Can Trust</span></h1>
     <p>Reliable, GPS-tracked road transport solutions across Sri Lanka. From small parcels to full truckload, we move your cargo safely and on time.</p>
     <div style="display:flex;gap:16px;flex-wrap:wrap;">
       <a href="contact.html" class="btn btn-gold">GET A QUOTE →</a>
@@ -103,20 +103,79 @@
 <div class="service-body">
   <div class="container">
 
-    <!-- Intro Grid -->
-    <div class="service-intro-grid">
-      <div class="service-intro-img reveal-left">
-        <img src="../images/TransportAssests/l1.png" alt="Transport" loading="lazy">
+<div class="service-intro-grid">
+
+  <!-- TRANSPORTImage Slideshow -->
+  <div class="service-intro-img reveal-left">
+    <div class="warehouse-slider">
+
+      <img src="../images/TransportAssests/Transport1.jpeg"
+           alt="EGX Fleet Vehicles"
+           class="warehouse-slide active">
+
+      <img src="../images/TransportAssests/transport2.webp"
+           alt="EGX Warehouse Facilities"
+           class="warehouse-slide">
+
+      <img src="../images/TransportAssests/Transport3.webp"
+           alt="EGX Warehouse Operations"
+           class="warehouse-slide">
+
+      <img src="../images/TransportAssests/Transport4.webp"
+           alt="EGX Warehouse & Logistics"
+           class="warehouse-slide">
+
+      <!-- Clickable Dots -->
+      <div class="warehouse-dots">
+        <button class="warehouse-dot active"
+                onclick="showWarehouseSlide(0)"
+                aria-label="Warehouse image 1"></button>
+
+        <button class="warehouse-dot"
+                onclick="showWarehouseSlide(1)"
+                aria-label="Warehouse image 2"></button>
+
+        <button class="warehouse-dot"
+                onclick="showWarehouseSlide(2)"
+                aria-label="Warehouse image 3"></button>
+
+        <button class="warehouse-dot"
+                onclick="showWarehouseSlide(3)"
+                aria-label="Warehouse image 4"></button>
       </div>
-      <div class="reveal-right">
-        <span class="label">EGX FLEET</span>
-        <h2 style="margin:16px 0 24px">Last-Mile Excellence Across Sri Lanka</h2>
-        <p style="color:var(--ash);line-height:1.75;margin-bottom:24px">EGX Transport operates a modern fleet of vehicles ranging from motorcycles to heavy trucks, providing flexible nationwide transport solutions. Our GPS-tracked fleet and experienced drivers ensure your cargo reaches its destination safely and on schedule — every single time.</p>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:32px">
-          <a href="contact.html" class="btn btn-gold">CONTACT US →</a>
-        </div>
-      </div>
+
     </div>
+  </div>
+
+
+  <!-- Content -->
+  <div class="reveal-right">
+
+    <span class="label">EGX FLEET</span>
+
+    <h2 style="margin:16px 0 24px">
+      Last-Mile Excellence Across Sri Lanka
+    </h2>
+
+          <p style="color:var(--ash);line-height:1.75;margin-bottom:24px">EGX Transport operates a modern fleet of vehicles ranging from motorcycles to heavy trucks, providing flexible nationwide transport solutions. Our GPS-tracked fleet and experienced drivers ensure your cargo reaches its destination safely and on schedule — every single time.</p>
+
+
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:32px">
+      <a href="contact.html" class="btn btn-gold">
+        CONTACT US →
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
 
     <!-- Section Label -->
     <div class="section-title-block reveal" style="margin-bottom:40px">
@@ -258,6 +317,137 @@
   <script src="../js/egx-faq.js"></script>
 
   <script src="../js/chatbot.js"></script>
+
+
+    <script>
+  let warehouseCurrentSlide = 0;
+  let warehouseTimer = null;
+
+  const warehouseSlides =
+    document.querySelectorAll(".warehouse-slide");
+
+  const warehouseDots =
+    document.querySelectorAll(".warehouse-dot");
+
+
+  /* Show selected slide */
+  function showWarehouseSlide(index) {
+
+    if (!warehouseSlides.length) return;
+
+    /* Remove active state */
+    warehouseSlides.forEach(slide => {
+      slide.classList.remove("active");
+    });
+
+    warehouseDots.forEach(dot => {
+      dot.classList.remove("active");
+    });
+
+
+    /* Add active state */
+    warehouseSlides[index].classList.add("active");
+
+    if (warehouseDots[index]) {
+      warehouseDots[index].classList.add("active");
+    }
+
+
+    /* Update current slide */
+    warehouseCurrentSlide = index;
+
+
+    /*
+      Restart automatic slideshow after
+      clicking a dot.
+    */
+    restartWarehouseSlider();
+  }
+
+
+  /* Go to next slide */
+  function nextWarehouseSlide() {
+
+    warehouseCurrentSlide++;
+
+    if (
+      warehouseCurrentSlide >=
+      warehouseSlides.length
+    ) {
+      warehouseCurrentSlide = 0;
+    }
+
+    /* Change slide without restarting timer */
+    warehouseSlides.forEach(slide => {
+      slide.classList.remove("active");
+    });
+
+    warehouseDots.forEach(dot => {
+      dot.classList.remove("active");
+    });
+
+    warehouseSlides[
+      warehouseCurrentSlide
+    ].classList.add("active");
+
+    warehouseDots[
+      warehouseCurrentSlide
+    ].classList.add("active");
+  }
+
+
+  /* Start automatic slideshow */
+  function startWarehouseSlider() {
+
+    clearInterval(warehouseTimer);
+
+    warehouseTimer = setInterval(
+      nextWarehouseSlide,
+      4000
+    );
+  }
+
+
+  /* Restart timer */
+  function restartWarehouseSlider() {
+
+    clearInterval(warehouseTimer);
+
+    warehouseTimer = setInterval(
+      nextWarehouseSlide,
+      4000
+    );
+  }
+
+
+  /* Start when page loads */
+  startWarehouseSlider();
+
+
+  /* Pause while mouse is over slider */
+  const warehouseSlider =
+    document.querySelector(".warehouse-slider");
+
+
+  if (warehouseSlider) {
+
+    warehouseSlider.addEventListener(
+      "mouseenter",
+      () => {
+        clearInterval(warehouseTimer);
+      }
+    );
+
+
+    warehouseSlider.addEventListener(
+      "mouseleave",
+      () => {
+        startWarehouseSlider();
+      }
+    );
+
+  }
+</script>
 
 </body>
 </html>

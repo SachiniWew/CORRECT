@@ -346,8 +346,8 @@
 
 /* Need box */
 .af-need-box {
-  background: rgba(255,214,0,0.05);
-  border: 1px solid rgba(255,214,0,0.18);
+  background: rgba(17, 17, 17, 0.018);
+  border: 1px solid rgba(6, 6, 6, 0);
   border-radius: 16px;
   padding: clamp(24px,4vw,44px);
   margin-bottom: 52px;
