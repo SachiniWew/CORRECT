@@ -3,16 +3,10 @@
    ============================================================ */
 
 /* ── SERVICE PAGE HERO ───────────────────────────────────── */
-.service-hero {
-    height: calc(100dvh - var(--nav-h));
-    min-height: 600px;
-    position: relative;
-    overflow: hidden;
-    margin-top: var(--nav-h);
-}
+
 
 .service-hero {
-  margin-top: var(--nav-h);
+  
   height: calc(100dvh - var(--nav-h));
   min-height: 550px;
   position: relative;
