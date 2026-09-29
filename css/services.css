@@ -6,7 +6,6 @@
 .service-hero {
   margin-top: 0;
   min-height: calc(100dvh - var(--nav-h));
-
   position: relative;
   height: clamp(500px, 70vh, 800px);
   display: flex;
