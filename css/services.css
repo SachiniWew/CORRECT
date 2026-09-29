@@ -418,11 +418,10 @@
 }
 
 .hero-content h1{
-    font-size:clamp(5rem,11vw,10rem);
+    font-size:clamp(4rem,11vw,10rem);
     line-height:.9;
     margin-top:20px;
 }
-
 
 /* ── SLIDESHOW SECTION ───────────────────────────────────── */
 #slideshow-section {
