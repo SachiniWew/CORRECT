@@ -3,7 +3,13 @@
    ============================================================ */
 
 /* ── SERVICE PAGE HERO ───────────────────────────────────── */
-
+.service-hero {
+    height: calc(100dvh - var(--nav-h));
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+    margin-top: var(--nav-h);
+}
 
 .service-hero {
   margin-top: var(--nav-h);
@@ -377,19 +383,15 @@
   .process-steps::before { display: none; }
 }
 
-
 /* ==========================================
    HERO
 ========================================== */
-
-
-
 .services-hero {
     height: calc(100dvh - var(--nav-h));
     min-height: 600px;
     position: relative;
     overflow: hidden;
-    margin-top: var(--nav-h);
+    
 }
 
 .services-hero img{
