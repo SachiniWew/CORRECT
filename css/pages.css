@@ -1248,7 +1248,7 @@ body{
 .people-section{
 
     width:100%;
-    padding:60px 0;
+    padding:0px 0px 0px;
 }
 
 
@@ -1333,6 +1333,227 @@ body{
     animation:
     forceFloat 8s ease-in-out infinite;
 
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   BOARD OF DIRECTORS — EDITORIAL IMAGE HOVER SECTION
+   ══════════════════════════════════════════════════════════ */
+
+.ab-scene--directors {
+    background: #000;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* SECTION HEADING */
+.ab-directors-header {
+    background: #000;
+    text-align: center;
+    padding: 65px 20px 60px;
+}
+
+.ab-directors-header .label {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: 0.85rem;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.ab-directors-header h2 { margin: 0; }
+
+/* DIRECTORS GRID */
+.ab-directors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    width: 100%;
+}
+
+/* DIRECTOR CARD */
+.ab-director-card {
+    position: relative;
+    background: #080808;
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    margin: 0;
+    transform: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.ab-director-card:hover {
+    transform: none;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+/* IMAGE */
+.ab-director-card .ab-exco-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 0.85 / 1;
+    overflow: hidden;
+}
+
+/* DARKEN IMAGE INITIALLY */
+.ab-director-card .ab-exco-img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+
+    filter: brightness(0.68) saturate(0.8);
+    transform: scale(1);
+
+    transition:
+        filter 0.6s ease,
+        transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* BOTTOM DARK GRADIENT */
+.ab-director-card .ab-exco-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.55) 22%,
+        transparent 65%
+    );
+
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+/* GOLD BOTTOM LINE */
+.ab-director-card .ab-exco-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--gold);
+    z-index: 3;
+    transition: width 0.5s ease;
+}
+
+/* HOVER IMAGE */
+.ab-director-card:hover .ab-exco-img img,
+.ab-director-card:focus-within .ab-exco-img img {
+    filter: brightness(1) saturate(1);
+    transform: scale(1.06);
+}
+
+.ab-director-card:hover .ab-exco-img::before,
+.ab-director-card:focus-within .ab-exco-img::before {
+    opacity: 1;
+}
+
+.ab-director-card:hover .ab-exco-img::after,
+.ab-director-card:focus-within .ab-exco-img::after {
+    width: 100%;
+}
+
+/* NAME + DESIGNATION */
+.ab-director-card .ab-exco-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 24px 28px;
+    z-index: 2;
+
+    opacity: 0;
+    transform: translateY(18px);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+
+    pointer-events: none;
+}
+
+/* SHOW TEXT ON HOVER */
+.ab-director-card:hover .ab-exco-info,
+.ab-director-card:focus-within .ab-exco-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* DIRECTOR NAME */
+.ab-director-card .ab-exco-info h4 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+    font-weight: 400;
+    color: var(--gold);
+    margin: 0 0 10px;
+}
+
+/* DESIGNATION */
+.ab-director-card .ab-exco-role {
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    letter-spacing: 0.13em;
+    color: #fff;
+    margin: 0;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .ab-directors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ab-directors-header {
+        padding: 55px 20px 45px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .ab-directors-header {
+        padding: 45px 15px 35px;
+    }
+
+    .ab-directors-header .label {
+        font-size: 0.7rem;
+    }
+
+    .ab-directors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ab-director-card .ab-exco-info {
+        padding: 12px;
+    }
+
+    .ab-director-card .ab-exco-info h4 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .ab-director-card .ab-exco-role {
+        font-size: 0.55rem;
+        letter-spacing: 0.08em;
+    }
+}
+
+/* REDUCED MOTION ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    .ab-director-card *,
+    .ab-director-card::before {
+        transition: none !important;
+    }
 }
 
 
