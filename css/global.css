@@ -454,10 +454,10 @@ p {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(8, 1fr); /* 8 columns fitting screen width */
+  grid-template-columns: repeat(7, 1fr); /* 8 columns fitting screen width */
   width: 100%;
-  gap: 0; /* Completely removes padding/gaps between images */
-  padding: 0;
+  gap: 10px; /* Completely removes padding/gaps between images */
+  padding: 0 50px 0 50px;
 }
 
 /* Responsive Grid Scaling */

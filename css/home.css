@@ -1,13 +1,6 @@
 /* ============================================================
    HOME PAGE — EGX Supply Chain
    ============================================================ */
-
-/* ============================================================
-   HERO SECTION — FIXED
-   Replace the entire hero block in home.css
-   (everything from "/* ── HERO" down to the last hero rule)
-   ============================================================ */
-
 /* ── HERO BASE ───────────────────────────────────────────── */
 #hero {
   position: relative;
@@ -117,7 +110,7 @@
 }
 
 /* ── HERO CONTENT (text + buttons) ───────────────────────── */
-/* Desktop: absolute bottom-left, overlaying the background */
+
 .hero-content {
   position: absolute;
   bottom: clamp(80px, 12vh, 160px);
@@ -232,16 +225,7 @@
 @keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes logoFade    { from { opacity: 0; transform: translate(-50%, -60%); } to { opacity: 1; transform: translate(-50%, -55%); } }
 
-/* ══════════════════════════════════════════════════════════
-   HERO SECTION
-   MOBILE HERO — complete layout restack
-   Stack order (top → bottom):
-     1. Big EGX background text image
-     2. EGX logo (centered)
-     3. Text content (tag, h1, h2, desc, buttons)
-     4. Stats row
-   No absolute positioning on mobile — everything flows naturally.
-   ══════════════════════════════════════════════════════════ */
+
 @media (max-width: 768px) {
 
   #hero {
@@ -260,7 +244,7 @@
   .hero-vignette  { position: absolute; inset: 0; }
   .hero-orb       { display: none; } 
 
-  /* BIG EGX IMAGE — top of the stack, flows in document */
+  
   .hero-big-egx {
     position: relative;       
     top: auto; left: auto;
@@ -275,11 +259,11 @@
 
   /* EGX LOGO — directly below the EGX text image */
   .hero-logo-wrap {
-    position: relative;       /* out of absolute, into flow */
+    position: relative;       
     top: auto; left: auto;
     transform: none;
     z-index: 2;
-    margin-top: -150px;        /* pull up slightly to overlap EGX text edge */
+    margin-top: -150px;      
     text-align: center;
     animation: fadeIn 1s ease 0.5s both;
   }
@@ -287,14 +271,14 @@
    margin-top: -100px;  
 }
   .hero-logo-wrap img {
-    width: min(200px, 55vw);  /* smaller on mobile, still prominent */
+    width: min(200px, 55vw);  
     height: auto;
   }
 
 
   /* HERO CONTENT — flows below the logo */
   .hero-content {
-    position: relative;       /* out of absolute, into flow */
+    position: relative;       
     bottom: auto; left: auto;
     width: 100%;
     padding: 20px 24px 0;
@@ -678,10 +662,11 @@
 .parallax-content h2 { color: var(--white); margin-bottom: 20px; }
 .parallax-content p { color: rgba(255,255,255,0.7); margin-bottom: 32px; }
 
-/* ── ABOUT SNIPPET ───────────────────────────────────────── */
+
+
 
 /* ============================================================
-   ABOUT SECTION — full background image, text overlay
+   ABOUT SECTION 
    ============================================================ */
 
 #about-snippet {
@@ -848,160 +833,9 @@
     transform: translateY(0);
   }
 }
-/* ============================================================
-   TEAM SECTION
-============================================================ */
 
-#team-snippet{
-    background:var(--dark);
-}
-
-.team-cta{
-    text-align:center;
-    margin-top:48px;
-}
-
-/* ============================================================
-   DESKTOP
-============================================================ */
-
-.team-row-top{
-    display:grid;
-    grid-template-columns:repeat(6, minmax(170px,1fr));
-    gap:18px;
-    align-items:start;
-    justify-content:center;
-}
-
-.team-card{
-    border-radius:var(--radius-md);
-    overflow:hidden;
-    background:var(--dark-card);
-    border:1px solid var(--dark-border);
-    transition:all .4s ease;
-    cursor:pointer;
-    width:100%;
-}
-
-.team-card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(255,214,0,.35);
-    box-shadow:0 20px 50px rgba(0,0,0,.45);
-}
-
-.team-img{
-    aspect-ratio:3/4;
-    overflow:hidden;
-    position:relative;
-}
-
-.team-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center top;
-    transition:all .6s ease;
-    filter:grayscale(20%);
-}
-
-.team-card:hover .team-img img{
-    transform:scale(1.08);
-    filter:grayscale(0%);
-}
-
-.team-img::after{
-    content:'';
-    position:absolute;
-    left:0;
-    bottom:0;
-    width:0;
-    height:3px;
-    background:var(--gold);
-    transition:.4s;
-}
-
-.team-card:hover .team-img::after{
-    width:100%;
-}
-
-.team-info{
-    padding:16px;
-    text-align:center;
-}
-
-.team-info h4{
-    font-family:var(--font-display);
-    font-size:.95rem;
-    color:var(--white);
-    margin-bottom:6px;
-    line-height:1.4;
-}
-
-.team-info p{
-    font-family:var(--font-accent);
-    font-size:.6rem;
-    letter-spacing:.15em;
-    color:var(--gold);
-    margin:0;
-}
-
-/* ============================================================
-   LAPTOPS
-============================================================ */
-
-@media (max-width:1300px){
-
-    .team-row-top{
-        grid-template-columns:repeat(3, minmax(220px,280px));
-        justify-content:center;
-    }
-
-}
-
-@media (max-width:992px){
-
-    .team-row-top{
-        display:grid;
-        grid-template-columns:repeat(2, 1fr);
-        gap:14px;
-        overflow:visible;
-        scroll-snap-type:none;
-        padding-bottom:0;
-    }
-
-    .team-card{
-        flex:none;
-        width:100%;
-        scroll-snap-align:none;
-    }
-
-    .team-card:hover{
-        transform:none;
-    }
-
-    #team-snippet .section-title-block p::after{
-        content:" • Swipe to see all →";
-        color:var(--gold);
-        font-family:var(--font-accent);
-        letter-spacing:.08em;
-    }
-
-}
-
-@media (max-width:576px){
-
-    .team-card{
-        flex:0 0 180px;
-    }
-
-    .team-info h4{
-        font-size:.85rem;
-    }
-
-}
 /* ============================================================
    SERVICE WHEEL — FINAL
-   
    ============================================================ */
 
 /* ── OUTER LAYOUT ─────────────────────────────────────────── */
@@ -1125,28 +959,51 @@
   margin-bottom: 1.6rem;
 }
 
-/* The white-bordered box */
+/* Glassmorphism Detail Box */
 .wheel-detail-box {
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  padding: 1.6rem 1.8rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-  background: var(--black);
-  
-  width: 70%;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    position: relative;
+    
+    padding: 1.6rem 1.8rem;
 
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
 
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-@media (max-width: 768px) {
-  .wheel-detail-box {
+/* Bottom gold line */
+.wheel-detail-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: #FFD600;
+    transform: translateX(-50%);
+    transition: width 0.4s ease;
+}
+
+
+/* Hover effect */
+.wheel-detail-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.wheel-detail-box:hover::after {
     width: 100%;
-  }
 }
+
 
 /* Service name inside the box */
 .wheel-detail-name {
@@ -1374,7 +1231,6 @@
 
   border: 1px solid rgba(255, 255, 255, 0.08);
 
-  border-radius: var(--radius-md);
 
   overflow: hidden;
 
@@ -1880,3 +1736,252 @@
 
 }
 
+/* ══════════════════════════════════════════════════════════
+   EXCO / IMPACT SQUAD
+   ══════════════════════════════════════════════════════════ */
+
+.ab-scene--exco {
+    background: #000;
+    padding: 0 50px 100px;
+    overflow: hidden;
+}
+
+/* EXCO HEADER */
+
+.ab-scene--exco .ab-directors-header {
+    background: #000;
+    text-align: center;
+    padding: 65px 20px 60px;
+}
+
+.ab-scene--exco .ab-directors-header .label {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: 0.85rem;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.ab-scene--exco .ab-directors-header h2 {
+    margin: 0 0 15px;
+}
+
+.ab-scene--exco .ab-directors-header p {
+    color: #aaa;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+
+/* GRID – 6 MEMBERS IN ONE ROW */
+
+.ab-exco-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* CARD */
+
+.ab-exco-grid .ab-director-card {
+    position: relative;
+    overflow: hidden;
+    background: #080808;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow: none;
+    transform: none;
+}
+
+/* IMAGE CONTAINER */
+
+.ab-exco-grid .ab-exco-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 0.85 / 1;
+    overflow: hidden;
+}
+
+/* IMAGE DEFAULT STATE */
+
+.ab-exco-grid .ab-exco-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+
+    filter: brightness(0.68) saturate(0.8);
+    transform: scale(1);
+
+    transition:
+        filter 0.6s ease,
+        transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* BOTTOM GRADIENT */
+
+.ab-exco-grid .ab-exco-img::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.55) 22%,
+        transparent 65%
+    );
+
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+/* GOLD ANIMATED LINE */
+
+.ab-exco-grid .ab-exco-img::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--gold);
+    z-index: 3;
+
+    transition: width 0.5s ease;
+}
+
+/* HOVER IMAGE EFFECT */
+
+.ab-exco-grid .ab-director-card:hover .ab-exco-img img,
+.ab-exco-grid .ab-director-card:focus-within .ab-exco-img img {
+    filter: brightness(1) saturate(1);
+    transform: scale(1.06);
+}
+
+/* HOVER GRADIENT */
+
+.ab-exco-grid .ab-director-card:hover .ab-exco-img::before,
+.ab-exco-grid .ab-director-card:focus-within .ab-exco-img::before {
+    opacity: 1;
+}
+
+/* HOVER GOLD LINE */
+
+.ab-exco-grid .ab-director-card:hover .ab-exco-img::after,
+.ab-exco-grid .ab-director-card:focus-within .ab-exco-img::after {
+    width: 100%;
+}
+
+/* MEMBER INFORMATION */
+
+.ab-exco-grid .ab-exco-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 18px 12px 22px;
+    z-index: 2;
+
+    opacity: 0;
+    transform: translateY(18px);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+
+    pointer-events: none;
+}
+
+/* SHOW INFORMATION ON HOVER */
+
+.ab-exco-grid .ab-director-card:hover .ab-exco-info,
+.ab-exco-grid .ab-director-card:focus-within .ab-exco-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MEMBER NAME */
+
+.ab-exco-grid .ab-exco-info h4 {
+    font-family: var(--font-heading);
+    font-size: clamp(0.75rem, 1.1vw, 1.2rem);
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1.3;
+    margin: 0 0 7px;
+}
+
+/* DESIGNATION */
+
+.ab-exco-grid .ab-exco-role {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    color: #fff;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .ab-exco-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .ab-exco-grid .ab-exco-info {
+        padding: 15px 12px 18px;
+    }
+
+    .ab-exco-grid .ab-exco-info h4 {
+        font-size: 1rem;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+
+    .ab-exco-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .ab-exco-grid .ab-exco-info {
+        padding: 12px;
+    }
+
+    .ab-exco-grid .ab-exco-info h4 {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+
+    .ab-exco-grid .ab-exco-role {
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ab-exco-grid *,
+    .ab-exco-grid *::before,
+    .ab-exco-grid *::after {
+        transition: none !important;
+    }
+
+}
