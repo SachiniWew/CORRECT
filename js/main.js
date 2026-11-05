@@ -879,3 +879,180 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   }
 })();
 
+
+/* ==========================================
+   EGX - SERVE VALUES CARD PEEL ANIMATION
+========================================== */
+
+(() => {
+
+  const section = document.querySelector('#serve-values');
+  if (!section) return;
+
+  const stage = section.querySelector('.egx-peel-words');
+
+  const WORD = 'SERVE VALUES';
+
+  const WAIT = 700;
+  const STEP = 420;
+
+  const reduceMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
+  let cards = [];
+  let peeled = 0;
+  let timer;
+
+  // CREATE LETTER CARDS
+ 
+function createCards() {
+
+  stage.innerHTML = '';
+  cards = [];
+
+  const words = WORD.split(' ');
+
+  words.forEach(word => {
+
+    // Create a separate container for each word
+    const wordContainer = document.createElement('div');
+    wordContainer.className = 'egx-peel-word';
+
+    [...word].forEach(letter => {
+
+      const card = document.createElement('div');
+      card.className = 'egx-peel-card';
+
+      const core = document.createElement('span');
+      core.className = 'egx-peel-core';
+      core.textContent = letter;
+
+      const skin = document.createElement('span');
+      skin.className = 'egx-peel-skin';
+      skin.textContent = letter;
+
+      card.appendChild(core);
+      card.appendChild(skin);
+
+      wordContainer.appendChild(card);
+
+      cards.push(skin);
+
+    });
+
+    stage.appendChild(wordContainer);
+
+  });
+
+}
+
+
+  // PEEL ONE CARD
+  function peelCard(card) {
+
+    const rotation = (Math.random() - 0.5) * 25;
+
+    card.animate(
+      [
+        {
+          transform: 'rotateX(0deg) translateY(0)',
+          opacity: 1
+        },
+        {
+          transform: `rotateX(-65deg) rotateZ(${rotation}deg)`,
+          opacity: 1,
+          offset: 0.3
+        },
+        {
+          transform: `translateY(110vh) rotateX(-160deg) rotateZ(${rotation}deg)`,
+          opacity: 0
+        }
+      ],
+      {
+        duration: 1200,
+        easing: 'cubic-bezier(.55,0,.75,.3)',
+        fill: 'forwards'
+      }
+    );
+
+  }
+
+  // PEEL CARDS ONE BY ONE
+  function startPeeling() {
+
+    if (peeled >= cards.length) return;
+
+    peelCard(cards[peeled]);
+
+    peeled++;
+
+    timer = setTimeout(startPeeling, STEP);
+
+  }
+
+  // RESTORE CARDS
+  function restoreCards() {
+
+    clearTimeout(timer);
+
+    cards.forEach(card => {
+
+      card.getAnimations().forEach(animation => {
+        animation.cancel();
+      });
+
+      card.animate(
+        [
+          {
+            transform: 'translateY(110vh) rotateX(-160deg)',
+            opacity: 0
+          },
+          {
+            transform: 'rotateX(0deg) translateY(0)',
+            opacity: 1
+          }
+        ],
+        {
+          duration: 450,
+          easing: 'cubic-bezier(.2,.8,.2,1)'
+        }
+      );
+
+    });
+
+    peeled = 0;
+
+  }
+
+  // USER INTERACTION
+  function handleMovement() {
+
+    restoreCards();
+
+    if (!reduceMotion) {
+      timer = setTimeout(startPeeling, WAIT);
+    }
+
+  }
+
+  // INITIALISE
+  createCards();
+
+  if (reduceMotion) return;
+
+  section.addEventListener(
+    'pointermove',
+    handleMovement,
+    { passive: true }
+  );
+
+  section.addEventListener(
+    'pointerdown',
+    handleMovement,
+    { passive: true }
+  );
+
+  timer = setTimeout(startPeeling, WAIT * 2);
+
+})();

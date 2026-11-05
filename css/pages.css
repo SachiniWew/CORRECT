@@ -1677,3 +1677,78 @@ body{
 }
 
 }
+
+/* =========================================
+   ABOUT PAGE — SMOOTH SCROLL REVEAL
+========================================= */
+
+/* Initial hidden state */
+.ab-reveal {
+    opacity: 0;
+    transform: translateY(45px);
+    filter: blur(3px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.9s ease;
+
+    will-change: opacity, transform;
+}
+
+/* Visible state */
+.ab-reveal.ab-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* Slightly staggered animation for cards */
+.ab-reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ab-reveal-stagger.ab-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ab-reveal-stagger.ab-visible > *:nth-child(1) {
+    transition-delay: 0.08s;
+}
+
+.ab-reveal-stagger.ab-visible > *:nth-child(2) {
+    transition-delay: 0.16s;
+}
+
+.ab-reveal-stagger.ab-visible > *:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+.ab-reveal-stagger.ab-visible > *:nth-child(4) {
+    transition-delay: 0.32s;
+}
+
+.ab-reveal-stagger.ab-visible > *:nth-child(5) {
+    transition-delay: 0.40s;
+}
+
+.ab-reveal-stagger.ab-visible > *:nth-child(6) {
+    transition-delay: 0.48s;
+}
+
+/* Accessibility: respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+    .ab-reveal,
+    .ab-reveal-stagger > * {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+    }
+}
