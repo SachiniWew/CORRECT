@@ -119,10 +119,50 @@
 
       <!-- Intro Grid -->
       <div class="service-intro-grid">
-        <div class="service-intro-img reveal-left">
-          <img src="../images/ProjectAssests/Projects.png" alt="Project Cargo" loading="lazy">
-        </div>
-        <div class="reveal-right">
+  <div class="service-intro-img reveal-left">
+    <div class="warehouse-slider">
+
+      <img src="../images/ProjectAssests/PROJECT1.webp"
+           alt="EGX Fleet Vehicles"
+           class="warehouse-slide active">
+
+      <img src="../images/ProjectAssests/PROJECT2.webp"
+           alt="EGX Warehouse Facilities"
+           class="warehouse-slide">
+
+      <img src="../images/ProjectAssests/PROJECT3.webp"
+           alt="EGX Warehouse Operations"
+           class="warehouse-slide">
+
+      <img src="../images/ProjectAssests/PROJECT4.webp"
+           alt="EGX Warehouse & Logistics"
+           class="warehouse-slide">
+
+      <!-- Clickable Dots -->
+      <div class="warehouse-dots">
+        <button class="warehouse-dot active"
+                onclick="showWarehouseSlide(0)"
+                aria-label="Warehouse image 1"></button>
+
+        <button class="warehouse-dot"
+                onclick="showWarehouseSlide(1)"
+                aria-label="Warehouse image 2"></button>
+
+        <button class="warehouse-dot"
+                onclick="showWarehouseSlide(2)"
+                aria-label="Warehouse image 3"></button>
+
+        <button class="warehouse-dot"
+                onclick="showWarehouseSlide(3)"
+                aria-label="Warehouse image 4"></button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Content -->
+ <div class="reveal-right">
           <span class="label">EGX PROJECT CARGO</span>
           <h2 style="margin:16px 0 24px">When Ordinary Solutions Don't Apply</h2>
           <p style="color:var(--ash);line-height:1.75;margin-bottom:24px">EGX Project Cargo specializes in the
@@ -133,7 +173,8 @@
             <a href="contact.html" class="btn btn-gold">CONTACT US →</a>
           </div>
         </div>
-      </div>
+
+</div>
 
       <!-- Section Label -->
       <div class="section-title-block reveal" style="margin-bottom:40px">
@@ -316,6 +357,136 @@
   <script src="../js/egx-faq.js"></script>
 
   <script src="../js/chatbot.js"></script>
+
+   <script>
+  let warehouseCurrentSlide = 0;
+  let warehouseTimer = null;
+
+  const warehouseSlides =
+    document.querySelectorAll(".warehouse-slide");
+
+  const warehouseDots =
+    document.querySelectorAll(".warehouse-dot");
+
+
+  /* Show selected slide */
+  function showWarehouseSlide(index) {
+
+    if (!warehouseSlides.length) return;
+
+    /* Remove active state */
+    warehouseSlides.forEach(slide => {
+      slide.classList.remove("active");
+    });
+
+    warehouseDots.forEach(dot => {
+      dot.classList.remove("active");
+    });
+
+
+    /* Add active state */
+    warehouseSlides[index].classList.add("active");
+
+    if (warehouseDots[index]) {
+      warehouseDots[index].classList.add("active");
+    }
+
+
+    /* Update current slide */
+    warehouseCurrentSlide = index;
+
+
+    /*
+      Restart automatic slideshow after
+      clicking a dot.
+    */
+    restartWarehouseSlider();
+  }
+
+
+  /* Go to next slide */
+  function nextWarehouseSlide() {
+
+    warehouseCurrentSlide++;
+
+    if (
+      warehouseCurrentSlide >=
+      warehouseSlides.length
+    ) {
+      warehouseCurrentSlide = 0;
+    }
+
+    /* Change slide without restarting timer */
+    warehouseSlides.forEach(slide => {
+      slide.classList.remove("active");
+    });
+
+    warehouseDots.forEach(dot => {
+      dot.classList.remove("active");
+    });
+
+    warehouseSlides[
+      warehouseCurrentSlide
+    ].classList.add("active");
+
+    warehouseDots[
+      warehouseCurrentSlide
+    ].classList.add("active");
+  }
+
+
+  /* Start automatic slideshow */
+  function startWarehouseSlider() {
+
+    clearInterval(warehouseTimer);
+
+    warehouseTimer = setInterval(
+      nextWarehouseSlide,
+      4000
+    );
+  }
+
+
+  /* Restart timer */
+  function restartWarehouseSlider() {
+
+    clearInterval(warehouseTimer);
+
+    warehouseTimer = setInterval(
+      nextWarehouseSlide,
+      4000
+    );
+  }
+
+
+  /* Start when page loads */
+  startWarehouseSlider();
+
+
+  /* Pause while mouse is over slider */
+  const warehouseSlider =
+    document.querySelector(".warehouse-slider");
+
+
+  if (warehouseSlider) {
+
+    warehouseSlider.addEventListener(
+      "mouseenter",
+      () => {
+        clearInterval(warehouseTimer);
+      }
+    );
+
+
+    warehouseSlider.addEventListener(
+      "mouseleave",
+      () => {
+        startWarehouseSlider();
+      }
+    );
+
+  }
+</script>
 </body>
 
 </html>
