@@ -718,3 +718,55 @@ p {
         transition: none;
     }
 }
+
+
+
+
+
+
+
+/* =====================================
+   EGX GLOBAL SNOWFALL EFFECT
+===================================== */
+
+#egx-snow-layer {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 8999;
+}
+
+.egx-snowflake {
+    position: absolute;
+    top: -15px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: var(--snow-opacity);
+    width: var(--snow-size);
+    height: var(--snow-size);
+    animation: egxSnowFall var(--snow-duration) linear var(--snow-delay) infinite;
+    will-change: transform;
+}
+
+@keyframes egxSnowFall {
+    0% {
+        transform: translate3d(0, -15px, 0);
+    }
+
+    50% {
+        transform: translate3d(35px, 50vh, 0);
+    }
+
+    100% {
+        transform: translate3d(-20px, 105vh, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #egx-snow-layer {
+        display: none;
+    }
+}
